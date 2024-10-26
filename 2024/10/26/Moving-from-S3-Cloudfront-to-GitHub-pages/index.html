@@ -15,7 +15,7 @@
 <meta property="og:description" content="Moving a static site from S3+Cloudfront to GitHub pages.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-10-26T18:04:42.000Z">
-<meta property="article:modified_time" content="2024-10-26T18:25:03.923Z">
+<meta property="article:modified_time" content="2024-10-26T18:36:46.047Z">
 <meta property="article:author" content="Charles Fulton">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="AWS">
@@ -122,12 +122,12 @@
 <li><code>hexo deploy</code></li>
 </ul>
 <p>It’s important to run both commands. This approach creates a clone of the GitHub repository in a new <code>.deploy_git</code>  directory in the root of your project folder containing the generated static output, and then push to the remote directory. The clean command deletes and re-creates this directory, allowing the deploy command to push changes as a new commit. If you don’t do clean first, it’ll amend and force-push the last commit.</p>
-<p>In terms of infrastructure, the site just worked after I cut over DNS to point at GitHub instead of Cloudfront. Next steps are to think about a better build pipeline, and whether GitHub is a reasonable choice for my <a target="_blank" rel="noopener" href="https://galleries.goodbyeplease.com">gallery site</a>.</p>
+<p>In terms of infrastructure, the site <em>almost</em> just worked after I cut over DNS to point at GitHub instead of Cloudfront. I needed to place a <code>CNAME</code> file containing my custom subdomain inside the <code>source/</code> directory; otherwise it was removed on every deployment. Next steps are to think about a better build pipeline, and whether GitHub is a reasonable choice for my <a target="_blank" rel="noopener" href="https://galleries.goodbyeplease.com">gallery site</a>.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/10/26/Moving-from-S3-Cloudfront-to-GitHub-pages/" data-id="cm2qi4a6p006fje2xfp1b9yjz" data-title="Moving from S3+Cloudfront to GitHub pages" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/10/26/Moving-from-S3-Cloudfront-to-GitHub-pages/" data-id="cm2qi65f500hatu2x9xpi92kq" data-title="Moving from S3+Cloudfront to GitHub pages" class="article-share-link">Share</a>
       
       
       
