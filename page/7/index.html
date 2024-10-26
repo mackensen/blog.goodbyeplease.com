@@ -80,6 +80,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-EFS-mount-watchdog-and-CPU-usage" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/23/EFS-mount-watchdog-and-CPU-usage/" class="article-date">
+  <time class="dt-published" datetime="2022-11-23T21:22:23.000Z" itemprop="datePublished">2022-11-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/11/23/EFS-mount-watchdog-and-CPU-usage/">EFS mount watchdog and CPU usage</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>The moral of today’s story is that there is a direct relationship between the number of EFS mounts on an EC2 instance and the resting level of CPU usage.</p>
+<p>We ship our Fargate deployments with a bastion host if they contain an EFS filesystem and/or an RDS cluster. This takes the form of an EC2 autoscaling group. As we only need the bastion host for time-limited tasks, we keep the desired capacity at 0 by default and raise to 1 as needed. We use the scaling policies to ensure that the instance is turned down after a period of inactivity:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bastionCPUThreshold = opts.<span class="property">cpuThreshold</span> ?? <span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> bastionScalingPeriod = opts.<span class="property">scalingPeriod</span> ?? <span class="title class_">Duration</span>.<span class="title function_">minutes</span>(<span class="number">30</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">CPUUtilizationMetric</span> = <span class="keyword">new</span> <span class="title class_">Metric</span>(&#123;</span><br><span class="line">  <span class="attr">namespace</span>: <span class="string">&#x27;AWS/EC2&#x27;</span>,</span><br><span class="line">  <span class="attr">metricName</span>: <span class="string">&#x27;CPUUtilization&#x27;</span>,</span><br><span class="line">  <span class="attr">dimensionsMap</span>: &#123;</span><br><span class="line">  <span class="title class_">AutoScalingGroupName</span>: <span class="variable language_">this</span>.<span class="property">autoScalingGroup</span>.<span class="property">autoScalingGroupName</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">period</span>: bastionScalingPeriod,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> scalingPolicy = <span class="variable language_">this</span>.<span class="property">autoScalingGroup</span>.<span class="title function_">scaleOnMetric</span>(<span class="string">&#x27;ScaleToCPU&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">metric</span>: <span class="title class_">CPUUtilizationMetric</span>,</span><br><span class="line">  <span class="attr">scalingSteps</span>: [</span><br><span class="line">  &#123; <span class="attr">upper</span>: bastionCPUThreshold, <span class="attr">change</span>: <span class="number">0</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">lower</span>: bastionCPUThreshold, <span class="attr">change</span>: <span class="number">1</span> &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">adjustmentType</span>: <span class="title class_">AdjustmentType</span>.<span class="property">EXACT_CAPACITY</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2022/11/23/EFS-mount-watchdog-and-CPU-usage/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2022/11/23/EFS-mount-watchdog-and-CPU-usage/" data-id="cm2qhuec2003f4m2x8whcf2a6" data-title="EFS mount watchdog and CPU usage" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDK/" rel="tag">CDK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EFS/" rel="tag">EFS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
     <article id="post-Customizing-the-CDK-bootstrap-stack" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/11/22/Customizing-the-CDK-bootstrap-stack/" class="article-date">
@@ -118,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/22/Customizing-the-CDK-bootstrap-stack/" data-id="cm2qgycl9002trr2x4uttd9ci" data-title="Customizing the CDK bootstrap stack" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/22/Customizing-the-CDK-bootstrap-stack/" data-id="cm2qhuec1002z4m2x9m1vf7a9" data-title="Customizing the CDK bootstrap stack" class="article-share-link">Share</a>
       
       
       
@@ -171,7 +224,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/21/Moodle-TypeScript-and-CDK/" data-id="cm2qgyclj006hrr2x9h6ga50t" data-title="Moodle, TypeScript, and CDK" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/21/Moodle-TypeScript-and-CDK/" data-id="cm2qhuecc006r4m2x6p28ejqz" data-title="Moodle, TypeScript, and CDK" class="article-share-link">Share</a>
       
       
       
@@ -228,7 +281,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/20/Octopussy/" data-id="cm2qgycll007grr2x072mgtkp" data-title="Octopussy" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/20/Octopussy/" data-id="cm2qhuecf007s4m2x1bn43sls" data-title="Octopussy" class="article-share-link">Share</a>
       
       
       
@@ -285,7 +338,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/19/The-Forgotten-Workers-of-Isla-Nublar/" data-id="cm2qgyclt00a3rr2x2k9zesvz" data-title="The Forgotten Workers of Isla Nublar" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/19/The-Forgotten-Workers-of-Isla-Nublar/" data-id="cm2qhueco00aj4m2x0rkd3g5g" data-title="The Forgotten Workers of Isla Nublar" class="article-share-link">Share</a>
       
       
       
@@ -338,7 +391,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/15/Amtrak-Olympics/" data-id="cm2qgycl2000wrr2x1472c6c3" data-title="Amtrak Olympics" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/15/Amtrak-Olympics/" data-id="cm2qhuebu00194m2x8lvwhpjy" data-title="Amtrak Olympics" class="article-share-link">Share</a>
       
       
       
@@ -395,7 +448,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/14/Resurrecting-Winter-Games-From-the-Dark-Side/" data-id="cm2qgyclo008mrr2xf25r2vaj" data-title="Resurrecting Winter Games From the Dark Side" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/14/Resurrecting-Winter-Games-From-the-Dark-Side/" data-id="cm2qhueck008y4m2xg2lgfrir" data-title="Resurrecting Winter Games From the Dark Side" class="article-share-link">Share</a>
       
       
       
@@ -448,7 +501,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/13/In-search-of-rare-movies/" data-id="cm2qgyclf0057rr2x108u3o1d" data-title="In search of rare movies" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/13/In-search-of-rare-movies/" data-id="cm2qhuec700584m2x5m7lan21" data-title="In search of rare movies" class="article-share-link">Share</a>
       
       
       
@@ -505,7 +558,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/11/Halloween-III-Season-of-the-Witch/" data-id="cm2qgycle004hrr2xes333b97" data-title="Halloween III: Season of the Witch" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/11/Halloween-III-Season-of-the-Witch/" data-id="cm2qhuec6004m4m2xcta90x3s" data-title="Halloween III: Season of the Witch" class="article-share-link">Share</a>
       
       
       
@@ -562,68 +615,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/08/Best-Worst-Movie/" data-id="cm2qgycl4001vrr2x40z0c5xz" data-title="Best Worst Movie" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/08/Best-Worst-Movie/" data-id="cm2qhuebz00264m2xa7uzbjif" data-title="Best Worst Movie" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Best-Worst-Movie/" rel="tag">Best Worst Movie</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Claudio-Fragasso/" rel="tag">Claudio Fragasso</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Michael-Stephenson/" rel="tag">Michael Stephenson</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Troll-2/" rel="tag">Troll 2</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-All-aboard-the-Frimbo-Express" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/11/05/All-aboard-the-Frimbo-Express/" class="article-date">
-  <time class="dt-published" datetime="2022-11-05T12:32:28.000Z" itemprop="datePublished">2022-11-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Travel/">Travel</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/11/05/All-aboard-the-Frimbo-Express/">All aboard the Frimbo Express</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-      
-        <p>The late <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Rogers_E._M._Whitaker">Rogers E. M. Whitaker</a> is a personal hero of mine. Under the name E. M. Frimbo, the “World’s Greatest Railroad Buff”, he wrote numerous columns for the <em>New Yorker</em> about various train trips he taken, many in various out-of-the-way places. A number of these columns were collected in <em><a target="_blank" rel="noopener" href="https://archive.org/details/allaboardwithemf00whit">All Aboard with E. M. Frimbo, World’s Greatest Railroad Buff</a></em>, of which I own several copies and is a charming read. Perhaps less well known is that Whitaker also covered college football for 30 years.</p>
-<p>Back in 2008, I was working for Kalamazoo College (my alma mater) as a desktop engineer and, as I wrote at the time, “[i]n a fit of madness I promised the Athletics Department that I would attend a road football game this year.” Thus it was that several friends joined me amidst the remnants of Hurricane Ike for a football game in Rockford, Illinois, which Kalamazoo won 17-14. The story of driving through that weather has lost nothing in the telling over the years. A minor tradition was established, and we made similar trips in 2009 and 2010:</p>
-<ul>
-<li>September 13, 2008: Sam Greeley Field in Rockford, Illinois</li>
-<li>September 19, 2009: Burt Field in North Manchester, Indiana</li>
-<li>September 25, 2010: Benedictine Sports Complex in Lisle, Illinois</li>
-</ul>
-        
-          <p class="article-more-link">
-            <a href="/2022/11/05/All-aboard-the-Frimbo-Express/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/05/All-aboard-the-Frimbo-Express/" data-id="cm2qgycl7002drr2x04atc64d" data-title="All aboard the Frimbo Express" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Football/" rel="tag">Football</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Frimbo-Express/" rel="tag">Frimbo Express</a></li></ul>
 
     </footer>
   </div>
@@ -677,6 +673,10 @@
       <ul>
         
           <li>
+            <a href="/2024/10/26/Moving-from-S3-Cloudfront-to-GitHub-pages/">Moving from S3+Cloudfront to GitHub pages</a>
+          </li>
+        
+          <li>
             <a href="/2024/10/14/Looking-up-the-Cloudformation-stack-for-a-resource/">Looking up the Cloudformation stack for a resource</a>
           </li>
         
@@ -690,10 +690,6 @@
         
           <li>
             <a href="/2024/10/12/The-call-is-coming-from-inside-the-house/">The call is coming from inside the house</a>
-          </li>
-        
-          <li>
-            <a href="/2024/10/03/That-vacant-stare/">That vacant stare</a>
           </li>
         
       </ul>

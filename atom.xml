@@ -6,7 +6,7 @@
   <link href="https://blog.goodbyeplease.com/atom.xml" rel="self"/>
   
   <link href="https://blog.goodbyeplease.com/"/>
-  <updated>2024-10-15T00:34:59.194Z</updated>
+  <updated>2024-10-26T18:25:03.923Z</updated>
   <id>https://blog.goodbyeplease.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Moving from S3+Cloudfront to GitHub pages</title>
+    <link href="https://blog.goodbyeplease.com/2024/10/26/Moving-from-S3-Cloudfront-to-GitHub-pages/"/>
+    <id>https://blog.goodbyeplease.com/2024/10/26/Moving-from-S3-Cloudfront-to-GitHub-pages/</id>
+    <published>2024-10-26T18:04:42.000Z</published>
+    <updated>2024-10-26T18:25:03.923Z</updated>
+    
+    <content type="html"><![CDATA[<p>I’ve used <a href="https://hexo.io/">Hexo</a> to build this site for <a href="/2022/10/30/Adding-a-poster-to-movie-reviews-in-Hexo/" title="Adding a poster to movie reviews in Hexo">two years</a>. At the time, I kept my existing S3+Cloudfront hosting stack with a few minor tweaks. Yesterday I moved the whole thing over to <a href="https://pages.github.com/">GitHub pages</a>.</p><p>I had a few reasons for doing this. One, I’m doing a project at work to roll out GitHub Campus and I want to get more familiar with the architecture. Two, for various reasons I want to be less dependent on the Amazon environment. I figured moving a static site from one architecture wouldn’t be a big deal, and I was right.</p><p>Hexo has a few deployment options. When I was using an S3 bucket I just rsynced the generated output, which won’t work here. The “right way” of handling the deployment would involve pushing source files and letting a GitHub Action build the site.  My local environment is a little unclean–I have some uncommitted package dependencies–so that’s not a great option. I can however use the one-command deployment option with <a href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a>. Per <a href="https://hexo.io/docs/github-pages#One-command-deployment">Hexo’s documentation</a>, you add this to <code>_config.yml</code>:</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/&lt;username&gt;/&lt;project&gt;</span></span><br><span class="line">  <span class="comment"># example, https://github.com/hexojs/hexojs.github.io</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">gh-pages</span></span><br></pre></td></tr></table></figure><p>You then run two commands:</p><ul><li><code>hexo clean</code></li><li><code>hexo deploy</code></li></ul><p>It’s important to run both commands. This approach creates a clone of the GitHub repository in a new <code>.deploy_git</code>  directory in the root of your project folder containing the generated static output, and then push to the remote directory. The clean command deletes and re-creates this directory, allowing the deploy command to push changes as a new commit. If you don’t do clean first, it’ll amend and force-push the last commit.</p><p>In terms of infrastructure, the site just worked after I cut over DNS to point at GitHub instead of Cloudfront. Next steps are to think about a better build pipeline, and whether GitHub is a reasonable choice for my <a href="https://galleries.goodbyeplease.com">gallery site</a>.</p>]]></content>
+    
+    
+    <summary type="html">Moving a static site from S3+Cloudfront to GitHub pages.</summary>
+    
+    
+    
+    <category term="Web Development" scheme="https://blog.goodbyeplease.com/categories/Web-Development/"/>
+    
+    
+    <category term="Hexo" scheme="https://blog.goodbyeplease.com/tags/Hexo/"/>
+    
+    <category term="AWS" scheme="https://blog.goodbyeplease.com/tags/AWS/"/>
+    
+    <category term="GitHub" scheme="https://blog.goodbyeplease.com/tags/GitHub/"/>
+    
+  </entry>
   
   <entry>
     <title>Looking up the Cloudformation stack for a resource</title>
@@ -478,31 +503,6 @@
     <category term="Lehigh Valley" scheme="https://blog.goodbyeplease.com/tags/Lehigh-Valley/"/>
     
     <category term="Norfolk Southern Railway" scheme="https://blog.goodbyeplease.com/tags/Norfolk-Southern-Railway/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Lehigh Valley to Philadelphia via Norristown</title>
-    <link href="https://blog.goodbyeplease.com/2024/04/01/Lehigh-Valley-to-Philadelphia-via-Norristown/"/>
-    <id>https://blog.goodbyeplease.com/2024/04/01/Lehigh-Valley-to-Philadelphia-via-Norristown/</id>
-    <published>2024-04-02T02:20:00.000Z</published>
-    <updated>2024-04-02T02:20:33.650Z</updated>
-    
-    <content type="html"><![CDATA[<p>The third of the options from <a href="/2024/03/27/The-Lehigh-Valley-Passenger-Rail-Analysis-is-here-And/" title="The Lehigh Valley Passenger Rail Analysis is here. And?">Lehigh Valley Passenger Rail Analysis</a> is Allentown to Philadelphia via Norristown. This uses the same routing as the <a href="/2024/03/30/Lehigh-Valley-to-Philadelphia-via-Lansdale/" title="Lehigh Valley to Philadelphia via Lansdale">Lansdale alternative</a> between Allentown and Lansdale so I won’t repeat any of that here.</p><iframe src="https://www.google.com/maps/d/u/0/embed?mid=1wsVd0t_kFxbQ6s42q14ekZAUMmkfGcA&ehbc=2E312F" width="100%" height="300" frameborder="0" loading="lazy" allowfullscreen></iframe><h2><span id="north-philadelphia">North Philadelphia</span></h2><p>The main issue with the Lansdale alternative is running through the <a href="https://en.wikipedia.org/wiki/Center_City_Commuter_Connection">Center City Commuter Connection</a>, which means you’ll need dual mode locomotives (or consider a cross-platform transfer somewhere). The alternative is finding a way from Lansdale to 30th Street Station that avoids the tunnel, which means we need to have a sidebar about the railroad geography <a href="https://www.google.com/maps/@39.9966307,-75.1578441,17.04z?entry=ttu">around North Philadelphia</a>, because it drives the entire justification for this alternative. I’ve used the invaluable routemap templates on Wikipedia to create a diagram of what happens. In the below map, red lines are on the “Reading” side and blue lines are on the “Pennsylvania” side.</p><p><img src="16th-street-junction.png" alt="Railway lines in the vicinity of North Philadelphia" title="Diagram map of the railway lines described in the accompanying text"></p><p>Three lines come down to the area from the north. From west to east they’re the Norristown branch, the Chestnut Hill West branch, and the SEPTA Main Line. They’re all approaching the Northeast Corridor, an east-west line. The Chestnut Hill West branch crosses over the SEPTA Main Line twice and forms a junction with the Northeast Corridor. The Norristown branch forms a junction with the SEPTA Main Line; the SEPTA Main Line then passes under the Northeast Corridor. This area is a heavily built-up part of North Philadelphia.</p><p>The problem we’re trying to solve is this: how do you get a train from the Reading side to the Pennsylvania side without (1) demolishing a few city blocks or (2) creating an at-grade crossing without snarling traffic.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> The answer, as far as the study is concerned, is that there’s already a connection track from the Norristown branch to the Northeast Corridor. It’s freight-only, probably Class I, unelectrified, and running through what Google Maps says is an Aramark facility. This isn’t inspiring, but assuming it can be upgraded it satisfies both criteria. This leads to our next problem, which is getting a train from Lansdale on to the Norristown branch.</p><h2><span id="lansdale-philadelphia">Lansdale-Philadelphia</span></h2><p>The Norristown alternative incorporates the <a href="https://en.wikipedia.org/wiki/Stony_Creek_Branch">Stony Creek Branch</a> (“Corridor S”). It’s 10 miles long, running north-south between Lansdale and Norristown. It hasn’t hosted passenger service in ages, but SEPTA acquired it in 1976 during the Reading’s bankruptcy for possible future use.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> It’s only hosted freight since then, but it could be rehabilitated for passenger service.</p><p>Norristown is on the west end of the <a href="https://en.wikipedia.org/wiki/Norristown_Branch">Norristown Branch</a>. It’s double-tracked, electrified, and an important part of SEPTA’s regional rail network. It’s also, like the SEPTA Main Line coming from Lansdale, on the Reading side of the network. However, as mentioned, it’s possible to get from this branch to the Northeast Corridor without crossing any other tracks. That means you could have an all-diesel route from Allentown to Philadelphia.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p><p>It’s not a new idea. The Stony Creek option was <a href="https://www.newspapers.com/clip/105373888/seeking-to-link-pa-suburbs/">tossed around in 1999</a>, before support coalesced around the never-implemented Schuylkill Valley Metro. It’s attractive because it lets you avoid the obvious if much more expensive option, which is to run wire along the Bethlehem branch and be done with it.</p><h2><span id="scheduling">Scheduling</span></h2><p>The study estimates 1 hour 52 minutes from Allentown to Philadelphia via Norristown, or 6 minutes more than the Lansdale alternative. The Stony Creek Branch is a wildcard; it’s curvy and hasn’t hosted modern passenger service. Scheduled commuter services, making all stops, <a href="https://schedules.septa.org/current/NOR.pdf">need a little under an hour</a> to get from Norristown to 30th Street via the tunnel, and about 15 minutes of that is between North Broad (the first station beyond the Northeast Corridor) and 30th Street. Even if the connector is slow, going direct from Allegheny to 30th Street will be faster.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p><p>As with the Lansdale alternative, this is competitive with driving on I-476 between the two cities, especially considering the vagaries of traffic on the Schuylkill Expressway. Martz buses, making no intermediate stops at all, need an hour and a half as well.</p><h2><span id="costs">Costs</span></h2><p>Capital costs are estimated at $739 million, the highest by far of any of the alternatives. To the $443 million for rebuilding the Bethlehem branch you have to add $147 million for the Stony Creek branch. Rolling stock is estimated at $102 million, probably because the option allows straight diesels and not dual modes.<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></p><h2><span id="thoughts">Thoughts</span></h2><p>I admit that I laughed out loud when I saw that the Stony Creek branch was on the table. It’s not that I’m opposed in principle, and the lack of radial lines is a weakness in SEPTA’s network. It’s just that these studies never include electrification because of the sticker shock. More generally, commuter rail operators (SEPTA aside) are hostile to electrification. MBTA won’t consider it for Boston-Providence service because they don’t want a mixed fleet; ditto MARC for its Baltimore-Washington trains. Also, they say Amtrak charges too much for power.</p><h2><span id="notes">Notes</span></h2><hr class="footnotes-sep"><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p><a href="https://drive.google.com/file/d/1fxzeOvJarr3oA1Xlv1y7OTGqCqqnrm9i/view">Lehigh Valley Passenger Rail Feasibility Analysis</a>, p.17 addresses this. The Lansdale alternative would likely require such a connection across the Norristown branch. That’s a non-starter, operationally. <a href="#fnref1" class="footnote-backref">↩︎</a></p></li><li id="fn2" class="footnote-item"><p>Other freight-only lines owned by SEPTA include the Chester Creek branch, the Newtown Square branch, the Whitemarsh branch, and part of the Octoraro branch. <a href="#fnref2" class="footnote-backref">↩︎</a></p></li><li id="fn3" class="footnote-item"><p>p. 14. <a href="#fnref3" class="footnote-backref">↩︎</a></p></li><li id="fn4" class="footnote-item"><p>p. 27 <a href="#fnref4" class="footnote-backref">↩︎</a></p></li><li id="fn5" class="footnote-item"><p>p. 36 <a href="#fnref5" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content>
-    
-    
-    <summary type="html">Analysis of the Norristown alternative in the Lehigh Valley Passenger Rail Analysis.</summary>
-    
-    
-    
-    <category term="Trains" scheme="https://blog.goodbyeplease.com/categories/Trains/"/>
-    
-    
-    <category term="Lehigh Valley" scheme="https://blog.goodbyeplease.com/tags/Lehigh-Valley/"/>
-    
-    <category term="Norfolk Southern Railway" scheme="https://blog.goodbyeplease.com/tags/Norfolk-Southern-Railway/"/>
-    
-    <category term="SEPTA" scheme="https://blog.goodbyeplease.com/tags/SEPTA/"/>
     
   </entry>
   
