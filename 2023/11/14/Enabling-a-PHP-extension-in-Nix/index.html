@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Enabling a PHP extension in Nix | Goodbye Please</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="canonical" href="https://blog.goodbyeplease.com/2023/11/14/Enabling-a-PHP-extension-in-Nix/"/>
+  <meta name="description" content="Guide to enabling PHP extensions in a Nix flake environment.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Enabling a PHP extension in Nix">
+<meta property="og:url" content="https://blog.goodbyeplease.com/2023/11/14/Enabling-a-PHP-extension-in-Nix/">
+<meta property="og:site_name" content="Goodbye Please">
+<meta property="og:description" content="Guide to enabling PHP extensions in a Nix flake environment.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-14T22:58:10.000Z">
+<meta property="article:modified_time" content="2025-02-20T03:07:34.772Z">
+<meta property="article:author" content="Charles Fulton">
+<meta property="article:tag" content="Nix">
+<meta property="article:tag" content="PHP">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Goodbye Please" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Goodbye Please</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Amtrak, B-Movies, Web Development, and other nonsense</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives/">Archives</a>
+        
+          <a class="main-nav-link" href="/how-to-identify-a-train/">How to identify a train</a>
+        
+          <a class="main-nav-link" href="/b-movie-metric/">B-movie metric</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blog.goodbyeplease.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Enabling-a-PHP-extension-in-Nix" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/14/Enabling-a-PHP-extension-in-Nix/" class="article-date">
+  <time class="dt-published" datetime="2023-11-14T22:58:10.000Z" itemprop="datePublished">2023-11-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Enabling a PHP extension in Nix
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>Following up on <a href="/2023/10/24/Nix-flake-with-Node-and-PHP/" title="Nix flake with Node and PHP">Nix flake with Node and PHP</a>, I needed to enable an extension (in this case, MongoDB). The end result is simple enough, but getting there was a little tricky.</p>
+<!-- toc -->
+<ul>
+<li><a href="#a-complete-flake">A complete flake</a>
+<ul>
+<li><a href="#inputs">Inputs</a></li>
+<li><a href="#outputs">Outputs</a></li>
+<li><a href="#letin">Let…in</a></li>
+<li><a href="#system">System</a></li>
+<li><a href="#php">PHP</a></li>
+<li><a href="#shell">Shell</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h2><span id="a-complete-flake">A complete flake</span></h2>
+<p>Let me start by posting my complete flake.nix. This supports a composer-based project that has <code>mongodb/mongodb</code> as a constraint.</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">inputs</span> <span class="operator">=</span> &#123;</span><br><span class="line">    <span class="attr">nixpkgs.url</span> <span class="operator">=</span> <span class="string">&quot;github:NixOS/nixpkgs?ref=nixos-unstable&quot;</span>;</span><br><span class="line">    <span class="attr">phps.url</span> <span class="operator">=</span> <span class="string">&quot;github:fossar/nix-phps&quot;</span>;</span><br><span class="line">    <span class="attr">flake-utils.url</span> <span class="operator">=</span> <span class="string">&quot;github:numtide/flake-utils&quot;</span>;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="attr">outputs</span> <span class="operator">=</span> &#123; self, nixpkgs, flake-utils, phps &#125;:</span><br><span class="line">    flake-utils.lib.eachDefaultSystem (<span class="params">system:</span></span><br><span class="line">      <span class="keyword">let</span></span><br><span class="line">        <span class="attr">pkgs</span> <span class="operator">=</span> nixpkgs.legacyPackages.$&#123;system&#125;;</span><br><span class="line">        <span class="attr">php74</span> <span class="operator">=</span> (phps.packages.$&#123;system&#125;.php74.buildEnv &#123;</span><br><span class="line">          <span class="attr">extensions</span> <span class="operator">=</span> (&#123; enabled, all &#125;: enabled <span class="operator">++</span> (<span class="keyword">with</span> all; [</span><br><span class="line">            mongodb</span><br><span class="line">          ]));</span><br><span class="line">        &#125;);</span><br><span class="line">      <span class="keyword">in</span></span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">devShell</span> <span class="operator">=</span> pkgs.mkShell &#123;</span><br><span class="line">          <span class="attr">buildInputs</span> <span class="operator">=</span> [</span><br><span class="line">            php74</span><br><span class="line">            php74.packages.composer</span><br><span class="line">          ];</span><br><span class="line">          <span class="attr">shellHook</span> <span class="operator">=</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="string">            php -v</span></span><br><span class="line"><span class="string">          &#x27;&#x27;</span>;          </span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="inputs">Inputs</span></h3>
+<p>I’m defining three inputs: <code>nixpkgs</code>, <code>phps</code>, and <code>flake-utils</code>. The NixOS manual calls inputs dependencies; I think of them as package sources:</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">i<span class="attr">nputs</span> <span class="operator">=</span> &#123;</span><br><span class="line">  <span class="attr">nixpkgs.url</span> <span class="operator">=</span> <span class="string">&quot;github:NixOS/nixpkgs?ref=nixos-unstable&quot;</span>;</span><br><span class="line">  <span class="attr">phps.url</span> <span class="operator">=</span> <span class="string">&quot;github:fossar/nix-phps&quot;</span>;</span><br><span class="line">  <span class="attr">flake-utils.url</span> <span class="operator">=</span> <span class="string">&quot;github:numtide/flake-utils&quot;</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>These, respectively, are the standard NixOS package repository, the <a target="_blank" rel="noopener" href="https://github.com/fossar/nix-phps">nix-phps repository</a> for older PHP versions, and <a target="_blank" rel="noopener" href="https://github.com/numtide/flake-utils">flake-utils</a>. The latter isn’t essential, but it let me simplify my output syntax.</p>
+<h3><span id="outputs">Outputs</span></h3>
+<p>The first thing your output section has to do is accept all the inputs as arguments; they’re passed regardless, and you’ll get an error if you don’t include them:</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">o<span class="attr">utputs</span> <span class="operator">=</span> &#123; self, nixpkgs, flake-utils, phps &#125;:</span><br></pre></td></tr></table></figure>
+<p>This can happen even if you don’t use them for some reason. Sample error:</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="params">error:</span> function &#x27;outputs&#x27; called <span class="keyword">with</span> unexpected argument &#x27;nixpkgs&#x27;</span><br></pre></td></tr></table></figure>
+<h3><span id="letin">Let…in</span></h3>
+<p>There’s a <a target="_blank" rel="noopener" href="https://nix.dev/tutorials/nix-language.html#let-in">let…in</a> block at the heart of the output declaration. This lets me assign values to names which can then be used within the scope of the block:</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="attr">outputs</span> <span class="operator">=</span> &#123; self, nixpkgs, flake-utils, phps &#125;:</span><br><span class="line">    flake-utils.lib.eachDefaultSystem (<span class="params">system:</span></span><br><span class="line">      <span class="keyword">let</span></span><br><span class="line">      <span class="comment"># Assign values to names</span></span><br><span class="line">​      <span class="keyword">in</span></span><br><span class="line">​      &#123;</span><br><span class="line">      <span class="comment"># Do stuff with those values</span></span><br><span class="line">​      &#125;</span><br><span class="line">​    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="system">System</span></h3>
+<p>Nix can work crossplatform, but you need to provide some definitions to enable that. This is where flake-utils saves some front matter. This:</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">flake-utils.lib.eachDefaultSystem (<span class="params">system:</span></span><br><span class="line">  <span class="keyword">let</span></span><br><span class="line">    <span class="attr">pkgs</span> <span class="operator">=</span> nixpkgs.legacyPackages.$&#123;system&#125;;</span><br></pre></td></tr></table></figure>
+<p>…is short-hand for this:</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a<span class="attr">llSystems</span> <span class="operator">=</span> [</span><br><span class="line">  <span class="string">&quot;x86_64-linux&quot;</span> <span class="comment"># 64-bit Intel/AMD Linux</span></span><br><span class="line">  <span class="string">&quot;aarch64-linux&quot;</span> <span class="comment"># 64-bit ARM Linux</span></span><br><span class="line">  <span class="string">&quot;x86_64-darwin&quot;</span> <span class="comment"># 64-bit Intel macOS</span></span><br><span class="line">  <span class="string">&quot;aarch64-darwin&quot;</span> <span class="comment"># 64-bit ARM macOS</span></span><br><span class="line">];</span><br><span class="line"><span class="attr">forAllSystems</span> <span class="operator">=</span> <span class="params">f:</span> nixpkgs.lib.genAttrs allSystems (<span class="params">system:</span> f &#123;</span><br><span class="line">  <span class="attr">pkgs</span> <span class="operator">=</span> <span class="built_in">import</span> nixpkgs &#123; <span class="keyword">inherit</span> system; &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3><span id="php">PHP</span></h3>
+<p>Something I didn’t  understand when I was starting on this is that every expression is self-contained. Put simply, it’s not enough to configure and enable the MongoDB extension for the PHP cli binary; I need to do that for composer as well. Therefore, let’s create a resuable expression for PHP that does that:</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p<span class="attr">hp74</span> <span class="operator">=</span> (phps.packages.$&#123;system&#125;.php74.buildEnv &#123;</span><br><span class="line">  <span class="attr">extensions</span> <span class="operator">=</span> (&#123; enabled, all &#125;: enabled <span class="operator">++</span> (<span class="keyword">with</span> all; [</span><br><span class="line">    mongodb</span><br><span class="line">  ]));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>That gives me a PHP 7.4 definition that includes the MongoDB extension.</p>
+<h3><span id="shell">Shell</span></h3>
+<p>I don’t fully grok everything going under the hood here, but I’ll leave breadcrumbs for myself and anyone else. <a target="_blank" rel="noopener" href="https://nixos.org/manual/nixpkgs/stable/#sec-pkgs-mkShell">mkShell</a> is an extension of <a target="_blank" rel="noopener" href="https://blog.ielliott.io/nix-docs/mkDerivation.html">mkDerivation</a>, so it has all the attributes of the latter plus a few of its own. With <code>buildInputs</code> I’m defining what packages to include; <code>shellHooks</code> are commands to execute when I run <code>nix develop</code> to bring up the shell:</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">d<span class="attr">evShell</span> <span class="operator">=</span> pkgs.mkShell &#123;</span><br><span class="line">  <span class="attr">buildInputs</span> <span class="operator">=</span> [</span><br><span class="line">    php74</span><br><span class="line">    php74.packages.composer</span><br><span class="line">  ];</span><br><span class="line">  <span class="attr">shellHook</span> <span class="operator">=</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="string">    php -v</span></span><br><span class="line"><span class="string">  &#x27;&#x27;</span>;          </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Here, I add both the PHP 7.4 CLI and composer with all default extensions and the MongoDB extension. In the shell hook, I just tell it to run php and output the version when it comes up.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2023/11/14/Enabling-a-PHP-extension-in-Nix/" data-id="cm7cs8xoa003t8nmm9k0d3k4k" data-title="Enabling a PHP extension in Nix" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nix/" rel="tag">Nix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/15/Remembering-Mark-Hoolihan/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Remembering Mark Hoolihan
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/14/Piecing-together-Indian-Trails-ticket-pricing/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Piecing together Indian Trails ticket pricing</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="graphcomment"></div>
+  <script type="text/javascript">
+
+    /* - - - CONFIGURATION VARIABLES - - - */
+
+    var __semio__params = {
+      graphcommentId: "Goodbye-Please", // make sure the id is yours
+
+      behaviour: {
+        // HIGHLY RECOMMENDED
+        //  uid: "...", // uniq identifer for the comments thread on your page (ex: your page id)
+      },
+
+      // configure your variables here
+
+    }
+
+    /* - - - DON'T EDIT BELOW THIS LINE - - - */
+
+    function __semio__onload() {
+      __semio__gc_graphlogin(__semio__params)
+    }
+
+
+    (function() {
+      var gc = document.createElement('script'); gc.type = 'text/javascript'; gc.async = true;
+      gc.onload = __semio__onload; gc.defer = true; gc.src = 'https://integration.graphcomment.com/gc_graphlogin.js?' + Date.now();
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(gc);
+    })();
+    
+
+  </script>
+</section>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Football/">Football</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/History/">History</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Humor/">Humor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movies/">Movies</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Music/">Music</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Outdoors/">Outdoors</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Trains/">Trains</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Travel/">Travel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Development/">Web Development</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/12/06/Mileage-problems-on-the-Long-Island-Rail-Road/">Mileage problems on the Long Island Rail Road</a>
+          </li>
+        
+          <li>
+            <a href="/2024/12/06/Pushing-to-GitHub-over-443/">Pushing to GitHub over 443</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/19/Packaging-a-Lambda-with-Nodejs-20-and-AWS-SDK-for-JavaScript-v2/">Packaging a Lambda with Nodejs 20 and AWS SDK for JavaScript v2</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/13/Devenv-python-and-packaging-Lambdas/">Devenv, python, and packaging Lambdas</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/10/A-visit-to-the-Bridgeview/">A visit to the Bridgeview</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 Charles Fulton <a rel="me noopener" target="_blank" href="https://higheredweb.social/@mackensen">Find me on Mastodon</a><br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+    <a href="/how-to-identify-a-train/" class="mobile-nav-link">How to identify a train</a>
+  
+    <a href="/b-movie-metric/" class="mobile-nav-link">B-movie metric</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

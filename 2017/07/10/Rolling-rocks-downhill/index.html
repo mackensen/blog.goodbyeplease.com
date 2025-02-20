@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Rolling rocks downhill | Goodbye Please</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="canonical" href="https://blog.goodbyeplease.com/2017/07/10/Rolling-rocks-downhill/"/>
+  <meta name="description" content="I’ve written about how we used Composer to overlay a dependency management system on our existing WordPress ecosystem. The final step was to actually deploy the site somewhere. For that we turned to C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rolling rocks downhill">
+<meta property="og:url" content="https://blog.goodbyeplease.com/2017/07/10/Rolling-rocks-downhill/">
+<meta property="og:site_name" content="Goodbye Please">
+<meta property="og:description" content="I’ve written about how we used Composer to overlay a dependency management system on our existing WordPress ecosystem. The final step was to actually deploy the site somewhere. For that we turned to C">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-07-10T19:35:25.000Z">
+<meta property="article:modified_time" content="2025-02-20T03:07:34.820Z">
+<meta property="article:author" content="Charles Fulton">
+<meta property="article:tag" content="WordPress">
+<meta property="article:tag" content="Capistrano">
+<meta property="article:tag" content="Submodules">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Goodbye Please" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Goodbye Please</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Amtrak, B-Movies, Web Development, and other nonsense</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives/">Archives</a>
+        
+          <a class="main-nav-link" href="/how-to-identify-a-train/">How to identify a train</a>
+        
+          <a class="main-nav-link" href="/b-movie-metric/">B-movie metric</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blog.goodbyeplease.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Rolling-rocks-downhill" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/07/10/Rolling-rocks-downhill/" class="article-date">
+  <time class="dt-published" datetime="2017-07-10T19:35:25.000Z" itemprop="datePublished">2017-07-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Rolling rocks downhill
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>I’ve written about how we used Composer to <a href="/2017/07/07/Overlaying-dependency-management/" title="Overlaying dependency management">overlay a dependency management system</a> on our existing WordPress ecosystem. The final step was to actually deploy the site somewhere. For that we turned to <a target="_blank" rel="noopener" href="http://capistranorb.com/">Capistrano</a>.</p>
+<h3><span id="capistrano">Capistrano</span></h3>
+<p>Capistrano is a Ruby application which manages the deployed state of a project. Within a “Capified” project, you define all the information needed to deploy that project somewhere:</p>
+<ul>
+<li>The location of your remote servers</li>
+<li>The path to deploy your application</li>
+<li>The location of your code</li>
+<li>Any tasks to run on deployment</li>
+</ul>
+<p>Think of this as a developer story: we’re describing our expectations for deploying the project. If we’re onboarding a new team member, everything they need to know about deploying a project is contained in these files.</p>
+<p>Capistrano runs from your local machine and executes commands over SSH on the remote. Assuming your local SSH environment is already well-defined, this means that you can stand up a Capistrano deployment without any additional configuration on either your local machine or the remote. It’s very lightweight in that regard. Capistrano can forward your SSH key on deploying; if you already have access to your private Git repositories then there’s no additional setup necessary to deploy from them.</p>
+<h3><span id="sample-wordpress-project-layout">Sample WordPress project layout</span></h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Capfile</span><br><span class="line">composer.json</span><br><span class="line">composer.lock</span><br><span class="line">config/</span><br><span class="line">	deploy.rb</span><br><span class="line">	deploy/</span><br><span class="line">		staging.rb</span><br><span class="line">		production.rb</span><br><span class="line">Gemfile</span><br><span class="line">Gemfile.lock</span><br><span class="line">public</span><br></pre></td></tr></table></figure>
+<h3><span id="wordpress">WordPress</span></h3>
+<p>Having inveighed against submodules, I’m going to advocate keeping one around for WordPress core. There are three choices for handling WordPress itself:</p>
+<ol>
+<li>Adding it as a Composer dependency itself, using John Bloch’s composer fork.</li>
+<li>Forking from GitHub and adding all your Capistrano and Composer configuration to the repository. Whenever WordPress updates merge the updates into your project.</li>
+<li>Mounting it as a git submodule, using the official GitHub clone.</li>
+</ol>
+<p>The first option has an interesting technical challenge. The gory details is that a Composer installation overwrites the path it’s installing to. Capistrano executes its shared symlink tasks before Composer installs its packages. If you’re keeping the WordPress installation paths standard, as we did, this means that the symlinks for wp-config.php, .htaccess, and the uploads directory are lost on deployment.</p>
+<p>The second option cuts against the grain of this whole concept, which is to manage versions in their natural place. We wind up muddying WordPress’ revision history. Also, that method makes it too easy to hack core for fun and proft.</p>
+<h3><span id="composer">Composer</span></h3>
+<p>For installing the Composer dependencies, there’s a community-maintained <a target="_blank" rel="noopener" href="https://github.com/capistrano/composer">Composer extension</a> for Capistrano. You simply tell Capistrano where your <code>composer.json</code> file is.</p>
+<h3><span id="rollback">Rollback!</span></h3>
+<p>Capistrano creates a <code>releases/</code> directory on your remote and timestamped subdirectories for each deployment. The “active” deployment is symlinked to <code>current</code>. This means that “rolling back” to an earlier deployment is as simple as changing the symlink to point at a different release. Capistrano includes a built in command to do just that: <code>cap &lt;environment&gt; deploy:rollback</code>. This command also creates a tarball of the “bad” release and archives it.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">current -&gt; /var/www/sites/releases/20170424135711</span><br><span class="line">releases/</span><br><span class="line">	20170301101452</span><br><span class="line">	20170303204702</span><br><span class="line">	20170424135711</span><br><span class="line">		public/</span><br><span class="line">			.htaccess -&gt; /var/www/sites/shared/public/.htaccess</span><br><span class="line">			wp-config.php -&gt; /var/www/sites/shared/public/wp-config.php</span><br><span class="line">			wp-content/</span><br><span class="line">				uploads -&gt; /var/www/sites/shared/public/wp-content/uploads</span><br><span class="line">repo/</span><br><span class="line">revisions.log</span><br><span class="line">shared/</span><br><span class="line">	public/</span><br><span class="line">		.htaccess</span><br><span class="line">		wp-config.php</span><br><span class="line">			wp-content/</span><br><span class="line">				uploads/</span><br></pre></td></tr></table></figure>
+<p>There’s an important caveat here, <em>pace</em> <a target="_blank" rel="noopener" href="https://blog.skyliner.io/you-cant-have-a-rollback-button-83e914f420d9">Dan McKinley</a>. Rollback returns you to the previous code state. Anything that’s happened to the state of the system since then—database changes, user sessions, cached pages—remains the same. I’ve found WordPress to be forgiving in that regard; even downgrading a major version on top of an upgraded database is relatively safe. On a platform such as a Moodle, you’d need to also restore from backup.</p>
+<h3><span id="one-node-two-node">One node, two node …</span></h3>
+<p>Capistrano makes multi-node deployment simple. For a given environment you define all the remotes, and it executes deployments in parallel. That way you avoid race conditions, where one node has a different version of the code. Capistrano uses a concept of roles, so that you can restrict certain tasks to given nodes:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server <span class="string">&#x27;node0.foo.edu&#x27;</span>, <span class="symbol">user:</span> fetch(<span class="symbol">:user</span>), <span class="symbol">roles:</span> <span class="string">%w&#123;app web&#125;</span></span><br><span class="line">server <span class="string">&#x27;node1.foo.edu&#x27;</span>, <span class="symbol">user:</span> fetch(<span class="symbol">:user</span>), <span class="symbol">roles:</span> <span class="string">%w&#123;web&#125;</span></span><br></pre></td></tr></table></figure>
+<p>The role names are arbitrary. Designating one node as <code>app</code> lets me define tasks that be run once, on one environment, like a major upgrade. Here’s a task definition for the command-line database upgrade for WordPress:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Run an upgrade</span></span><br><span class="line">task <span class="symbol">:upgrade</span> <span class="keyword">do</span></span><br><span class="line">    on roles(<span class="symbol">:app</span>) <span class="keyword">do</span> |<span class="params">host</span>|</span><br><span class="line">        execute <span class="string">&quot;cd <span class="subst">#&#123;fetch(<span class="symbol">:deploy_to</span>)&#125;</span>/current/public &amp;&amp; wp core update-db --network&quot;</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h3><span id="tasking-capistrano">Tasking Capistrano</span></h3>
+<p>You can extend this logic in all kinds of useful ways. We have an asset-heavy base theme; lots of stylesheets and javascripts. Minifying them in source control is a Bad Plan, for several reasons:</p>
+<ul>
+<li>git diff is rendered meaningless</li>
+<li>if multiple people need to alter the compiled files, you’ll merge conflict</li>
+</ul>
+<p>Capistrano gave us an easy way out. We moved our existing Grunt minification tasks to a separate Gruntfile to be run on deployment, and enabled <a target="_blank" rel="noopener" href="https://github.com/capistrano/npm">Npm support</a>. This is the result:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Npm</span></span><br><span class="line">set <span class="symbol">:npm_target_path</span>, -&amp;gt; &#123; release_path.join(<span class="string">&#x27;public/wp-content/themes/marquis-b</span></span><br><span class="line"><span class="string">ase&#x27;</span>) &#125;</span><br><span class="line">...</span><br><span class="line">    <span class="comment"># Minify base theme</span></span><br><span class="line">    before <span class="symbol">:updated</span>, <span class="symbol">:grunt</span> <span class="keyword">do</span> |<span class="params">host</span>|</span><br><span class="line">        on roles(<span class="symbol">:web</span>) <span class="keyword">do</span></span><br><span class="line">            execute <span class="string">&quot;cd <span class="subst">#&#123;fetch(<span class="symbol">:release_path</span>)&#125;</span>/public/wp-content/themes/marquis-base &amp;amp;&amp;amp; grunt deploy --gruntfile Gruntfile-deploy.js&quot;</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>Note that this task is run on <em>all</em> the nodes, simultaneously, unlike the database upgrade task above.</p>
+<h3><span id="deployment-as-documentation">Deployment as documentation</span></h3>
+<p>A Capistrano project is a developer story. Everything a developer needs to know about the project is in the config files: the primary site itself (the WordPress submodule), the themes and plugins (in <code>composer.json</code>), the servers to deploy to, the tasks which must and will be run on any deployment, and the tasks which <em>may</em> be run on or after a deployment, at the developer’s discretion. All encapsulated in a single git repository, with no additional external configuration required. Next up: <a href="/2018/04/28/Catapulting-rocks/" title="Catapulting rocks">automating this process within GitLab</a>.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2017/07/10/Rolling-rocks-downhill/" data-id="cm7cs8xon009v8nmm63g13toq" data-title="Rolling rocks downhill" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Capistrano/" rel="tag">Capistrano</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Submodules/" rel="tag">Submodules</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WordPress/" rel="tag">WordPress</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/19/WordPress-and-partial-content/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          WordPress and partial content
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/07/Overlaying-dependency-management/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Overlaying dependency management</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="graphcomment"></div>
+  <script type="text/javascript">
+
+    /* - - - CONFIGURATION VARIABLES - - - */
+
+    var __semio__params = {
+      graphcommentId: "Goodbye-Please", // make sure the id is yours
+
+      behaviour: {
+        // HIGHLY RECOMMENDED
+        //  uid: "...", // uniq identifer for the comments thread on your page (ex: your page id)
+      },
+
+      // configure your variables here
+
+    }
+
+    /* - - - DON'T EDIT BELOW THIS LINE - - - */
+
+    function __semio__onload() {
+      __semio__gc_graphlogin(__semio__params)
+    }
+
+
+    (function() {
+      var gc = document.createElement('script'); gc.type = 'text/javascript'; gc.async = true;
+      gc.onload = __semio__onload; gc.defer = true; gc.src = 'https://integration.graphcomment.com/gc_graphlogin.js?' + Date.now();
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(gc);
+    })();
+    
+
+  </script>
+</section>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Football/">Football</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/History/">History</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Humor/">Humor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movies/">Movies</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Music/">Music</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Outdoors/">Outdoors</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Trains/">Trains</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Travel/">Travel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Development/">Web Development</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/12/06/Mileage-problems-on-the-Long-Island-Rail-Road/">Mileage problems on the Long Island Rail Road</a>
+          </li>
+        
+          <li>
+            <a href="/2024/12/06/Pushing-to-GitHub-over-443/">Pushing to GitHub over 443</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/19/Packaging-a-Lambda-with-Nodejs-20-and-AWS-SDK-for-JavaScript-v2/">Packaging a Lambda with Nodejs 20 and AWS SDK for JavaScript v2</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/13/Devenv-python-and-packaging-Lambdas/">Devenv, python, and packaging Lambdas</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/10/A-visit-to-the-Bridgeview/">A visit to the Bridgeview</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 Charles Fulton <a rel="me noopener" target="_blank" href="https://higheredweb.social/@mackensen">Find me on Mastodon</a><br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+    <a href="/how-to-identify-a-train/" class="mobile-nav-link">How to identify a train</a>
+  
+    <a href="/b-movie-metric/" class="mobile-nav-link">B-movie metric</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

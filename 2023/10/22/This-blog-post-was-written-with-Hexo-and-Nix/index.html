@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>This blog post was written with Hexo and Nix | Goodbye Please</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="canonical" href="https://blog.goodbyeplease.com/2023/10/22/This-blog-post-was-written-with-Hexo-and-Nix/"/>
+  <meta name="description" content="Using the Hexo static site platform with Nix.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="This blog post was written with Hexo and Nix">
+<meta property="og:url" content="https://blog.goodbyeplease.com/2023/10/22/This-blog-post-was-written-with-Hexo-and-Nix/">
+<meta property="og:site_name" content="Goodbye Please">
+<meta property="og:description" content="Using the Hexo static site platform with Nix.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-10-23T01:32:50.000Z">
+<meta property="article:modified_time" content="2025-02-20T03:07:34.837Z">
+<meta property="article:author" content="Charles Fulton">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Nix">
+<meta property="article:tag" content="NVM">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Goodbye Please" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Goodbye Please</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Amtrak, B-Movies, Web Development, and other nonsense</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives/">Archives</a>
+        
+          <a class="main-nav-link" href="/how-to-identify-a-train/">How to identify a train</a>
+        
+          <a class="main-nav-link" href="/b-movie-metric/">B-movie metric</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blog.goodbyeplease.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-This-blog-post-was-written-with-Hexo-and-Nix" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/10/22/This-blog-post-was-written-with-Hexo-and-Nix/" class="article-date">
+  <time class="dt-published" datetime="2023-10-23T01:32:50.000Z" itemprop="datePublished">2023-10-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      This blog post was written with Hexo and Nix
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>A few weeks ago I was at <a target="_blank" rel="noopener" href="https://events.highedweb.org/heweb23">HighEdWeb 2023</a> in Buffalo and caught a talk (“<a target="_blank" rel="noopener" href="https://events.highedweb.org/heweb23/session/1435403/maybe-some-other-time-docker-fast-declarative-and-reproducible-developer-environments-using-nix">Maybe some other time Docker: Fast, declarative and reproducible developer environments using Nix</a>”) from <a target="_blank" rel="noopener" href="https://hachyderm.io/@woodwardjd">Jason Woodward</a> about <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Nix_(package_manager)">Nix</a>. Nix is many things, including an OS, but he focused on Nix-the-package-manager and that’s what I’m going to (briefly) discuss here.</p>
+<p>To grossly oversimplify, <a target="_blank" rel="noopener" href="https://zero-to-nix.com/concepts/nixpkgs">Nixpkgs</a> is a collection of tens of thousands of packages precompiled for various platforms. Each version of each package can be referenced by hash. Using a <a target="_blank" rel="noopener" href="https://zero-to-nix.com/concepts/flakes">nix flake</a>, you can specify which packages should be associated with your project. The <code>nix develop</code> command will then use path magic to load the specified packages into your shell. When you exit from the shell the paths are unloaded.</p>
+<p>I moved this blog to <a target="_blank" rel="noopener" href="https://hexo.io/">hexo</a> about a year ago. My authoring environment needs a few things: a reasonable version of node, <code>hexo server</code> running in the background to serve pages, and <code>hexo generate --watch</code> to catch changes as I write. My old process involved manually kicking those processes off. Before I could do that, I had to run <code>nvm use</code> to leverage the <code>.nvmrc</code> file at the root of my project directory to ensure that I had the correct version of node active, including the global reference for hexo.</p>
+<p>This could all be boiled down to a single flake:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  description = <span class="string">&quot;Example JavaScript development environment for Zero to Nix&quot;</span>;</span><br><span class="line"></span><br><span class="line">  # Flake inputs</span><br><span class="line">  inputs = <span class="punctuation">&#123;</span></span><br><span class="line">    nixpkgs.url = <span class="string">&quot;github:NixOS/nixpkgs?ref=nixos-unstable&quot;</span>;</span><br><span class="line">  <span class="punctuation">&#125;</span>;</span><br><span class="line"></span><br><span class="line">  # Flake outputs</span><br><span class="line">  outputs = <span class="punctuation">&#123;</span> self<span class="punctuation">,</span> nixpkgs <span class="punctuation">&#125;</span><span class="punctuation">:</span></span><br><span class="line">    let</span><br><span class="line">      # Systems supported</span><br><span class="line">      allSystems = <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;x86_64-linux&quot;</span> # <span class="number">64</span>-bit Intel/AMD Linux</span><br><span class="line">        <span class="string">&quot;aarch64-linux&quot;</span> # <span class="number">64</span>-bit ARM Linux</span><br><span class="line">        <span class="string">&quot;x86_64-darwin&quot;</span> # <span class="number">64</span>-bit Intel macOS</span><br><span class="line">        <span class="string">&quot;aarch64-darwin&quot;</span> # <span class="number">64</span>-bit ARM macOS</span><br><span class="line">      <span class="punctuation">]</span>;</span><br><span class="line"></span><br><span class="line">      # Helper to provide system-specific attributes</span><br><span class="line">      forAllSystems = f<span class="punctuation">:</span> nixpkgs.lib.genAttrs allSystems (system<span class="punctuation">:</span> f <span class="punctuation">&#123;</span></span><br><span class="line">        pkgs = import nixpkgs <span class="punctuation">&#123;</span> inherit system; <span class="punctuation">&#125;</span>;</span><br><span class="line">      <span class="punctuation">&#125;</span>);</span><br><span class="line">    in</span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      # Development environment output</span><br><span class="line">      devShells = forAllSystems (<span class="punctuation">&#123;</span> pkgs <span class="punctuation">&#125;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        default = pkgs.mkShell <span class="punctuation">&#123;</span></span><br><span class="line">          # The Nix packages provided in the environment</span><br><span class="line">          packages = with pkgs; <span class="punctuation">[</span></span><br><span class="line">            nodejs_20 # Node.js <span class="number">20</span><span class="punctuation">,</span> plus npm<span class="punctuation">,</span> npx<span class="punctuation">,</span> and corepack</span><br><span class="line">            yarn</span><br><span class="line">          <span class="punctuation">]</span>;</span><br><span class="line">    </span><br><span class="line">          shellHook = &#x27;&#x27;</span><br><span class="line">            yarn</span><br><span class="line">            npx hexo server &amp;</span><br><span class="line">            npx hexo generate --watch &amp;</span><br><span class="line">          &#x27;&#x27;;</span><br><span class="line">        <span class="punctuation">&#125;</span>;</span><br><span class="line">      <span class="punctuation">&#125;</span>);</span><br><span class="line">    <span class="punctuation">&#125;</span>;</span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>This is derived from the <a target="_blank" rel="noopener" href="https://zero-to-nix.com/start/nix-develop">Zero to Nix</a> demo, which I found very helpful. The flake installs two packages: NodeJS 20 and the yarn package manager. I then define a <code>shellHook</code>, which runs three post-install commands:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yarn</span><br><span class="line">npx hexo server &amp;</span><br><span class="line">npx hexo generate --watch &amp;</span><br></pre></td></tr></table></figure>
+<p>This installs all the node packages, including node. I may be the last person to discover that using npx can eliminate the need to have node CLI packages installed globally. The second and third commands start the local hexo server (listening on port 4000 by default) and the generation command. Both are sent to the background. Running <code>nix develop</code> executes everything and drops me into a shell with node 20 and a working hexo environment.</p>
+<p>When I’m done, I quit the shell and then run <code>killall hexo</code> to stop the two commands. I haven’t found a shutdown equivalent of <code>shellHook</code>, and that might not be desirable anyway.</p>
+<p>I’m still at the this-is-sort-of-cool stage with Nix, and I’m still not all that comfortable with the environment. On the other hand, it does work, and it’s more straightforward than the previous approach with nvm.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2023/10/22/This-blog-post-was-written-with-Hexo-and-Nix/" data-id="cm7cs8xor00bt8nmmddxbdjy0" data-title="This blog post was written with Hexo and Nix" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NVM/" rel="tag">NVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nix/" rel="tag">Nix</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/10/24/Nix-flake-with-Node-and-PHP/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Nix flake with Node and PHP
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/10/16/Space-Probe-Taurus/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Space Probe Taurus</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="graphcomment"></div>
+  <script type="text/javascript">
+
+    /* - - - CONFIGURATION VARIABLES - - - */
+
+    var __semio__params = {
+      graphcommentId: "Goodbye-Please", // make sure the id is yours
+
+      behaviour: {
+        // HIGHLY RECOMMENDED
+        //  uid: "...", // uniq identifer for the comments thread on your page (ex: your page id)
+      },
+
+      // configure your variables here
+
+    }
+
+    /* - - - DON'T EDIT BELOW THIS LINE - - - */
+
+    function __semio__onload() {
+      __semio__gc_graphlogin(__semio__params)
+    }
+
+
+    (function() {
+      var gc = document.createElement('script'); gc.type = 'text/javascript'; gc.async = true;
+      gc.onload = __semio__onload; gc.defer = true; gc.src = 'https://integration.graphcomment.com/gc_graphlogin.js?' + Date.now();
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(gc);
+    })();
+    
+
+  </script>
+</section>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Football/">Football</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/History/">History</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Humor/">Humor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movies/">Movies</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Music/">Music</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Outdoors/">Outdoors</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Trains/">Trains</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Travel/">Travel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Development/">Web Development</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/12/06/Mileage-problems-on-the-Long-Island-Rail-Road/">Mileage problems on the Long Island Rail Road</a>
+          </li>
+        
+          <li>
+            <a href="/2024/12/06/Pushing-to-GitHub-over-443/">Pushing to GitHub over 443</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/19/Packaging-a-Lambda-with-Nodejs-20-and-AWS-SDK-for-JavaScript-v2/">Packaging a Lambda with Nodejs 20 and AWS SDK for JavaScript v2</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/13/Devenv-python-and-packaging-Lambdas/">Devenv, python, and packaging Lambdas</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/10/A-visit-to-the-Bridgeview/">A visit to the Bridgeview</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 Charles Fulton <a rel="me noopener" target="_blank" href="https://higheredweb.social/@mackensen">Find me on Mastodon</a><br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+    <a href="/how-to-identify-a-train/" class="mobile-nav-link">How to identify a train</a>
+  
+    <a href="/b-movie-metric/" class="mobile-nav-link">B-movie metric</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Multiple PHP versions under the same domain | Goodbye Please</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="canonical" href="https://blog.goodbyeplease.com/2023/03/28/Multiple-PHP-versions-under-the-same-domain/"/>
+  <meta name="description" content="Use PHP-FPM and Apache directory blocks to run different versions of PHP.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Multiple PHP versions under the same domain">
+<meta property="og:url" content="https://blog.goodbyeplease.com/2023/03/28/Multiple-PHP-versions-under-the-same-domain/">
+<meta property="og:site_name" content="Goodbye Please">
+<meta property="og:description" content="Use PHP-FPM and Apache directory blocks to run different versions of PHP.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-28T17:09:16.000Z">
+<meta property="article:modified_time" content="2025-02-20T03:07:34.795Z">
+<meta property="article:author" content="Charles Fulton">
+<meta property="article:tag" content="Apache">
+<meta property="article:tag" content="PHP-FPM">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Goodbye Please" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Goodbye Please</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Amtrak, B-Movies, Web Development, and other nonsense</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives/">Archives</a>
+        
+          <a class="main-nav-link" href="/how-to-identify-a-train/">How to identify a train</a>
+        
+          <a class="main-nav-link" href="/b-movie-metric/">B-movie metric</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blog.goodbyeplease.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Multiple-PHP-versions-under-the-same-domain" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/28/Multiple-PHP-versions-under-the-same-domain/" class="article-date">
+  <time class="dt-published" datetime="2023-03-28T17:09:16.000Z" itemprop="datePublished">2023-03-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Multiple PHP versions under the same domain
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>I recently had cause to run two different versions of PHP under the same top-level domain. I was able to accomplish this using Apache and PHP-FPM, leveraging Apache’s Directory directive. This builds on DigitalOcean’s excellent tutorial, “<a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/how-to-run-multiple-php-versions-on-one-server-using-apache-and-php-fpm-on-ubuntu-18-04">How To Run Multiple PHP Versions on One Server Using Apache and PHP-FPM on Ubuntu 18.04</a>”, and assumes that you have done something similar to get multiple versions of PHP running using PHP-FPM.</p>
+<p>In my use case, I have multiple different version of Moodle running under the same top-level domain. Each Moodle version is installed in a different directory under that domain, and has its own uploads and database. Moodle is somewhat aggressive about supported PHP versions, and I needed to have both PHP 7.4 (for Moodle 3.9) and PHP 8.0 (for Moodle 4.1) available, and each <em>cannot</em> run under the other version.</p>
+<p>The solution is to add an <a target="_blank" rel="noopener" href="https://httpd.apache.org/docs/2.4/mod/core.html#directory">Directory</a> override for the site that needs the lower version of PHP, while leaving the higher version as the default case:</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;VirtualHost *<span class="number">:443</span>&gt;</span></span><br><span class="line">  <span class="attribute">ServerAdmin</span> admin@example.net</span><br><span class="line">  <span class="attribute">ServerName</span>  foo.example.net</span><br><span class="line">  <span class="attribute">DocumentRoot</span> /var/www/html/sites</span><br><span class="line"></span><br><span class="line">  <span class="attribute">ErrorLog</span> <span class="variable">$&#123;APACHE_LOG_DIR&#125;</span>/foo-error.log</span><br><span class="line">  <span class="attribute">CustomLog</span> <span class="variable">$&#123;APACHE_LOG_DIR&#125;</span>/foo-access.log combined</span><br><span class="line"></span><br><span class="line">  <span class="section">&lt;Directory <span class="string">&quot;/var/www/foo/sites/site1&quot;</span>&gt;</span></span><br><span class="line">    <span class="section">&lt;FilesMatch \.php$&gt;</span></span><br><span class="line">      <span class="attribute">SetHandler</span> <span class="string">&quot;proxy:unix:/run/php/php7.4-fpm-foo.sock|fcgi://foo/&quot;</span></span><br><span class="line">    <span class="section">&lt;/FilesMatch&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="section">&lt;/Directory&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="section">&lt;FilesMatch \.php$&gt;</span></span><br><span class="line">    <span class="attribute">SetHandler</span> <span class="string">&quot;proxy:unix:/run/php/php8.0-fpm-foo.sock|fcgi://foo/&quot;</span></span><br><span class="line">  <span class="section">&lt;/FilesMatch&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="section">&lt;Proxy <span class="string">&quot;fcgi://foo/&quot;</span>&gt;</span></span><br><span class="line">   <span class="section">&lt;/Proxy&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="section">&lt;/VirtualHost&gt;</span></span><br></pre></td></tr></table></figure>
+<p>The specificity of the directory declaration for <code>/var/www/foo/sites/site1</code> means that it will be served up using PHP 7.4, and everything else will use PHP 8.0.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2023/03/28/Multiple-PHP-versions-under-the-same-domain/" data-id="cm7cs8xoi007j8nmmexxw9arj" data-title="Multiple PHP versions under the same domain" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP-FPM/" rel="tag">PHP-FPM</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/10/16/So-your-Google-WiFi-pucks-have-the-slows/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          So your Google WiFi pucks have the slows
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/03/14/Browser-Headers-and-WordPress/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Browser Headers and WordPress</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="graphcomment"></div>
+  <script type="text/javascript">
+
+    /* - - - CONFIGURATION VARIABLES - - - */
+
+    var __semio__params = {
+      graphcommentId: "Goodbye-Please", // make sure the id is yours
+
+      behaviour: {
+        // HIGHLY RECOMMENDED
+        //  uid: "...", // uniq identifer for the comments thread on your page (ex: your page id)
+      },
+
+      // configure your variables here
+
+    }
+
+    /* - - - DON'T EDIT BELOW THIS LINE - - - */
+
+    function __semio__onload() {
+      __semio__gc_graphlogin(__semio__params)
+    }
+
+
+    (function() {
+      var gc = document.createElement('script'); gc.type = 'text/javascript'; gc.async = true;
+      gc.onload = __semio__onload; gc.defer = true; gc.src = 'https://integration.graphcomment.com/gc_graphlogin.js?' + Date.now();
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(gc);
+    })();
+    
+
+  </script>
+</section>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Football/">Football</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/History/">History</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Humor/">Humor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movies/">Movies</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Music/">Music</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Outdoors/">Outdoors</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Trains/">Trains</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Travel/">Travel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Development/">Web Development</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/12/06/Mileage-problems-on-the-Long-Island-Rail-Road/">Mileage problems on the Long Island Rail Road</a>
+          </li>
+        
+          <li>
+            <a href="/2024/12/06/Pushing-to-GitHub-over-443/">Pushing to GitHub over 443</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/19/Packaging-a-Lambda-with-Nodejs-20-and-AWS-SDK-for-JavaScript-v2/">Packaging a Lambda with Nodejs 20 and AWS SDK for JavaScript v2</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/13/Devenv-python-and-packaging-Lambdas/">Devenv, python, and packaging Lambdas</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/10/A-visit-to-the-Bridgeview/">A visit to the Bridgeview</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 Charles Fulton <a rel="me noopener" target="_blank" href="https://higheredweb.social/@mackensen">Find me on Mastodon</a><br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+    <a href="/how-to-identify-a-train/" class="mobile-nav-link">How to identify a train</a>
+  
+    <a href="/b-movie-metric/" class="mobile-nav-link">B-movie metric</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

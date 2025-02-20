@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Goodbye Please</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="canonical" href="https://blog.goodbyeplease.com/page/9/"/>
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Goodbye Please">
+<meta property="og:url" content="https://blog.goodbyeplease.com/page/9/">
+<meta property="og:site_name" content="Goodbye Please">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Charles Fulton">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Goodbye Please" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Goodbye Please</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Amtrak, B-Movies, Web Development, and other nonsense</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives/">Archives</a>
+        
+          <a class="main-nav-link" href="/how-to-identify-a-train/">How to identify a train</a>
+        
+          <a class="main-nav-link" href="/b-movie-metric/">B-movie metric</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blog.goodbyeplease.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-An-automated-WordPress-update-has-failed-to-complete" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/01/An-automated-WordPress-update-has-failed-to-complete/" class="article-date">
+  <time class="dt-published" datetime="2022-11-01T14:19:31.000Z" itemprop="datePublished">2022-11-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/11/01/An-automated-WordPress-update-has-failed-to-complete/">An automated WordPress update has failed to complete</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>We use a git+composer strategy to manage our WordPress environments (<a href="/2017/07/07/Don%E2%80%99t-push-rocks-uphill/" title="Don&#39;t push rocks uphill">start here for a series of posts about this</a>) and therefore have WordPress auto-update disabled. Beyond that, Apache doesn’t have write to its own filesystem, so WordPress <em>can’t</em> update itself.</p>
+<p>However, the update and upgrade buttons are still presented on the interface, and it’s possible to accidentally trigger the update process from there. When that happens, WordPress places itself in maintenance mode, tries to update itself, fails, and then takes itself back out of maintenance mode. It’s about 5-10 minutes of downtime depending on your caching strategy.</p>
+<p>WordPress also leaves behind a memento in the form of a message displayed to every administrator (both network and site on multsite environments), informing them that “An automated WordPress update has failed to complete.” This message is easy to remove, but you may have to take multiple actions to do so.</p>
+        
+          <p class="article-more-link">
+            <a href="/2022/11/01/An-automated-WordPress-update-has-failed-to-complete/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2022/11/01/An-automated-WordPress-update-has-failed-to-complete/" data-id="cm7cs8xo4001k8nmmdlwlcr6l" data-title="An automated WordPress update has failed to complete" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WordPress/" rel="tag">WordPress</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Adding-a-poster-to-movie-reviews-in-Hexo" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/10/30/Adding-a-poster-to-movie-reviews-in-Hexo/" class="article-date">
+  <time class="dt-published" datetime="2022-10-30T19:25:54.000Z" itemprop="datePublished">2022-10-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/10/30/Adding-a-poster-to-movie-reviews-in-Hexo/">Adding a poster to movie reviews in Hexo</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>This weekend I migrated this blog from WordPress (with a static generator) to using <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> directly. Overall I’m pleased and the learning curve isn’t bad, though why I can’t easily link to pages or taxonomy items is puzzling. One challenge that was relatively easy to resolve was this one: how to add movie posters to the top of movie review articles?</p>
+<p>I haven’t written a movie review here in a while, and I haven’t decided whether to start again or go longer form on <a target="_blank" rel="noopener" href="https://letterboxd.com/mackensen42/">Letterboxd</a>. I’m proud of the writing of <a href="https://blog.goodbyeplease.com/categories/Movies/">the dozen</a> I did back in 2013-2014. I never wrote long enough to justify a billion screencaps (à la <a target="_blank" rel="noopener" href="http://jabootu.net/?author=1">Ken Begg</a>), but I did like including the poster at the top, floated left:</p>
+<p><img src="monkey-hustle-on-wordpress.png" alt="Including the poster on my old WordPress site" title="Movie poster floated to the left of text"></p>
+        
+          <p class="article-more-link">
+            <a href="/2022/10/30/Adding-a-poster-to-movie-reviews-in-Hexo/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2022/10/30/Adding-a-poster-to-movie-reviews-in-Hexo/" data-id="cm7cs8xo3000u8nmm058t6drj" data-title="Adding a poster to movie reviews in Hexo" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Using-Jest-with-CDK-tests" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/10/28/Using-Jest-with-CDK-tests/" class="article-date">
+  <time class="dt-published" datetime="2022-10-29T02:15:01.000Z" itemprop="datePublished">2022-10-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/10/28/Using-Jest-with-CDK-tests/">Using Jest with CDK tests</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>We use <a target="_blank" rel="noopener" href="https://www.siteimprove.com/">Siteimprove</a> to crawl some of our web properties and we also protect those same properties with an AWS <a target="_blank" rel="noopener" href="https://aws.amazon.com/waf/">Web Application Firewall</a> (WAF). To be on the safe side, we’re going to add Siteimprove’s IPs to an allowlist. We have to extend our WAF definition to include an IPSet and then also extend our test coverage.</p>
+<h2><span id="thats-a-lot-of-ips">That’s a lot of IPs</span></h2>
+<p>Siteimprove has <em>86</em> crawler IPs. First things first, we create a separate <code>siteimprove.ts</code> file to contain all the IPs:</p>
+        
+          <p class="article-more-link">
+            <a href="/2022/10/28/Using-Jest-with-CDK-tests/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2022/10/28/Using-Jest-with-CDK-tests/" data-id="cm7cs8xor00c68nmm3xp07zks" data-title="Using Jest with CDK tests" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDK/" rel="tag">CDK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jest/" rel="tag">Jest</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WAF/" rel="tag">WAF</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Tests-and-tags-in-CDK" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/10/27/Tests-and-tags-in-CDK/" class="article-date">
+  <time class="dt-published" datetime="2022-10-27T23:57:56.000Z" itemprop="datePublished">2022-10-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/10/27/Tests-and-tags-in-CDK/">Tests and tags in CDK</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>I manage a bunch of redirected subdomains. We use these with third-party applications, where the application lives at some non-Lafayette URL and we want a clean, simple Lafayette URL for our users. We call these vanity plates, and at the architectural level they’re pretty simple: a Cloudfront distribution with a certificate and LambdaEdge function to handle the redirection. We monitor the state of the redirection with a <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.html">Synthetic Canary</a>.</p>
+<p>A small challenge is that we like to have <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">lifecycle rules</a> on all our S3 buckets. With the above stack we actually have three buckets:</p>
+<ol>
+<li>The logging bucket for the Cloudfront distribution</li>
+<li>An empty S3 bucket that serves as the unused target for the Cloudfront distribution</li>
+<li>The artifacts bucket for the Synthetic Canary.</li>
+</ol>
+        
+          <p class="article-more-link">
+            <a href="/2022/10/27/Tests-and-tags-in-CDK/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2022/10/27/Tests-and-tags-in-CDK/" data-id="cm7cs8xoo00ag8nmmei6g3txq" data-title="Tests and tags in CDK" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDK/" rel="tag">CDK</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Solving-php-fpm-socket-helper-No-such-file-or-directory" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/06/01/Solving-php-fpm-socket-helper-No-such-file-or-directory/" class="article-date">
+  <time class="dt-published" datetime="2021-06-01T22:09:00.000Z" itemprop="datePublished">2021-06-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/06/01/Solving-php-fpm-socket-helper-No-such-file-or-directory/">Solving php-fpm-socket-helper: No such file or directory</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>I was running through <a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/how-to-run-multiple-php-versions-on-one-server-using-apache-and-php-fpm-on-debian-10">a helpful DigitalOcean guide</a> on getting multiple PHP-FPM versions configured on a Debian installation. Nothing too complex, but I’m usually doing this on RedHat derivatives so I appreciated the hand-holding. At the end of it the PHP-FPM service stubbornly refused to start correctly and I encountered an error that I hadn’t seen before:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Jun 01 19:45:07 XXXXXXX systemd[22426]: php7.2-fpm.service: Failed at step EXEC spawning /usr/lib/php/php-fpm-socket-helper: No such file or directory</span><br></pre></td></tr></table></figure>
+<p>Sure enough, no such file. Googling the error didn’t turn up much. More surprisingly I tried using apt-file to identify the provider of the file, and came up empty. I ran across <a target="_blank" rel="noopener" href="http://transit.iut2.upmf-grenoble.fr/cgi-bin/dpkg?query=php-common">a very old page</a> that suggested php-common (a version-independent package) might provide the file. That package was already installed, but outdated, so I updated it…and the file was created and PHP-FPM was working again.</p>
+        
+          <p class="article-more-link">
+            <a href="/2021/06/01/Solving-php-fpm-socket-helper-No-such-file-or-directory/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2021/06/01/Solving-php-fpm-socket-helper-No-such-file-or-directory/" data-id="cm7cs8xoo00aa8nmm7kyve7hw" data-title="Solving php-fpm-socket-helper: No such file or directory" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Debian/" rel="tag">Debian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP-FPM/" rel="tag">PHP-FPM</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Thoughts-on-the-June-2021-LANTA-changes" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/12/Thoughts-on-the-June-2021-LANTA-changes/" class="article-date">
+  <time class="dt-published" datetime="2021-05-12T17:27:53.000Z" itemprop="datePublished">2021-05-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Travel/">Travel</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/12/Thoughts-on-the-June-2021-LANTA-changes/">Thoughts on the June 2021 LANTA changes</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>The Lehigh and Northampton Transportation Authority (LANTA) is making <a target="_blank" rel="noopener" href="http://www.lantabus.com/june2021/">a number of changes to its routes</a>, effective June 21, 2021. At first glance, these don’t look like cuts so much as refactoring. I’m going to focus on the changes within Easton:</p>
+<ul>
+<li>West Ward, Northampton Street: routes <a target="_blank" rel="noopener" href="https://www.lantabus.com/june2021/101-weekday-june-2021-service-changes/">101</a> and <a target="_blank" rel="noopener" href="https://www.lantabus.com/june2021/216-weekday-june-2021-service-changes/">216</a> replace <a target="_blank" rel="noopener" href="https://www.lantabus.com/june2021/106-weekday-saturday-june-2021-service-changes/">106</a> and <a target="_blank" rel="noopener" href="https://www.lantabus.com/june2021/220-weekday-june-2021-service-changes/">220</a>. There’s still a one-seat ride to Nazareth Commons and downtown Bethlehem, but we lose Allentown. However, 101 does appear to have a timed transfer with the <a target="_blank" rel="noopener" href="https://www.lantabus.com/routes-and-schedules/route-107/">107</a> in Bethlehem for Allentown service, and the 107/220 are on an every half-hour schedule between the two. 101/216 are both hourly as before, with a 15/45 separation inbound and every 30 minutes outbound. The latter is a real improvement over the <a target="_blank" rel="noopener" href="https://www.lantabus.com/routes-and-schedules/route-106/">current schedule</a>, where the 106 and 220 leave Easton six minutes apart.</li>
+<li>West Ward, Lehigh / Washington: the re-routed 106 and 220 replace the 216 and 101, respectively. The 106 follows the old 216 route to 18th, but then turns north to sere Nazareth Commons / Northampton Crossings. The 220 follows Freemansburg to Emrick, then rejoins its old route at the William Penn Park &amp; Ride. Outbound separation is 20/40, inbound is half-hourly to hourly, as the 106 is on a ninety-minute frequency inbound only. Again, this is something of an improvement; the current frequency is 50/10 outbound and half-hourly inbound.</li>
+<li>College Hill / South Easton: the <a target="_blank" rel="noopener" href="https://www.lantabus.com/june2021/214-weekday-june-2021-service-changes/">214</a> is extended into South Easton, replacing the 106 and 216 which now terminate downtown. The 214 does a circle in South Easton to cover both routes. The <a target="_blank" rel="noopener" href="https://www.lantabus.com/routes-and-schedules/route-214/">old 214 schedule</a> was bizarre, with no relationship to any clockface. The new one is hourly between Easton Food Market and Forks Plaza South, with additional rush-hour service offest by a half-hour to Cattel / High for Lafayette College. Connection from incoming buses to/from the 214 should be half-hourly or better; it’s not clear if there’s a recommended pairing. This is a <em>massive</em> improvement on the previous service offering, as far as College Hill is concerned.</li>
+</ul>
+<p>I’m curious to see how this affects food access. The 214 will still hit the Giant in Forks Township and the Easton Food Market and the 106 / 216 the stores out at Nazareth Highway / PA-33. That still leaves the Giant in Palmer Town Center without direct service, and for the Aldi and Lidil on Freemansburg you’re relying on the 220, with uneven timekeeping as it comes from Allentown. I think the lack of bus access to Hugh Moore Park and the <a target="_blank" rel="noopener" href="https://canals.org/">National Canal Museum</a> remains a growth opportunity, but the roads in West Easton are a rat’s nest. <a target="_blank" rel="noopener" href="https://www.lantabus.com/routes-and-schedules/route-507/">Route 507</a>, a demand response service, covers it at present.</p>
+        
+          <p class="article-more-link">
+            <a href="/2021/05/12/Thoughts-on-the-June-2021-LANTA-changes/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2021/05/12/Thoughts-on-the-June-2021-LANTA-changes/" data-id="cm7cs8xor00bx8nmm0jmc49zf" data-title="Thoughts on the June 2021 LANTA changes" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LANTA/" rel="tag">LANTA</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Engine-change-at-New-Haven" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/11/Engine-change-at-New-Haven/" class="article-date">
+  <time class="dt-published" datetime="2021-05-11T20:42:44.000Z" itemprop="datePublished">2021-05-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Travel/">Travel</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/11/Engine-change-at-New-Haven/">Engine change at New Haven</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>Beginning with a round-trip to Brattleboro, Vermont, in March 2013 for HighEdWeb New England, I made at least one round-trip on the <em><a href="https://blog.goodbyeplease.com/2013/03/16/route-guide-vermonter/">Vermonter</a></em> every year between 2013 and 2017, and then two more in 2019. I’ve logged 3,033 miles since 2013. I’ve made a couple of firsts aboard it as well: my first trip east of New York on the Northeast Corridor, and my first trip east of Springfield on CSX’s Boston Subdivision.</p>
+<p>The <em>Vermonter</em> makes a daily run from Washington, DC, to St. Albans, Vermont, just shy of the Canadian border. It uses Amtrak’s Northeast Corridor from Washington, DC, to New Haven, Connecticut (via New York City), then turns north to follow the Connecticut River through Springfield, Massachusetts, into Vermont. I’ve never been further north than Bellows Falls, Vermont; normally I don’t even take it into Vermont. I’ve also never taken it west of New York, not that there’s a reason to.</p>
+<p>The <em>Vermonter</em> has some unusual features. Up until the end of 2014, <a href="https://blog.goodbyeplease.com/hewebne-outbound/">it made a backup move at Palmer</a>, east of Springfield, to continue north toward Vermont. This took a good twenty minutes as the <em>Vermonter</em> pulled past the crossing the connecting track, stopped, the crew manually threw a switch, then reversed direction. It’s a J-turn, but on a railroad. The state acquisition of the Connecticut River Line, completed at the end of 2014, eliminated this operation, though for good measure the <em>Vermonter</em> still backs in and out of Springfield Union Station.</p>
+        
+          <p class="article-more-link">
+            <a href="/2021/05/11/Engine-change-at-New-Haven/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2021/05/11/Engine-change-at-New-Haven/" data-id="cm7cs8xoa003z8nmmbij6hswe" data-title="Engine change at New Haven" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Amtrak/" rel="tag">Amtrak</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/New-Haven/" rel="tag">New Haven</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vermonter/" rel="tag">Vermonter</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Circling-Deerfield-Park" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/09/Circling-Deerfield-Park/" class="article-date">
+  <time class="dt-published" datetime="2021-05-10T02:29:24.000Z" itemprop="datePublished">2021-05-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Outdoors/">Outdoors</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/09/Circling-Deerfield-Park/">Circling Deerfield Park</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <blockquote><p>A man is a very small thing, and the night is very large and full of wonders</p>
+<footer><strong>Lord Dunsany</strong><cite>Plays of Gods and Men</cite></footer></blockquote>
+<p>I’m back visiting my parents in Mt. Pleasant, Michigan, where I grew up and spent the first 18 years of my life. Mt. Pleasant is a small place. Even now, the permanent population is about 26,000. Central Michigan University, when it’s in session, adds another 20,000. It’s not even 8 square miles. A man can walk from Pickard Road, at the northern edge, to Broomfield in the south, in under an hour. Growing up, it didn’t seem that way. I counted it as a major achievement when I first bicycled to the southern edge of CMU’s campus. As we get older the familiar shrinks even as the unfamiliar expands.</p>
+<p><a target="_blank" rel="noopener" href="https://www.isabellacounty.org/departments/parks-recreation/parks/deerfield-nature-park-dnp/">Deerfield Park</a> is one of several parks on the Chippewa River, which runs through the county and city. It’s about five miles west of town, a stone’s throw though it didn’t seem that way once. It’s a little under two miles north-south and a little under a mile across at its widest point, though in that space are a multitude of trails, campsites, a generous sledding hill less dangerous than <a target="_blank" rel="noopener" href="http://www.mt-pleasant.org/departments/division_of_community_services/parks_and_recreation/parks/park_information.asp">Mission Creek</a>, and no fewer than four crossings of the river. In my memory, there was always a bridge that was hard to find, hidden away off the beaten path. Today, with clear skies and time to kill, I resolved to find all four bridges and settle the matter.</p>
+        
+          <p class="article-more-link">
+            <a href="/2021/05/09/Circling-Deerfield-Park/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2021/05/09/Circling-Deerfield-Park/" data-id="cm7cs8xo8002x8nmm5zee4774" data-title="Circling Deerfield Park" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Chippewa-River/" rel="tag">Chippewa River</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deerfield-Park/" rel="tag">Deerfield Park</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Walking/" rel="tag">Walking</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Apache-and-HTTP-2-on-AWS" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/02/12/Apache-and-HTTP-2-on-AWS/" class="article-date">
+  <time class="dt-published" datetime="2020-02-12T15:31:31.000Z" itemprop="datePublished">2020-02-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/02/12/Apache-and-HTTP-2-on-AWS/">Apache and HTTP/2 on AWS</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>I’ve spent the last few months building up a generic highly-available EC2 stack for our various on-premises applications. We’re using Apache as the webserver on EC2 since that’s what we’re familiar with. An interesting wrinkle is that, out-of-the-box, cURL and Safari didn’t work with WordPress running on this stack. cURL would return this cryptic error message:</p>
+<p><code>curl: (92) HTTP/2 stream 1 was not closed cleanly: PROTOCOL_ERROR (err 1)</code></p>
+<p>Safari refused to render the page at all, with this equally (un)helpful message:</p>
+        
+          <p class="article-more-link">
+            <a href="/2020/02/12/Apache-and-HTTP-2-on-AWS/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2020/02/12/Apache-and-HTTP-2-on-AWS/" data-id="cm7cs8xo5001w8nmmhpz7cw71" data-title="Apache and HTTP/2 on AWS" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP-2/" rel="tag">HTTP&#x2F;2</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TLS/" rel="tag">TLS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Using-TLS-ALPN-01-on-a-Raspberry-PI" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/02/03/Using-TLS-ALPN-01-on-a-Raspberry-PI/" class="article-date">
+  <time class="dt-published" datetime="2019-02-03T14:25:22.000Z" itemprop="datePublished">2019-02-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/02/03/Using-TLS-ALPN-01-on-a-Raspberry-PI/">Using TLS-ALPN-01 on a Raspberry PI</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p><img src="ALPN-not-Apline.jpg" alt="I'll always read ALPN as Alpine"></p>
+<p>I run Nextcloud on my Raspberry PI and I have a certificate from Let’s Encrypt on it. I set this up a couple years ago with certbot and it’s been fine. I don’t expose port 80 in my environment so I’ve relied on the TLS-SNI-01 challenge using the certbot client which ships on Raspbian Jessie.</p>
+<p>TLS-SNI-01 is now end-of-life because of <a target="_blank" rel="noopener" href="https://www.zdnet.com/article/lets-encrypt-disables-tls-sni-01-validation/">security vulnerabilities</a> so I needed to find an alternative. There are a couple different challenge methods available. Let’s Encrypt’s cerbot supports <a target="_blank" rel="noopener" href="https://letsencrypt.readthedocs.io/en/latest/challenges.html">two</a>:</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/02/03/Using-TLS-ALPN-01-on-a-Raspberry-PI/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2019/02/03/Using-TLS-ALPN-01-on-a-Raspberry-PI/" data-id="cm7cs8xor00c88nmm6k5g2xva" data-title="Using TLS-ALPN-01 on a Raspberry PI" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Let-s-Encrypt/" rel="tag">Let&#39;s Encrypt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raspberry-Pi/" rel="tag">Raspberry Pi</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Football/">Football</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/History/">History</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Humor/">Humor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movies/">Movies</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Music/">Music</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Outdoors/">Outdoors</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Trains/">Trains</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Travel/">Travel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Development/">Web Development</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/12/06/Mileage-problems-on-the-Long-Island-Rail-Road/">Mileage problems on the Long Island Rail Road</a>
+          </li>
+        
+          <li>
+            <a href="/2024/12/06/Pushing-to-GitHub-over-443/">Pushing to GitHub over 443</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/19/Packaging-a-Lambda-with-Nodejs-20-and-AWS-SDK-for-JavaScript-v2/">Packaging a Lambda with Nodejs 20 and AWS SDK for JavaScript v2</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/13/Devenv-python-and-packaging-Lambdas/">Devenv, python, and packaging Lambdas</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/10/A-visit-to-the-Bridgeview/">A visit to the Bridgeview</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 Charles Fulton <a rel="me noopener" target="_blank" href="https://higheredweb.social/@mackensen">Find me on Mastodon</a><br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+    <a href="/how-to-identify-a-train/" class="mobile-nav-link">How to identify a train</a>
+  
+    <a href="/b-movie-metric/" class="mobile-nav-link">B-movie metric</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

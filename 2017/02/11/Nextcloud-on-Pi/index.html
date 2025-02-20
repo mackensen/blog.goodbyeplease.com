@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Nextcloud on Pi | Goodbye Please</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="canonical" href="https://blog.goodbyeplease.com/2017/02/11/Nextcloud-on-Pi/"/>
+  <meta name="description" content="Following on with running Nextcloud, I decided to play around with Nextcloud. This is very much a work in progress, with all my failures and blind alleys lovingly detailed. Note: some guides refer to">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nextcloud on Pi">
+<meta property="og:url" content="https://blog.goodbyeplease.com/2017/02/11/Nextcloud-on-Pi/">
+<meta property="og:site_name" content="Goodbye Please">
+<meta property="og:description" content="Following on with running Nextcloud, I decided to play around with Nextcloud. This is very much a work in progress, with all my failures and blind alleys lovingly detailed. Note: some guides refer to">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-02-11T16:02:44.000Z">
+<meta property="article:modified_time" content="2025-02-20T03:07:34.796Z">
+<meta property="article:author" content="Charles Fulton">
+<meta property="article:tag" content="Nextcloud">
+<meta property="article:tag" content="Raspberry Pi">
+<meta property="article:tag" content="WebDAV">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Goodbye Please" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Goodbye Please</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Amtrak, B-Movies, Web Development, and other nonsense</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives/">Archives</a>
+        
+          <a class="main-nav-link" href="/how-to-identify-a-train/">How to identify a train</a>
+        
+          <a class="main-nav-link" href="/b-movie-metric/">B-movie metric</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blog.goodbyeplease.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Nextcloud-on-Pi" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/02/11/Nextcloud-on-Pi/" class="article-date">
+  <time class="dt-published" datetime="2017-02-11T16:02:44.000Z" itemprop="datePublished">2017-02-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Nextcloud on Pi
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>Following on with running <a href="/2017/02/06/Raspberry-Plex/" title="Raspberry Plex">Nextcloud</a>, I decided to play around with <a target="_blank" rel="noopener" href="https://nextcloud.com/">Nextcloud</a>. This is very much a work in progress, with all my failures and blind alleys lovingly detailed. Note: some guides refer to both ownCloud and Nextcloud almost interchangeably. Nextcloud is a fork of ownCloud; technologically they’re very close. The Nextcloud desktop client is a themed fork of ownCloud’s and they’re compatible with the other’s servers.</p>
+<h3><span id="web-application">Web application</span></h3>
+<p>At its core Nextcloud is a PHP application; setting those up isn’t complicated and there’s a <a target="_blank" rel="noopener" href="http://unixetc.co.uk/2016/11/20/simple-nextcloud-installation-on-raspberry-pi/">good guide</a> for doing so on a Raspberry Pi. I broke with it and opted for PHP 7 over for performance reasons. I used part of Andy Miller’s <a target="_blank" rel="noopener" href="https://getgrav.org/blog/raspberrypi-nginx-php7-dev">guide</a> for that (ignoring the Nginx stuff) but I found I needed more PHP modules:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install -t stretch php7.0 php7.0-gd php7.0-sqlite3 php7.0-curl php7.0-opcache php7.0-zip php7.0-xml php7.0-mbstring</span><br></pre></td></tr></table></figure>
+<h3><span id="data-storage">Data storage</span></h3>
+<p>I went down a number of blind alleys with the backend. If you’re planning to have the bulk of your storage live external to the Pi you shoud still keep Nextcloud’s data directory local. The first thing I tried doing was simply putting it on an NFS share as I’d done with Plex. This was a bad idea and didn’t work. Nextcloud supports a concept of <a target="_blank" rel="noopener" href="https://docs.nextcloud.com/server/11/admin_manual/configuration_files/external_storage_configuration_gui.html">external storage</a>; users can choose to add Samba shares, Google Drive folders, etc. That’s the proper way to attack the issue.</p>
+<p>I tried Samba/CIFS first. Mounting a share from the Synology NAS worked fine but after a successful initial sync I encountered <a target="_blank" rel="noopener" href="https://help.nextcloud.com/t/owncloud-sync-constantly-detecting-changes-in-mounted-cifs/1293">an error</a> in which I was notified every couple minutes about remote changes and prompted to resolve them, although no such changes had taken place. I ensured that the clocks were synced between my laptop, the Pi, and the NAS, but didn’t solve it. I think the root cause is <a target="_blank" rel="noopener" href="https://github.com/owncloud/client/issues/5260">this issue</a> in the ownCloud client; it’s solved in master but not in a compiled release. I encountered environment problems trying to compile the client and decided to try a different method.</p>
+<p>Happily, I encountered no problems setting up WebDAV. As with NFS, you do have to <a target="_blank" rel="noopener" href="https://www.synology.com/en-us/knowledgebase/DSM/tutorial/File_Sharing/How_to_access_files_on_Synology_NAS_with_WebDAV">enable it</a> on the Synology NAS, but once you’ve done that you can just add it as external storage. I found that I needed to re-do the sync with the client after changing external storage methods, even though they had the same directory structure. I’m still getting some spurious notifications from the Nextcloud client but they’re infrequent, don’t require action, and don’t steal focus.</p>
+<h3><span id="external-access">External access</span></h3>
+<p>I did all this as a proof-of-concept with HTTP access only and a local IP. To make this truly useful you need to be able to access your files from offsite. To make that practical and secure you need a domain name and an SSL certificate.</p>
+<p>I registered a domain from <a target="_blank" rel="noopener" href="https://www.hover.com/">hover</a>; a friend recommended them and they seemed reasonably priced. I pointed an A-record at my current IP, which is somewhat static. I didn’t bother with any dynamic DNS solutions; I can accept the 24 hours it takes for the record to propagate when my IP eventually changes.</p>
+<p>The Pi is behind two NATs: my cable modem and my wireless router. As with Plex I set 443 to forward from the outside world to the Pi. I think port 80 is blocked by my provider and I’m not offering anything on 80 anyway.</p>
+<p>For the SSL certificate I went with <a target="_blank" rel="noopener" href="https://letsencrypt.org/">Let’s Encrypt</a>. I’ve used them with other small projects. The <a target="_blank" rel="noopener" href="https://certbot.eff.org/#debianjessie-apache">instructions</a> for Certbot on Debian 8 (jessie) mostly worked; I found that I needed to <a target="_blank" rel="noopener" href="http://ccm.net/faq/809-debian-apt-get-no-pubkey-gpg-error">import</a> two repository keys. Once I did that I was able to run Certbot which handled all the SSL configuration on the host.</p>
+<h3><span id="cleaning-up">Cleaning up</span></h3>
+<p>With an HTTPS-fronted domain live I added that domain to the list of trusted domains on the server, then swapped out the client configuration on my laptop. Nextcloud appeared to recognize that it was dealing with the same server and didn’t need re-sync anything.</p>
+<p>I’ve been running in this configuration for close to a week and it’s been smooth sailing.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2017/02/11/Nextcloud-on-Pi/" data-id="cm7cs8xoi007q8nmma6736t94" data-title="Nextcloud on Pi" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nextcloud/" rel="tag">Nextcloud</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raspberry-Pi/" rel="tag">Raspberry Pi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebDAV/" rel="tag">WebDAV</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/13/What-I%E2%80%99m-reading/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          What I&#39;m reading
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/06/Raspberry-Plex/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Raspberry Plex</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="graphcomment"></div>
+  <script type="text/javascript">
+
+    /* - - - CONFIGURATION VARIABLES - - - */
+
+    var __semio__params = {
+      graphcommentId: "Goodbye-Please", // make sure the id is yours
+
+      behaviour: {
+        // HIGHLY RECOMMENDED
+        //  uid: "...", // uniq identifer for the comments thread on your page (ex: your page id)
+      },
+
+      // configure your variables here
+
+    }
+
+    /* - - - DON'T EDIT BELOW THIS LINE - - - */
+
+    function __semio__onload() {
+      __semio__gc_graphlogin(__semio__params)
+    }
+
+
+    (function() {
+      var gc = document.createElement('script'); gc.type = 'text/javascript'; gc.async = true;
+      gc.onload = __semio__onload; gc.defer = true; gc.src = 'https://integration.graphcomment.com/gc_graphlogin.js?' + Date.now();
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(gc);
+    })();
+    
+
+  </script>
+</section>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Football/">Football</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/History/">History</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Humor/">Humor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movies/">Movies</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Music/">Music</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Outdoors/">Outdoors</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Trains/">Trains</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Travel/">Travel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Development/">Web Development</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/12/06/Mileage-problems-on-the-Long-Island-Rail-Road/">Mileage problems on the Long Island Rail Road</a>
+          </li>
+        
+          <li>
+            <a href="/2024/12/06/Pushing-to-GitHub-over-443/">Pushing to GitHub over 443</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/19/Packaging-a-Lambda-with-Nodejs-20-and-AWS-SDK-for-JavaScript-v2/">Packaging a Lambda with Nodejs 20 and AWS SDK for JavaScript v2</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/13/Devenv-python-and-packaging-Lambdas/">Devenv, python, and packaging Lambdas</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/10/A-visit-to-the-Bridgeview/">A visit to the Bridgeview</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 Charles Fulton <a rel="me noopener" target="_blank" href="https://higheredweb.social/@mackensen">Find me on Mastodon</a><br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+    <a href="/how-to-identify-a-train/" class="mobile-nav-link">How to identify a train</a>
+  
+    <a href="/b-movie-metric/" class="mobile-nav-link">B-movie metric</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
