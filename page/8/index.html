@@ -80,6 +80,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Moodle-TypeScript-and-CDK" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/21/Moodle-TypeScript-and-CDK/" class="article-date">
+  <time class="dt-published" datetime="2022-11-21T18:25:02.000Z" itemprop="datePublished">2022-11-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/11/21/Moodle-TypeScript-and-CDK/">Moodle, TypeScript, and CDK</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>We moved our Moodle workloads to AWS in 2020, using CDK to manage the infrastructure. It’s one of our oldest such deployments and has been stable for years. I was nonplussed, to say the least, when, I attempted to update our development environment to the Moodle 4.1 beta and received almost 400 TypeScript errors like the one below:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public/lib/editor/tiny/js/tinymce/tinymce.d.ts(7,10): error TS2304: Cannot find name <span class="string">&#x27;Range&#x27;</span>.</span><br></pre></td></tr></table></figure>
+<p>It took me a few minutes to realize what I was actually looking at. We install the Moodle core code in the <code>public</code> directory of the project. CDK’s <code>npm run build</code> command wraps <code>tsc</code>, the typescript compiler, and it was looking at TypeScript modules inside the Moodle directory. Thanks to a helpful hint from <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/41465954/exclude-folder-when-compiling-typescript">Stackoverflow</a>, I modified <code>tsconfig.json</code> to exclude <code>public</code>:</p>
+        
+          <p class="article-more-link">
+            <a href="/2022/11/21/Moodle-TypeScript-and-CDK/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2022/11/21/Moodle-TypeScript-and-CDK/" data-id="cm8gpvmk0007aecsg0t8m0d4j" data-title="Moodle, TypeScript, and CDK" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDK/" rel="tag">CDK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Moodle/" rel="tag">Moodle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TypeScript/" rel="tag">TypeScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
     <article id="post-Octopussy" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/11/20/Octopussy/" class="article-date">
@@ -122,7 +175,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/20/Octopussy/" data-id="cm7cs8xok00898nmmc5b6c4fd" data-title="Octopussy" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/20/Octopussy/" data-id="cm8gpvmk2008kecsg4vl96q1q" data-title="Octopussy" class="article-share-link">Share</a>
       
       
       
@@ -179,7 +232,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/19/The-Forgotten-Workers-of-Isla-Nublar/" data-id="cm7cs8xop00ay8nmm9gul85sn" data-title="The Forgotten Workers of Isla Nublar" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/19/The-Forgotten-Workers-of-Isla-Nublar/" data-id="cm8gpvmk700b0ecsg2ecf3pdj" data-title="The Forgotten Workers of Isla Nublar" class="article-share-link">Share</a>
       
       
       
@@ -232,7 +285,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/15/Amtrak-Olympics/" data-id="cm7cs8xo4001g8nmm29m22h0g" data-title="Amtrak Olympics" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/15/Amtrak-Olympics/" data-id="cm8gpvmjl001gecsg9trh6ipy" data-title="Amtrak Olympics" class="article-share-link">Share</a>
       
       
       
@@ -289,7 +342,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/14/Resurrecting-Winter-Games-From-the-Dark-Side/" data-id="cm7cs8xon009l8nmm14nx1oum" data-title="Resurrecting Winter Games From the Dark Side" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/14/Resurrecting-Winter-Games-From-the-Dark-Side/" data-id="cm8gpvmk4009iecsghjn49ppq" data-title="Resurrecting Winter Games From the Dark Side" class="article-share-link">Share</a>
       
       
       
@@ -342,7 +395,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/13/In-search-of-rare-movies/" data-id="cm7cs8xoe005o8nmme5w58h75" data-title="In search of rare movies" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/13/In-search-of-rare-movies/" data-id="cm8gpvmjv005lecsga2k6ek3f" data-title="In search of rare movies" class="article-share-link">Share</a>
       
       
       
@@ -399,7 +452,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/11/Halloween-III-Season-of-the-Witch/" data-id="cm7cs8xoc00518nmm31ha5oh7" data-title="Halloween III: Season of the Witch" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/11/Halloween-III-Season-of-the-Witch/" data-id="cm8gpvmju0051ecsgaewwhelc" data-title="Halloween III: Season of the Witch" class="article-share-link">Share</a>
       
       
       
@@ -456,7 +509,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/08/Best-Worst-Movie/" data-id="cm7cs8xo6002c8nmm6yxngmkx" data-title="Best Worst Movie" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/08/Best-Worst-Movie/" data-id="cm8gpvmjo002fecsg5r1hh80z" data-title="Best Worst Movie" class="article-share-link">Share</a>
       
       
       
@@ -513,7 +566,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/05/All-aboard-the-Frimbo-Express/" data-id="cm7cs8xo300158nmmfben2bsz" data-title="All aboard the Frimbo Express" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/05/All-aboard-the-Frimbo-Express/" data-id="cm8gpvmjl0015ecsg1u7m83ib" data-title="All aboard the Frimbo Express" class="article-share-link">Share</a>
       
       
       
@@ -567,68 +620,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/03/Garbage-In-Garbage-Out/" data-id="cm7cs8xob004i8nmm9om1caou" data-title="Garbage In, Garbage Out" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/03/Garbage-In-Garbage-Out/" data-id="cm8gpvmjs004fecsg32rcdmut" data-title="Garbage In, Garbage Out" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDK/" rel="tag">CDK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cloudformation/" rel="tag">Cloudformation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Testing/" rel="tag">Testing</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Gymkata" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/11/02/Gymkata/" class="article-date">
-  <time class="dt-published" datetime="2022-11-02T13:31:47.000Z" itemprop="datePublished">2022-11-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Movies/">Movies</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/11/02/Gymkata/">Gymkata</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-      <div class="poster">
-        <img src="/2022/11/02/Gymkata/poster.jpg">
-      </div>
-      
-      
-        <p>Within the circle of people Liz and I knew through <a target="_blank" rel="noopener" href="https://b-fest.com/">B-Fest</a> at Northwestern University, <em>Gymkata</em> was somewhat legendary despite being a comparatively recent film (1985). For my part, I always have a soft spot in my heart for that very specific sort of 1980s film that doesn’t quite exist in the real world yet isn’t magical realism either. Films in the 1980s were allowed to be <em>weird</em>.</p>
-<p><em>Gymkata</em> was shown at the 2010 festival, <a target="_blank" rel="noopener" href="https://b-fest.com/history.html">allegedly at 9:15 PM</a>, after <em>Heartbeeps</em>. I’m in no position to quibble, but that’s early for me to fall asleep halfway through, and I remember <em><a href="/2014/04/18/Hard-Ticket-to-Hawaii/" title="Hard Ticket to Hawaii">Hard Ticket to Hawaii</a></em> and (ugh) <em>Sextette</em>. During a 24-hour film festival your brain enters a liminal state and you’ll believe all kinds of things. You’ll think <em>Beastmaster</em> and <em>Krull</em> are the same movie, and wonder (during <em>Krull</em>) when the hell Rip Torn is coming back. Bottom line, I nodded off at points and maintained for years afterwards that I’d missed the main part of the film.</p>
-<p>Having now watched <em>Gymkata</em> in a wakeful state, with the full benefit of my faculties…no, I didn’t miss all the much in 2010. It’s just that much of an incoherent mess. Robert Clouse directed, and there are similarities to his earlier (and far better) <em>Enter the Dragon</em>. The plot is this: it’s 1985, the United States is building SDI (“Star Wars”), and we want to install a satellite ground station in the fictional country of Parmistan, somewhere in the Hindu Kush. The Soviet Union is never mentioned. The country is closed to foreigners; all who enter Parmistan must compete in “the game”, which is a weird combination of the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Barkley_Marathons">Barkley Marathons</a> and a battle royale. Succeed, and your life is spared and you gain any wish within the power of Parmistan’s ruler.</p>
-        
-          <p class="article-more-link">
-            <a href="/2022/11/02/Gymkata/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/02/Gymkata/" data-id="cm7cs8xoc004w8nmm5m79h19z" data-title="Gymkata" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Eric-Lawson/" rel="tag">Eric Lawson</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gymkata/" rel="tag">Gymkata</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kurt-Thomas/" rel="tag">Kurt Thomas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Richard-Norton/" rel="tag">Richard Norton</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Robert-Clouse/" rel="tag">Robert Clouse</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tetchie-Agbayani/" rel="tag">Tetchie Agbayani</a></li></ul>
 
     </footer>
   </div>
@@ -669,7 +665,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
     </div>
   </div>
 
@@ -680,6 +676,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2025/03/19/Silver-Bears/">Silver Bears</a>
+          </li>
         
           <li>
             <a href="/2024/12/06/Mileage-problems-on-the-Long-Island-Rail-Road/">Mileage problems on the Long Island Rail Road</a>
@@ -695,10 +695,6 @@
         
           <li>
             <a href="/2024/11/13/Devenv-python-and-packaging-Lambdas/">Devenv, python, and packaging Lambdas</a>
-          </li>
-        
-          <li>
-            <a href="/2024/11/10/A-visit-to-the-Bridgeview/">A visit to the Bridgeview</a>
           </li>
         
       </ul>
