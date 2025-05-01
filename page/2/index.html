@@ -80,6 +80,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Moving-from-S3-Cloudfront-to-GitHub-pages" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/26/Moving-from-S3-Cloudfront-to-GitHub-pages/" class="article-date">
+  <time class="dt-published" datetime="2024-10-26T18:04:42.000Z" itemprop="datePublished">2024-10-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/10/26/Moving-from-S3-Cloudfront-to-GitHub-pages/">Moving from S3+Cloudfront to GitHub pages</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>I’ve used <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> to build this site for <a href="/2022/10/30/Adding-a-poster-to-movie-reviews-in-Hexo/" title="Adding a poster to movie reviews in Hexo">two years</a>. At the time, I kept my existing S3+Cloudfront hosting stack with a few minor tweaks. Yesterday I moved the whole thing over to <a target="_blank" rel="noopener" href="https://pages.github.com/">GitHub pages</a>.</p>
+<p>I had a few reasons for doing this. One, I’m doing a project at work to roll out GitHub Campus and I want to get more familiar with the architecture. Two, for various reasons I want to be less dependent on the Amazon environment. I figured moving a static site from one architecture wouldn’t be a big deal, and I was right.</p>
+<p>Hexo has a few deployment options. When I was using an S3 bucket I just rsynced the generated output, which won’t work here. The “right way” of handling the deployment would involve pushing source files and letting a GitHub Action build the site.  My local environment is a little unclean–I have some uncommitted package dependencies–so that’s not a great option. I can however use the one-command deployment option with <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a>. Per <a target="_blank" rel="noopener" href="https://hexo.io/docs/github-pages#One-command-deployment">Hexo’s documentation</a>, you add this to <code>_config.yml</code>:</p>
+        
+          <p class="article-more-link">
+            <a href="/2024/10/26/Moving-from-S3-Cloudfront-to-GitHub-pages/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2024/10/26/Moving-from-S3-Cloudfront-to-GitHub-pages/" data-id="cma5jtfib007e6wsg547t333c" data-title="Moving from S3+Cloudfront to GitHub pages" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
     <article id="post-Looking-up-the-Cloudformation-stack-for-a-resource" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/10/14/Looking-up-the-Cloudformation-stack-for-a-resource/" class="article-date">
@@ -118,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/10/14/Looking-up-the-Cloudformation-stack-for-a-resource/" data-id="cm9ktkd64006i30mmeezxc9ya" data-title="Looking up the Cloudformation stack for a resource" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/10/14/Looking-up-the-Cloudformation-stack-for-a-resource/" data-id="cma5jtfi9006p6wsg1ehn9vav" data-title="Looking up the Cloudformation stack for a resource" class="article-share-link">Share</a>
       
       
       
@@ -171,7 +224,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/10/14/How-to-install-the-free-version-of-Advanced-Custom-Fields-with-Composer/" data-id="cm9ktkd61005930mm18eod45w" data-title="How to install the free version of Advanced Custom Fields with Composer" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/10/14/How-to-install-the-free-version-of-Advanced-Custom-Fields-with-Composer/" data-id="cma5jtfi7005h6wsgf53ve7gn" data-title="How to install the free version of Advanced Custom Fields with Composer" class="article-share-link">Share</a>
       
       
       
@@ -224,7 +277,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/10/13/Fear-uncertainty-and-doubt/" data-id="cm9ktkd5y004h30mm5s5b03iq" data-title="Fear, uncertainty, and doubt" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/10/13/Fear-uncertainty-and-doubt/" data-id="cma5jtfi300496wsgdgdbhrss" data-title="Fear, uncertainty, and doubt" class="article-share-link">Share</a>
       
       
       
@@ -277,7 +330,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/10/12/The-call-is-coming-from-inside-the-house/" data-id="cm9ktkd6e00bw30mmg1ei4w48" data-title="The call is coming from inside the house" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/10/12/The-call-is-coming-from-inside-the-house/" data-id="cma5jtfii00bn6wsg2uwkemep" data-title="The call is coming from inside the house" class="article-share-link">Share</a>
       
       
       
@@ -332,7 +385,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/10/03/That-vacant-stare/" data-id="cm9ktkd6c00al30mm4hh7auo3" data-title="That vacant stare" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/10/03/That-vacant-stare/" data-id="cma5jtfih00as6wsg4r7y3kul" data-title="That vacant stare" class="article-share-link">Share</a>
       
       
       
@@ -383,7 +436,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/09/17/Notes-on-Cypress-and-visual-regression-testing/" data-id="cm9ktkd67008a30mm9f0z3i5c" data-title="Notes on Cypress and visual regression testing" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/09/17/Notes-on-Cypress-and-visual-regression-testing/" data-id="cma5jtfic008b6wsg2x529aiy" data-title="Notes on Cypress and visual regression testing" class="article-share-link">Share</a>
       
       
       
@@ -436,7 +489,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/08/29/Old-PHP-versions-in-devenv/" data-id="cm9ktkd67008d30mmdy9t067x" data-title="Old PHP versions in devenv" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/08/29/Old-PHP-versions-in-devenv/" data-id="cma5jtfid008i6wsg3jmj26j6" data-title="Old PHP versions in devenv" class="article-share-link">Share</a>
       
       
       
@@ -489,7 +542,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/08/27/Running-Moodle-cron-in-devenv/" data-id="cm9ktkd6b00a230mm34wt66os" data-title="Running Moodle cron in devenv" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/08/27/Running-Moodle-cron-in-devenv/" data-id="cma5jtfig00a46wsg9exeg072" data-title="Running Moodle cron in devenv" class="article-share-link">Share</a>
       
       
       
@@ -542,64 +595,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/08/26/Measuring-the-Raritan-Valley-Line/" data-id="cm9ktkd65006v30mm8adl9bjb" data-title="Measuring the Raritan Valley Line" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/08/26/Measuring-the-Raritan-Valley-Line/" data-id="cma5jtfia006v6wsgcvkma5a6" data-title="Measuring the Raritan Valley Line" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lehigh-Line/" rel="tag">Lehigh Line</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NJ-Transit/" rel="tag">NJ Transit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raritan-Valley-Line/" rel="tag">Raritan Valley Line</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Around-Long-Island-Sound" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/08/24/Around-Long-Island-Sound/" class="article-date">
-  <time class="dt-published" datetime="2024-08-25T03:36:47.000Z" itemprop="datePublished">2024-08-24</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Travel/">Travel</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/08/24/Around-Long-Island-Sound/">Around Long Island Sound</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-      
-        <p>It started over a cup of coffee. My friend Nate and I were having coffee at <a target="_blank" rel="noopener" href="https://threebirdscoffee.com/">ThreeBirds</a>. I was back from HighEdWeb North Carolina and getting ready for WPCampus. He was basking in a delightful trip <a target="_blank" rel="noopener" href="https://lifeafterdigital.com/2024/07/06/trains-museums-and-books-a-respite/">that he’d taken to DC</a> recently and was interested in replicating the experience–a trip taken for the trip’s sake. We didn’t set ourselves many parameters, save that we’d like to knock it out over a weekend and we wanted to travel by train wherever possible. We settled on circling <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Long_Island_Sound">Long Island Sound</a>.</p>
-<p>Long Island stretches 118 miles, from New York City to the Atlantic Ocean. North of it lies Connecticut. There are two ferries that cross it, one between Bridgeport and Port Jefferson, about halfway across; the other between Orient Point and New London, at the eastern end of the island. The Long Island Rail Road comes within a mile of one ferry and eight miles of the other. The various rail services on the Northeast Corridor have direct service to the ferry terminals in Connecticut. We devised a plan involving eight trains, three ferries, and two buses. Looks simple on the map, right?</p>
-<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1PZo7IR3VUDlD1DDTSE923ciyLXc0NeA" width="100%" height="300" frameborder="0" loading="lazy" allowfullscreen></iframe>
-        
-          <p class="article-more-link">
-            <a href="/2024/08/24/Around-Long-Island-Sound/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/08/24/Around-Long-Island-Sound/" data-id="cm9ktkd5t001v30mm08kz8w9q" data-title="Around Long Island Sound" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Amtrak/" rel="tag">Amtrak</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bridgeport-Port-Jefferson-Ferry/" rel="tag">Bridgeport &amp; Port Jefferson Ferry</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cross-Sound-Ferry/" rel="tag">Cross Sound Ferry</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Long-Island-Rail-Road/" rel="tag">Long Island Rail Road</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Metro-North-Railroad/" rel="tag">Metro-North Railroad</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NJ-Transit/" rel="tag">NJ Transit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/New-York-City-Subway/" rel="tag">New York City Subway</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shore-Line-East/" rel="tag">Shore Line East</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Suffolk-County-Transit/" rel="tag">Suffolk County Transit</a></li></ul>
 
     </footer>
   </div>
@@ -640,7 +640,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
     </div>
   </div>
 
@@ -651,6 +651,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2025/05/01/Brunswick/">Brunswick</a>
+          </li>
         
           <li>
             <a href="/2025/04/16/Mercury-in-Retrograde/">Mercury in Retrograde</a>
@@ -666,10 +670,6 @@
         
           <li>
             <a href="/2024/12/06/Pushing-to-GitHub-over-443/">Pushing to GitHub over 443</a>
-          </li>
-        
-          <li>
-            <a href="/2024/11/19/Packaging-a-Lambda-with-Nodejs-20-and-AWS-SDK-for-JavaScript-v2/">Packaging a Lambda with Nodejs 20 and AWS SDK for JavaScript v2</a>
           </li>
         
       </ul>

@@ -80,6 +80,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-EFS-mount-watchdog-and-CPU-usage" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/23/EFS-mount-watchdog-and-CPU-usage/" class="article-date">
+  <time class="dt-published" datetime="2022-11-23T21:22:23.000Z" itemprop="datePublished">2022-11-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/11/23/EFS-mount-watchdog-and-CPU-usage/">EFS mount watchdog and CPU usage</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>The moral of today’s story is that there is a direct relationship between the number of EFS mounts on an EC2 instance and the resting level of CPU usage.</p>
+<p>We ship our Fargate deployments with a bastion host if they contain an EFS filesystem and/or an RDS cluster. This takes the form of an EC2 autoscaling group. As we only need the bastion host for time-limited tasks, we keep the desired capacity at 0 by default and raise to 1 as needed. We use the scaling policies to ensure that the instance is turned down after a period of inactivity:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bastionCPUThreshold = opts.<span class="property">cpuThreshold</span> ?? <span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> bastionScalingPeriod = opts.<span class="property">scalingPeriod</span> ?? <span class="title class_">Duration</span>.<span class="title function_">minutes</span>(<span class="number">30</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">CPUUtilizationMetric</span> = <span class="keyword">new</span> <span class="title class_">Metric</span>(&#123;</span><br><span class="line">  <span class="attr">namespace</span>: <span class="string">&#x27;AWS/EC2&#x27;</span>,</span><br><span class="line">  <span class="attr">metricName</span>: <span class="string">&#x27;CPUUtilization&#x27;</span>,</span><br><span class="line">  <span class="attr">dimensionsMap</span>: &#123;</span><br><span class="line">  <span class="title class_">AutoScalingGroupName</span>: <span class="variable language_">this</span>.<span class="property">autoScalingGroup</span>.<span class="property">autoScalingGroupName</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">period</span>: bastionScalingPeriod,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> scalingPolicy = <span class="variable language_">this</span>.<span class="property">autoScalingGroup</span>.<span class="title function_">scaleOnMetric</span>(<span class="string">&#x27;ScaleToCPU&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">metric</span>: <span class="title class_">CPUUtilizationMetric</span>,</span><br><span class="line">  <span class="attr">scalingSteps</span>: [</span><br><span class="line">  &#123; <span class="attr">upper</span>: bastionCPUThreshold, <span class="attr">change</span>: <span class="number">0</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">lower</span>: bastionCPUThreshold, <span class="attr">change</span>: <span class="number">1</span> &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">adjustmentType</span>: <span class="title class_">AdjustmentType</span>.<span class="property">EXACT_CAPACITY</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2022/11/23/EFS-mount-watchdog-and-CPU-usage/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2022/11/23/EFS-mount-watchdog-and-CPU-usage/" data-id="cma5jtfi300456wsg5r0z67yv" data-title="EFS mount watchdog and CPU usage" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDK/" rel="tag">CDK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EFS/" rel="tag">EFS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
     <article id="post-Customizing-the-CDK-bootstrap-stack" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/11/22/Customizing-the-CDK-bootstrap-stack/" class="article-date">
@@ -118,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/22/Customizing-the-CDK-bootstrap-stack/" data-id="cm9ktkd5w003530mm0xx56r9w" data-title="Customizing the CDK bootstrap stack" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/22/Customizing-the-CDK-bootstrap-stack/" data-id="cma5jtfi100346wsggtsa6ocg" data-title="Customizing the CDK bootstrap stack" class="article-share-link">Share</a>
       
       
       
@@ -171,7 +224,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/21/Moodle-TypeScript-and-CDK/" data-id="cm9ktkd65007b30mm5a4a6xtj" data-title="Moodle, TypeScript, and CDK" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/21/Moodle-TypeScript-and-CDK/" data-id="cma5jtfia007b6wsg90xb1ygl" data-title="Moodle, TypeScript, and CDK" class="article-share-link">Share</a>
       
       
       
@@ -228,7 +281,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/20/Octopussy/" data-id="cm9ktkd68008k30mm9yzeggp8" data-title="Octopussy" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/20/Octopussy/" data-id="cma5jtfic008e6wsgato62a32" data-title="Octopussy" class="article-share-link">Share</a>
       
       
       
@@ -285,7 +338,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/19/The-Forgotten-Workers-of-Isla-Nublar/" data-id="cm9ktkd6c00b130mm5ch421lq" data-title="The Forgotten Workers of Isla Nublar" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/19/The-Forgotten-Workers-of-Isla-Nublar/" data-id="cma5jtfih00b06wsget1s1vwa" data-title="The Forgotten Workers of Isla Nublar" class="article-share-link">Share</a>
       
       
       
@@ -338,7 +391,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/15/Amtrak-Olympics/" data-id="cm9ktkd5r001630mm7b49hawl" data-title="Amtrak Olympics" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/15/Amtrak-Olympics/" data-id="cma5jtfhx001h6wsgg2xc3dh7" data-title="Amtrak Olympics" class="article-share-link">Share</a>
       
       
       
@@ -395,7 +448,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/14/Resurrecting-Winter-Games-From-the-Dark-Side/" data-id="cm9ktkd6a009u30mm471jhj94" data-title="Resurrecting Winter Games From the Dark Side" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/14/Resurrecting-Winter-Games-From-the-Dark-Side/" data-id="cma5jtfif009w6wsgcv2e6plb" data-title="Resurrecting Winter Games From the Dark Side" class="article-share-link">Share</a>
       
       
       
@@ -448,7 +501,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/13/In-search-of-rare-movies/" data-id="cm9ktkd62005f30mmfjtr51cn" data-title="In search of rare movies" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/13/In-search-of-rare-movies/" data-id="cma5jtfi8005r6wsg8sbk31dy" data-title="In search of rare movies" class="article-share-link">Share</a>
       
       
       
@@ -505,7 +558,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/11/Halloween-III-Season-of-the-Witch/" data-id="cm9ktkd5z004u30mm915za3fv" data-title="Halloween III: Season of the Witch" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/11/Halloween-III-Season-of-the-Witch/" data-id="cma5jtfi500526wsg4er22ziz" data-title="Halloween III: Season of the Witch" class="article-share-link">Share</a>
       
       
       
@@ -562,68 +615,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/08/Best-Worst-Movie/" data-id="cm9ktkd5u002d30mm03jyf81c" data-title="Best Worst Movie" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/08/Best-Worst-Movie/" data-id="cma5jtfhz002a6wsg9l95c4lg" data-title="Best Worst Movie" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Best-Worst-Movie/" rel="tag">Best Worst Movie</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Claudio-Fragasso/" rel="tag">Claudio Fragasso</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Michael-Stephenson/" rel="tag">Michael Stephenson</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Troll-2/" rel="tag">Troll 2</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-All-aboard-the-Frimbo-Express" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/11/05/All-aboard-the-Frimbo-Express/" class="article-date">
-  <time class="dt-published" datetime="2022-11-05T12:32:28.000Z" itemprop="datePublished">2022-11-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Travel/">Travel</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/11/05/All-aboard-the-Frimbo-Express/">All aboard the Frimbo Express</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-      
-        <p>The late <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Rogers_E._M._Whitaker">Rogers E. M. Whitaker</a> is a personal hero of mine. Under the name E. M. Frimbo, the “World’s Greatest Railroad Buff”, he wrote numerous columns for the <em>New Yorker</em> about various train trips he taken, many in various out-of-the-way places. A number of these columns were collected in <em><a target="_blank" rel="noopener" href="https://archive.org/details/allaboardwithemf00whit">All Aboard with E. M. Frimbo, World’s Greatest Railroad Buff</a></em>, of which I own several copies and is a charming read. Perhaps less well known is that Whitaker also covered college football for 30 years.</p>
-<p>Back in 2008, I was working for Kalamazoo College (my alma mater) as a desktop engineer and, as I wrote at the time, “[i]n a fit of madness I promised the Athletics Department that I would attend a road football game this year.” Thus it was that several friends joined me amidst the remnants of Hurricane Ike for a football game in Rockford, Illinois, which Kalamazoo won 17-14. The story of driving through that weather has lost nothing in the telling over the years. A minor tradition was established, and we made similar trips in 2009 and 2010:</p>
-<ul>
-<li>September 13, 2008: Sam Greeley Field in Rockford, Illinois</li>
-<li>September 19, 2009: Burt Field in North Manchester, Indiana</li>
-<li>September 25, 2010: Benedictine Sports Complex in Lisle, Illinois</li>
-</ul>
-        
-          <p class="article-more-link">
-            <a href="/2022/11/05/All-aboard-the-Frimbo-Express/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/05/All-aboard-the-Frimbo-Express/" data-id="cm9ktkd5r000y30mmconl14d2" data-title="All aboard the Frimbo Express" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Football/" rel="tag">Football</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Frimbo-Express/" rel="tag">Frimbo Express</a></li></ul>
 
     </footer>
   </div>
@@ -664,7 +660,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
     </div>
   </div>
 
@@ -675,6 +671,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2025/05/01/Brunswick/">Brunswick</a>
+          </li>
         
           <li>
             <a href="/2025/04/16/Mercury-in-Retrograde/">Mercury in Retrograde</a>
@@ -690,10 +690,6 @@
         
           <li>
             <a href="/2024/12/06/Pushing-to-GitHub-over-443/">Pushing to GitHub over 443</a>
-          </li>
-        
-          <li>
-            <a href="/2024/11/19/Packaging-a-Lambda-with-Nodejs-20-and-AWS-SDK-for-JavaScript-v2/">Packaging a Lambda with Nodejs 20 and AWS SDK for JavaScript v2</a>
           </li>
         
       </ul>
