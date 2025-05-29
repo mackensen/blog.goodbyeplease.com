@@ -6,7 +6,7 @@
   <link href="https://blog.goodbyeplease.com/atom.xml" rel="self"/>
   
   <link href="https://blog.goodbyeplease.com/"/>
-  <updated>2025-05-01T15:50:40.540Z</updated>
+  <updated>2025-05-29T00:23:52.018Z</updated>
   <id>https://blog.goodbyeplease.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LANTA June 2025 changes</title>
+    <link href="https://blog.goodbyeplease.com/2025/05/28/LANTA-June-2025-changes/"/>
+    <id>https://blog.goodbyeplease.com/2025/05/28/LANTA-June-2025-changes/</id>
+    <published>2025-05-28T23:52:31.000Z</published>
+    <updated>2025-05-29T00:23:52.018Z</updated>
+    
+    <content type="html"><![CDATA[<p>The Lehigh and Northampton Transportation Authority (LANTA) is <a href="https://lantabus.com/june-2025-service-changes/">restructuring its routes</a> at the end of June this year. Some interesting changes within Easton:</p><ul><li>West Ward / College Hill: <a href="https://lantabus.com/june-2025-service-changes/route-106/">Route 106</a>, which currently runs from downtown  Easton north to the Palmer Industrial Park via PA 248, is being extended from Easton up Cattell and Sullivan Trail to Forks Plaza. In addition, it’s frequency is increasing to half-hourly between Easton Hospital and Forks. <a href="https://lantabus.com/routes-and-schedules/route-214/">Route 214</a>, currently running from dowtown Easton to the Forks Industrial Park on an hourly schedule, goes down every three hours and meanders around in Forks.</li><li>Downtown / Northampton Crossings: <a href="https://lantabus.com/routes-and-schedules/route-216/">Route 216</a> was running on a not-quite-hourly schedule from downtown up PA 248 to Northampton Crossings and making local stops on Northampton Street. It loops on Greenwood now and doesn’t go up 248, with a reduced schedule.</li></ul><p>The big change here is the vastly improved access between the West Ward and College Hill. In theory you could make a connection with the 216 downtown but (a) buses weren’t held for it and (b) it was hourly. Now the bus becomes a viable option for reaching campus. Losing some local service on Northampton is offset by the more frequent service on Lehigh/Washington, and I was already using it more often anyway.</p>]]></content>
+    
+    
+    <summary type="html">Thoughts on LANTA service changes for June 2025.</summary>
+    
+    
+    
+    <category term="Travel" scheme="https://blog.goodbyeplease.com/categories/Travel/"/>
+    
+    
+    <category term="LANTA" scheme="https://blog.goodbyeplease.com/tags/LANTA/"/>
+    
+  </entry>
   
   <entry>
     <title>Brunswick</title>
@@ -478,31 +499,6 @@
     <category term="Moodle" scheme="https://blog.goodbyeplease.com/tags/Moodle/"/>
     
     <category term="Nix" scheme="https://blog.goodbyeplease.com/tags/Nix/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Measuring the Raritan Valley Line</title>
-    <link href="https://blog.goodbyeplease.com/2024/08/26/Measuring-the-Raritan-Valley-Line/"/>
-    <id>https://blog.goodbyeplease.com/2024/08/26/Measuring-the-Raritan-Valley-Line/</id>
-    <published>2024-08-27T00:22:01.000Z</published>
-    <updated>2025-02-20T03:07:34.792Z</updated>
-    
-    <content type="html"><![CDATA[<p>Like many railfans (including the great E. M. Frimbo) I keep track of my mileage. I have a spreadsheet with the trains and routes I’ve been on, including dates and most importantly distances. I can tell you that I passed 100,000 miles on Amtrak on January 7, 2020, on the <em>Capitol Limited</em>, roughly 163 miles west of Washington, DC. This means I can I get a little obsessive about determining mileage, and can send me down a rabbit hole if it’s unclear what distance I traveled.</p><p>Railroads used to include mileage information in their timetables. Amtrak did right up until the discontinuance of paper timetables in the last few years. For railroads in Europe, the best source of information are the railway atlases published by <a href="https://www.ekshop.de/buecher/Schweers-Wall/">Schweers + Wall</a>. These maps are extraordinarily detailed, showing lines and distances (in kilometers). For the US, the best source of distance are <a href="https://en.wikipedia.org/wiki/Working_timetable">employee timetables</a>. As the source suggests, these are internal documents used by employees. They show distances, sidings, speed limits, and include various rules governing operation. Distance doesn’t change all that often, so older employee timetables can still be useful.</p><p>I’ve made 14 trips on NJ Transit’s <a href="https://en.wikipedia.org/wiki/Raritan_Valley_Line">Raritan Valley Line</a> since 2016. But first, a nomenclature issue. The Raritan Valley Line is both a physical piece of infrastructure and a <em>service</em> that uses that infrastructure and the two are <strong>not</strong> coterminous. The <em>service</em> runs from High Bridge, New Jersey (Raritan on weekdays) to Newark, New Jersey. A limited number of trains continue from Newark to Pennsylvania Station in New York, but usually you transfer in New York.</p><p>The <em>infrastructure</em> is that part of the former Central Railroad of New Jersey main line that the state bought. It also starts at High Bridge, but it’s been abandoned east of Aldene (see <a href="https://en.wikipedia.org/wiki/Aldene_Connection">Aldene Connection</a> on Wikipedia for the gory details). From Aldene, the service uses part of the former Lehigh Valley Railroad main line to reach Amtrak’s Northeast Corridor. Conrail owns this portion. Finally, the service uses the Northeast Corridor for a little under two miles to reach Newark Penn.</p><p>A train running from Raritan to Newark uses lines built by the Central Railroad of New Jersey, Lehigh Valley Railroad, and Pennsylvania Railroad (Northeast Corridor). A public timetable would just show the mileage from New York City; employee timetables will show the mileage based on a particular lines termini, and in this case those don’t match up. The building of the Aldene Connection is a further complication; employee timetables from before 1967 won’t have the right information. You also can’t blindly trust the milepost that a station is located at; all modern internal timetables place Newark Penn at MP 8.8. Newark is 10 miles from New York Penn.</p><p>Last week I acquired an NJ Transit employee timetable (2005 vintage, new enough) that helped me resolve all these quandaries and determine my mileage from Raritan. First, all mileage on the ex-CNJ is still reckoned based on the long-disused <a href="https://en.wikipedia.org/wiki/Central_Railroad_of_New_Jersey_Terminal">Communipaw Terminal</a>. Raritan is at MP 35.9; the Aldene Connection is MP 15.0. That’s 20.9 miles. From Aldene we’re on the ex-Lehigh Valley; the Lehigh Valley main line started at 1.0 in Jersey City; <a href="http://www.lvrr.anthraciterailroads.org/lvrr-operations/on-line-customers-and-interchange-traffic/on-line-customers/new-york-division-main-line/">the 0.0 signified barge service</a> across the Hudson to Manhattan. No, the Hudson isn’t exactly a mile across. Aldene is MP 16.9 on the Lehigh Line. Newark is MP 8.8; so that’s 8.1 miles.</p><p>If you’re still here you might object that Newark is Pennsylvania Railroad territory and there should be a mismatch. I agree and there isn’t. I found a <a href="https://drive.google.com/file/d/1yhJ8x8F-7D8F5zSI11p_mQmAUwGUBHGh/view">Pennsylvania Railroad employee timetable</a> from 1939 that shows Newark at 10 miles from New York and Hunter, roughly where the Lehigh Valley Railroad connects, at 11.8 (it’s at 10.5 now). In the absence of evidence I’ll blame Conrail for this. Anyway, it’s 10 miles from Newark to New York. Amtrak deals with the numbering issue when you get to Harold Interlocking, between Newark and Secaucus Junction. It’s indicated as “MP 8.3/7.2”, and it’s about .1 mile across. Congratulations, everything adds up now.</p><p>That’s the story of calculating the distance from Raritan to New York Penn. Raritan, located at MP 35.9 on the Raritan Valley Line, is 39 miles from New  York on a Raritan Valley Line train.</p>]]></content>
-    
-    
-    <summary type="html">An abstruse exercise in calculating railroad mileage.</summary>
-    
-    
-    
-    <category term="Travel" scheme="https://blog.goodbyeplease.com/categories/Travel/"/>
-    
-    
-    <category term="NJ Transit" scheme="https://blog.goodbyeplease.com/tags/NJ-Transit/"/>
-    
-    <category term="Raritan Valley Line" scheme="https://blog.goodbyeplease.com/tags/Raritan-Valley-Line/"/>
-    
-    <category term="Lehigh Line" scheme="https://blog.goodbyeplease.com/tags/Lehigh-Line/"/>
     
   </entry>
   

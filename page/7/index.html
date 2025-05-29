@@ -80,6 +80,72 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Enabling-a-PHP-extension-in-Nix" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/14/Enabling-a-PHP-extension-in-Nix/" class="article-date">
+  <time class="dt-published" datetime="2023-11-14T22:58:10.000Z" itemprop="datePublished">2023-11-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/11/14/Enabling-a-PHP-extension-in-Nix/">Enabling a PHP extension in Nix</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>Following up on <a href="/2023/10/24/Nix-flake-with-Node-and-PHP/" title="Nix flake with Node and PHP">Nix flake with Node and PHP</a>, I needed to enable an extension (in this case, MongoDB). The end result is simple enough, but getting there was a little tricky.</p>
+<!-- toc -->
+<ul>
+<li><a href="#a-complete-flake">A complete flake</a>
+<ul>
+<li><a href="#inputs">Inputs</a></li>
+<li><a href="#outputs">Outputs</a></li>
+<li><a href="#letin">Let…in</a></li>
+<li><a href="#system">System</a></li>
+<li><a href="#php">PHP</a></li>
+<li><a href="#shell">Shell</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h2><span id="a-complete-flake">A complete flake</span></h2>
+        
+          <p class="article-more-link">
+            <a href="/2023/11/14/Enabling-a-PHP-extension-in-Nix/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2023/11/14/Enabling-a-PHP-extension-in-Nix/" data-id="cmb8mu2uu003xntmmgup4h3u2" data-title="Enabling a PHP extension in Nix" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nix/" rel="tag">Nix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
     <article id="post-Piecing-together-Indian-Trails-ticket-pricing" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/11/14/Piecing-together-Indian-Trails-ticket-pricing/" class="article-date">
@@ -118,7 +184,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/11/14/Piecing-together-Indian-Trails-ticket-pricing/" data-id="cma5jtfid008x6wsg2n59ekjt" data-title="Piecing together Indian Trails ticket pricing" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/11/14/Piecing-together-Indian-Trails-ticket-pricing/" data-id="cmb8mu2v5008xntmmhxc82280" data-title="Piecing together Indian Trails ticket pricing" class="article-share-link">Share</a>
       
       
       
@@ -171,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/11/13/Managing-your-WordPress-revisions/" data-id="cma5jtfi9006s6wsg86hk2elr" data-title="Managing your WordPress revisions" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/11/13/Managing-your-WordPress-revisions/" data-id="cmb8mu2v1006rntmm6ij566wm" data-title="Managing your WordPress revisions" class="article-share-link">Share</a>
       
       
       
@@ -224,7 +290,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/11/12/A-day-at-the-train-show/" data-id="cma5jtfhv000m6wsgfahcd9h3" data-title="A day at the train show" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/11/12/A-day-at-the-train-show/" data-id="cmb8mu2um000intmm8y48f0i9" data-title="A day at the train show" class="article-share-link">Share</a>
       
       
       
@@ -277,7 +343,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/10/24/Nix-flake-with-Node-and-PHP/" data-id="cma5jtfic007x6wsg3zb40aa1" data-title="Nix flake with Node and PHP" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/10/24/Nix-flake-with-Node-and-PHP/" data-id="cmb8mu2v40089ntmmcnbabjs3" data-title="Nix flake with Node and PHP" class="article-share-link">Share</a>
       
       
       
@@ -330,7 +396,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/10/22/This-blog-post-was-written-with-Hexo-and-Nix/" data-id="cma5jtfij00c06wsg9ld7foid" data-title="This blog post was written with Hexo and Nix" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/10/22/This-blog-post-was-written-with-Hexo-and-Nix/" data-id="cmb8mu2vc00c6ntmmdju5c1wl" data-title="This blog post was written with Hexo and Nix" class="article-share-link">Share</a>
       
       
       
@@ -387,7 +453,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/10/16/Space-Probe-Taurus/" data-id="cma5jtfig00am6wsgc4rpfzso" data-title="Space Probe Taurus" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/10/16/Space-Probe-Taurus/" data-id="cmb8mu2v800akntmm1l6ya3gc" data-title="Space Probe Taurus" class="article-share-link">Share</a>
       
       
       
@@ -440,7 +506,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/10/16/So-your-Google-WiFi-pucks-have-the-slows/" data-id="cma5jtfig00ac6wsgemw59erd" data-title="So your Google WiFi pucks have the slows" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/10/16/So-your-Google-WiFi-pucks-have-the-slows/" data-id="cmb8mu2v800afntmm4sz0a57t" data-title="So your Google WiFi pucks have the slows" class="article-share-link">Share</a>
       
       
       
@@ -493,7 +559,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/03/28/Multiple-PHP-versions-under-the-same-domain/" data-id="cma5jtfib007l6wsg11cy9f73" data-title="Multiple PHP versions under the same domain" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/03/28/Multiple-PHP-versions-under-the-same-domain/" data-id="cmb8mu2v2007fntmm0p5eeip7" data-title="Multiple PHP versions under the same domain" class="article-share-link">Share</a>
       
       
       
@@ -546,64 +612,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/03/14/Browser-Headers-and-WordPress/" data-id="cma5jtfi0002k6wsg76qi49u9" data-title="Browser Headers and WordPress" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/03/14/Browser-Headers-and-WordPress/" data-id="cmb8mu2ur002gntmmhgpr5qdc" data-title="Browser Headers and WordPress" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cloudfront/" rel="tag">Cloudfront</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WordPress/" rel="tag">WordPress</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Proxying-Cloudfront-with-Nginx" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/11/29/Proxying-Cloudfront-with-Nginx/" class="article-date">
-  <time class="dt-published" datetime="2022-11-30T00:28:42.000Z" itemprop="datePublished">2022-11-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/11/29/Proxying-Cloudfront-with-Nginx/">Proxying Cloudfront with Nginx</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-      
-        <p>Don’t do this.</p>
-<p>You’re still here? Cool, let’s continue. For complicated reasons involving a legacy on-premises application I had a static site on AWS that I needed to route to with an Nginx reverse proxy. The application architecture included several locations, each of which was proxied to a different port on an on-premises server. The <em>landing page</em>, and only the landing page (and its assets), are on Cloudfront. For historical reasons, I needed to have this entire collection under a single DNS name.</p>
-<h2><span id="location-location">Location, location …</span></h2>
-        
-          <p class="article-more-link">
-            <a href="/2022/11/29/Proxying-Cloudfront-with-Nginx/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/29/Proxying-Cloudfront-with-Nginx/" data-id="cma5jtfie009c6wsgdjnb4r7l" data-title="Proxying Cloudfront with Nginx" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cloudfront/" rel="tag">Cloudfront</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li></ul>
 
     </footer>
   </div>
@@ -657,6 +670,10 @@
       <ul>
         
           <li>
+            <a href="/2025/05/28/LANTA-June-2025-changes/">LANTA June 2025 changes</a>
+          </li>
+        
+          <li>
             <a href="/2025/05/01/Brunswick/">Brunswick</a>
           </li>
         
@@ -670,10 +687,6 @@
         
           <li>
             <a href="/2024/12/06/Mileage-problems-on-the-Long-Island-Rail-Road/">Mileage problems on the Long Island Rail Road</a>
-          </li>
-        
-          <li>
-            <a href="/2024/12/06/Pushing-to-GitHub-over-443/">Pushing to GitHub over 443</a>
           </li>
         
       </ul>
