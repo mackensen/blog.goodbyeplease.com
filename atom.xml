@@ -6,7 +6,7 @@
   <link href="https://blog.goodbyeplease.com/atom.xml" rel="self"/>
   
   <link href="https://blog.goodbyeplease.com/"/>
-  <updated>2025-05-29T00:23:52.018Z</updated>
+  <updated>2025-06-21T01:25:37.851Z</updated>
   <id>https://blog.goodbyeplease.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Empty tags in a thumbsup album</title>
+    <link href="https://blog.goodbyeplease.com/2025/06/20/Empty-tags-in-a-thumbsup-album/"/>
+    <id>https://blog.goodbyeplease.com/2025/06/20/Empty-tags-in-a-thumbsup-album/</id>
+    <published>2025-06-20T23:59:06.000Z</published>
+    <updated>2025-06-21T01:25:37.851Z</updated>
+    
+    <content type="html"><![CDATA[<p>I’m migrating my older galleries from Flickr to my self-hosted <a href="https://galleries.goodbyeplease.com">static gallery site</a> based on <a href="https://thumbsup.github.io">thumbsup</a>. This is a slow process because I’m reconciling my local copies with Flickr; for some of the older albums I don’t have local copies. In those cases, I download the originals and rewrite the metadata.</p><p>I ran into one interesting problem. With my configuration thumbsup usually generates three top-level containers:</p><ul><li>Tags</li><li>Years</li><li>Albums</li></ul><p>Instead, it was generating <em>four</em> containers, with Tags repeated:</p><ul><li>Tags</li><li>Years</li><li>Albums</li><li>Tags</li></ul><p>This second “Tags” contained only seven images, all of which I’d downloaded from Flickr. The first “Tags”, meanwhile, was effectively overwritten by the second, so I couldn’t just leave it. After false starts, I got on the right track when I realized that <a href="https://www.lynapp.com">Lyn</a>, which I use for desktop gallery browsing, didn’t recognize my custom tags.</p><h2><span id="metadata">Metadata</span></h2><p>There are a dizzying number of metadata formats and tags. The <a href="https://exiftool.org/TagNames/index.html">ExifTool documentation</a> recognizes 17,676 unique tag names spread across 150 formats. The two most prominent for this use case are <a href="https://en.wikipedia.org/wiki/International_Press_Telecommunications_Council#Photo_metadata">IPTC</a> (which stands for International Press Telecommunications Council) and <a href="https://en.wikipedia.org/wiki/Extensible_Metadata_Platform">XMP</a> (Extensible Metadata Platform). Each defines their own tag for keywords. XMP uses <code>Subject</code>, while IPTC uses <code>Keywords</code>. Both expect a comma-separated list of strings. Thumbsup supports both, plus <code>keywords</code>, which <a href="https://www.organizepictures.com/2013/09/everything-you-need-to-know-about-picasa-metadata">Picasa used</a>.</p><p>My PHP wrapper script invokes <a href="https://exiftool.org">ExifTool</a> and uses the <code>-keywords</code> argument. I briefly thought this meant I was using the Picasa tag. In fact, the <code>-keywords</code> argument in ExifTool will populate the correct tag(s) based on the existing metadata in the file.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> For my images this means the IPTC tag, so examining them reveals that <code>Keywords</code> is set.</p><p>The problem is that the files I downloaded from Flickr had an empty <code>Subject</code> tag, which conflicted with the custom value I was writing to <code>keywords</code>. My immediate fix was to remove <code>Subject</code> from the files:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">exiftool -Subject=/path/to/file*.jpg</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>That did resolve the immediate issue, by removing the erroneous second “Tags”.</p><hr class="footnotes-sep"><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p>See this <a href="https://exiftool.org/forum/index.php?topic=15344.0">forum post</a> and <a href="https://exiftool.org/exiftool_pod.html#TAG---VALUE">related documentation</a> for more information. <a href="#fnref1" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content>
+    
+    
+    <summary type="html">Resolving conflicts between Subject and Keywords</summary>
+    
+    
+    
+    <category term="Web Development" scheme="https://blog.goodbyeplease.com/categories/Web-Development/"/>
+    
+    
+    <category term="thumbsup" scheme="https://blog.goodbyeplease.com/tags/thumbsup/"/>
+    
+    <category term="exif" scheme="https://blog.goodbyeplease.com/tags/exif/"/>
+    
+  </entry>
   
   <entry>
     <title>LANTA June 2025 changes</title>
@@ -476,29 +499,6 @@
     <category term="Nix" scheme="https://blog.goodbyeplease.com/tags/Nix/"/>
     
     <category term="PHP" scheme="https://blog.goodbyeplease.com/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Running Moodle cron in devenv</title>
-    <link href="https://blog.goodbyeplease.com/2024/08/27/Running-Moodle-cron-in-devenv/"/>
-    <id>https://blog.goodbyeplease.com/2024/08/27/Running-Moodle-cron-in-devenv/</id>
-    <published>2024-08-27T14:42:28.000Z</published>
-    <updated>2025-02-20T03:07:34.820Z</updated>
-    
-    <content type="html"><![CDATA[<p>I have a Moodle development project coming up and this is a good a time as any to experiment with setting up a Moodle environment in <a href="http://devenv.sh">devenv.sh</a>. One immediate issue is that Moodle depends on <a href="https://docs.moodle.org/404/en/Cron#Scheduling_tasks">background tasks</a> running almost constantly. Devenv has a set of supported <a href="https://devenv.sh/services/">services</a> and cron isn’t one of them. Devenv <em>does</em> support the concept of processes, which are just background tasks. Can I apply that Techmint article on How to <a href="https://www.tecmint.com/schedule-job-without-cron-linux/">Schedule a Linux Job Without Cron</a>?</p><p>Sure can:</p><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="attr">processes.cron.exec</span> <span class="operator">=</span> <span class="string">&quot;while true; do php public/admin/cli/cron.php ; sleep 60 ; done&quot;</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>As a bonus, the output will log to process-compose (see <a href="/2024/08/21/Moving-from-nix-flakes-to-devenv/" title="Moving from nix flakes to devenv">Moving from nix flakes to devenv</a> for more on that). One gotcha: you should set Keep alive in Task processing to 0 otherwise the log gets spammed with cron retrying notices. You might want to disable that regardless, per the <a href="https://tracker.moodle.org/browse/MDL-79034">bug report</a> I filed. The Moodle keep alive setting has unpleasant consequences if you’re hosting on AWS or somewhere else with a consumption model.</p>]]></content>
-    
-    
-    <summary type="html">Configuring a cron job without a crontab</summary>
-    
-    
-    
-    <category term="Web Development" scheme="https://blog.goodbyeplease.com/categories/Web-Development/"/>
-    
-    
-    <category term="Moodle" scheme="https://blog.goodbyeplease.com/tags/Moodle/"/>
-    
-    <category term="Nix" scheme="https://blog.goodbyeplease.com/tags/Nix/"/>
     
   </entry>
   

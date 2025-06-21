@@ -80,6 +80,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Browser-Headers-and-WordPress" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/14/Browser-Headers-and-WordPress/" class="article-date">
+  <time class="dt-published" datetime="2023-03-15T02:39:13.000Z" itemprop="datePublished">2023-03-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/03/14/Browser-Headers-and-WordPress/">Browser Headers and WordPress</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>We’ve been running WordPress using Cloudfront as a full-site front-end cache with a low TTL and it’s been great overall, but one pain point has been which headers to whitelist in the origin configuration. This is pretty important: origin behavior governs what data Cloudfront passes back to the actual containers (or EC2 instances, it doesn’t matter in this case) serving your WordPress site. Omitting the wrong headers can have some fairly drastic consequences, like rich-text editors not displaying or REST API calls failing. This post takes Cloudfront as its example, but this would be relevant with any solution where you’re defining an allowlist of headers instead of just passing everything.</p>
+<h2><span id="behaviors">Behaviors</span></h2>
+<p>Before tackling headers, let me say a few words about <em>behaviors</em> in Cloudfront. Carl Alexander does a great job on this in <a target="_blank" rel="noopener" href="https://blog.ymirapp.com/wordpress-page-caching-cloudfront/">How to use CloudFront to do WordPress page caching</a>. For each behavior in Cloudfront you can define a different origin (e.g. Fargate containers, an S3 bucket, a Lambda function), which HTTP methods to allow, which headers to allow, what the caching policy should be. You differentiate behaviors by path. In a WordPress install, that means you could define different behaviors for each of the following paths:</p>
+        
+          <p class="article-more-link">
+            <a href="/2023/03/14/Browser-Headers-and-WordPress/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2023/03/14/Browser-Headers-and-WordPress/" data-id="cmc5k8b20002l3bmm4m1w5pm1" data-title="Browser Headers and WordPress" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cloudfront/" rel="tag">Cloudfront</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WordPress/" rel="tag">WordPress</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
     <article id="post-Proxying-Cloudfront-with-Nginx" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/11/29/Proxying-Cloudfront-with-Nginx/" class="article-date">
@@ -118,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/29/Proxying-Cloudfront-with-Nginx/" data-id="cmb8mu2v60097ntmm5l6g2usa" data-title="Proxying Cloudfront with Nginx" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/29/Proxying-Cloudfront-with-Nginx/" data-id="cmc5k8b2f009f3bmmcipk7hzk" data-title="Proxying Cloudfront with Nginx" class="article-share-link">Share</a>
       
       
       
@@ -171,7 +224,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/23/EFS-mount-watchdog-and-CPU-usage/" data-id="cmb8mu2uu0044ntmmehh8eu8o" data-title="EFS mount watchdog and CPU usage" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/23/EFS-mount-watchdog-and-CPU-usage/" data-id="cmc5k8b23003u3bmm6coa3eb5" data-title="EFS mount watchdog and CPU usage" class="article-share-link">Share</a>
       
       
       
@@ -224,7 +277,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/22/Customizing-the-CDK-bootstrap-stack/" data-id="cmb8mu2us002yntmmhyllc42f" data-title="Customizing the CDK bootstrap stack" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/22/Customizing-the-CDK-bootstrap-stack/" data-id="cmc5k8b21003b3bmm7sngb7dp" data-title="Customizing the CDK bootstrap stack" class="article-share-link">Share</a>
       
       
       
@@ -277,7 +330,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/21/Moodle-TypeScript-and-CDK/" data-id="cmb8mu2v20077ntmm7g8w5vow" data-title="Moodle, TypeScript, and CDK" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/21/Moodle-TypeScript-and-CDK/" data-id="cmc5k8b2c007m3bmm9o91b498" data-title="Moodle, TypeScript, and CDK" class="article-share-link">Share</a>
       
       
       
@@ -334,7 +387,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/20/Octopussy/" data-id="cmb8mu2v50090ntmm4sgp9t4x" data-title="Octopussy" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/20/Octopussy/" data-id="cmc5k8b2e008p3bmmdgg2cuav" data-title="Octopussy" class="article-share-link">Share</a>
       
       
       
@@ -391,7 +444,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/19/The-Forgotten-Workers-of-Isla-Nublar/" data-id="cmb8mu2va00b7ntmm093f1ks6" data-title="The Forgotten Workers of Isla Nublar" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/19/The-Forgotten-Workers-of-Isla-Nublar/" data-id="cmc5k8b2j00bg3bmma21w35n0" data-title="The Forgotten Workers of Isla Nublar" class="article-share-link">Share</a>
       
       
       
@@ -444,7 +497,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/15/Amtrak-Olympics/" data-id="cmb8mu2uo001jntmmgf3cg4jd" data-title="Amtrak Olympics" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/15/Amtrak-Olympics/" data-id="cmc5k8b1w001c3bmm5f7vf4tv" data-title="Amtrak Olympics" class="article-share-link">Share</a>
       
       
       
@@ -501,7 +554,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/14/Resurrecting-Winter-Games-From-the-Dark-Side/" data-id="cmb8mu2v7009xntmmf85jge5t" data-title="Resurrecting Winter Games From the Dark Side" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/14/Resurrecting-Winter-Games-From-the-Dark-Side/" data-id="cmc5k8b2g009z3bmmdvce1pns" data-title="Resurrecting Winter Games From the Dark Side" class="article-share-link">Share</a>
       
       
       
@@ -554,68 +607,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/13/In-search-of-rare-movies/" data-id="cmb8mu2uz005yntmm27twd3w8" data-title="In search of rare movies" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/13/In-search-of-rare-movies/" data-id="cmc5k8b27005s3bmm544xhjyw" data-title="In search of rare movies" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dark-Side-of-the-Moon/" rel="tag">Dark Side of the Moon</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Get-Crazy/" rel="tag">Get Crazy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ghost-Ship/" rel="tag">Ghost Ship</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gold/" rel="tag">Gold</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Happy-Birthday-Turke/" rel="tag">Happy Birthday, Türke</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Monstrosity/" rel="tag">Monstrosity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Rockets-Galore/" rel="tag">Rockets Galore</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Screaming-Dead/" rel="tag">Screaming Dead</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ship-of-Monsters/" rel="tag">Ship of Monsters</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/The-Lathe-of-Heaven/" rel="tag">The Lathe of Heaven</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/When-Time-Ran-Out/" rel="tag">When Time Ran Out</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Halloween-III-Season-of-the-Witch" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/11/11/Halloween-III-Season-of-the-Witch/" class="article-date">
-  <time class="dt-published" datetime="2022-11-12T03:44:42.000Z" itemprop="datePublished">2022-11-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Movies/">Movies</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/11/11/Halloween-III-Season-of-the-Witch/">Halloween III: Season of the Witch</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-      <div class="poster">
-        <img src="/2022/11/11/Halloween-III-Season-of-the-Witch/halloween-iii-poster.jpg">
-      </div>
-      
-      
-        <p>The most important thing about <em>Halloween III</em> is that it’s not a “Halloween” movie: Michael Myers does not walk the earth; Jamie Lee Curtis is nowhere to be seen. The producers had in mind an anthology approach centered around Halloween the holiday, similar in some ways to what J. J. Abrams did decades later with the <em>Cloverfield</em> movies. There’s a thin line between doing that and cashing in on the name of an existing property, and audiences in the 1980s didn’t go for it.</p>
-<p>That said, there <em>is</em> some commonality with the first <em>Halloween</em>. John Carpenter produced the movie and composed its theme. In tone and concept, it fits well with Carpenter’s subsequent <em>Prince of Darkness</em> and <em>They Live</em>. Halloween masks feature prominently in the main plot. Nancy Kyes, who played Annie Brackett in the first two <em>Halloween</em> movies, has a small role as the ex-wife of the protagonist.</p>
-<p>I avoided this movie for a long time because I didn’t care all that much for <em>Halloween</em> and hadn’t seen <em>Halloween II</em>. That’s too bad because it’s fun, reasonably well-made, and stands alone. Plot spoilers follow…</p>
-        
-          <p class="article-more-link">
-            <a href="/2022/11/11/Halloween-III-Season-of-the-Witch/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/11/Halloween-III-Season-of-the-Witch/" data-id="cmb8mu2uw004yntmm9d0keh35" data-title="Halloween III: Season of the Witch" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Al-Berry/" rel="tag">Al Berry</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dan-O-Herlihy/" rel="tag">Dan O&#39;Herlihy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Halloween-III-Season-of-the-Witch/" rel="tag">Halloween III Season of the Witch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/John-Carpenter/" rel="tag">John Carpenter</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Stacey-Nelkin/" rel="tag">Stacey Nelkin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tom-Atkins/" rel="tag">Tom Atkins</a></li></ul>
 
     </footer>
   </div>
@@ -656,7 +652,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
     </div>
   </div>
 
@@ -667,6 +663,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2025/06/20/Empty-tags-in-a-thumbsup-album/">Empty tags in a thumbsup album</a>
+          </li>
         
           <li>
             <a href="/2025/05/28/LANTA-June-2025-changes/">LANTA June 2025 changes</a>
@@ -682,10 +682,6 @@
         
           <li>
             <a href="/2025/03/19/Silver-Bears/">Silver Bears</a>
-          </li>
-        
-          <li>
-            <a href="/2024/12/06/Mileage-problems-on-the-Long-Island-Rail-Road/">Mileage problems on the Long Island Rail Road</a>
           </li>
         
       </ul>
