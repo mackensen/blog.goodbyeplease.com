@@ -80,6 +80,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Solving-php-fpm-socket-helper-No-such-file-or-directory" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/06/01/Solving-php-fpm-socket-helper-No-such-file-or-directory/" class="article-date">
+  <time class="dt-published" datetime="2021-06-01T22:09:00.000Z" itemprop="datePublished">2021-06-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/06/01/Solving-php-fpm-socket-helper-No-such-file-or-directory/">Solving php-fpm-socket-helper: No such file or directory</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>I was running through <a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/how-to-run-multiple-php-versions-on-one-server-using-apache-and-php-fpm-on-debian-10">a helpful DigitalOcean guide</a> on getting multiple PHP-FPM versions configured on a Debian installation. Nothing too complex, but I’m usually doing this on RedHat derivatives so I appreciated the hand-holding. At the end of it the PHP-FPM service stubbornly refused to start correctly and I encountered an error that I hadn’t seen before:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Jun 01 19:45:07 XXXXXXX systemd[22426]: php7.2-fpm.service: Failed at step EXEC spawning /usr/lib/php/php-fpm-socket-helper: No such file or directory</span><br></pre></td></tr></table></figure>
+<p>Sure enough, no such file. Googling the error didn’t turn up much. More surprisingly I tried using apt-file to identify the provider of the file, and came up empty. I ran across <a target="_blank" rel="noopener" href="http://transit.iut2.upmf-grenoble.fr/cgi-bin/dpkg?query=php-common">a very old page</a> that suggested php-common (a version-independent package) might provide the file. That package was already installed, but outdated, so I updated it…and the file was created and PHP-FPM was working again.</p>
+        
+          <p class="article-more-link">
+            <a href="/2021/06/01/Solving-php-fpm-socket-helper-No-such-file-or-directory/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2021/06/01/Solving-php-fpm-socket-helper-No-such-file-or-directory/" data-id="cmc9umupg00ajafmmb20hd0ul" data-title="Solving php-fpm-socket-helper: No such file or directory" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Debian/" rel="tag">Debian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP-FPM/" rel="tag">PHP-FPM</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
     <article id="post-Thoughts-on-the-June-2021-LANTA-changes" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/05/12/Thoughts-on-the-June-2021-LANTA-changes/" class="article-date">
@@ -122,7 +175,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2021/05/12/Thoughts-on-the-June-2021-LANTA-changes/" data-id="cmc5k8b2l00cc3bmm6u014ukj" data-title="Thoughts on the June 2021 LANTA changes" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2021/05/12/Thoughts-on-the-June-2021-LANTA-changes/" data-id="cmc9umupk00cdafmm8iljb450" data-title="Thoughts on the June 2021 LANTA changes" class="article-share-link">Share</a>
       
       
       
@@ -175,7 +228,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2021/05/11/Engine-change-at-New-Haven/" data-id="cmc5k8b2300423bmmdikmaozm" data-title="Engine change at New Haven" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2021/05/11/Engine-change-at-New-Haven/" data-id="cmc9umup20042afmm00nicgy4" data-title="Engine change at New Haven" class="article-share-link">Share</a>
       
       
       
@@ -229,7 +282,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2021/05/09/Circling-Deerfield-Park/" data-id="cmc5k8b2100333bmmefju1r7k" data-title="Circling Deerfield Park" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2021/05/09/Circling-Deerfield-Park/" data-id="cmc9umup0002vafmme3ts1wwb" data-title="Circling Deerfield Park" class="article-share-link">Share</a>
       
       
       
@@ -282,7 +335,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2020/02/12/Apache-and-HTTP-2-on-AWS/" data-id="cmc5k8b1y00233bmm811m2rnd" data-title="Apache and HTTP/2 on AWS" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2020/02/12/Apache-and-HTTP-2-on-AWS/" data-id="cmc9umuox001tafmm4ehg0fik" data-title="Apache and HTTP/2 on AWS" class="article-share-link">Share</a>
       
       
       
@@ -335,7 +388,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2019/02/03/Using-TLS-ALPN-01-on-a-Raspberry-PI/" data-id="cmc5k8b2l00co3bmmhirj433a" data-title="Using TLS-ALPN-01 on a Raspberry PI" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2019/02/03/Using-TLS-ALPN-01-on-a-Raspberry-PI/" data-id="cmc9umupk00csafmm68kuavkr" data-title="Using TLS-ALPN-01 on a Raspberry PI" class="article-share-link">Share</a>
       
       
       
@@ -388,7 +441,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2018/12/12/Node-on-RHEL7/" data-id="cmc5k8b2e008e3bmm60s4firj" data-title="Node on RHEL7" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2018/12/12/Node-on-RHEL7/" data-id="cmc9umupd008gafmmhdhh0phk" data-title="Node on RHEL7" class="article-share-link">Share</a>
       
       
       
@@ -441,7 +494,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2018/09/05/Critical-pagination/" data-id="cmc5k8b2100393bmmdoah39xc" data-title="Critical pagination" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2018/09/05/Critical-pagination/" data-id="cmc9umup10037afmm6qm1e1zn" data-title="Critical pagination" class="article-share-link">Share</a>
       
       
       
@@ -494,7 +547,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2018/06/23/Apache-Passenger-and-the-environment/" data-id="cmc5k8b1y001x3bmmemjgh2uq" data-title="Apache, Passenger, and the environment" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2018/06/23/Apache-Passenger-and-the-environment/" data-id="cmc9umuox001vafmmhlf3b0q8" data-title="Apache, Passenger, and the environment" class="article-share-link">Share</a>
       
       
       
@@ -547,64 +600,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2018/04/28/Catapulting-rocks/" data-id="cmc5k8b20002u3bmmbz6x7lxl" data-title="Catapulting rocks" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2018/04/28/Catapulting-rocks/" data-id="cmc9umup0002safmm47bzhwi3" data-title="Catapulting rocks" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Capistrano/" rel="tag">Capistrano</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Composer/" rel="tag">Composer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitLab/" rel="tag">GitLab</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Deploying-MediaWiki-with-Capistrano" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2018/04/25/Deploying-MediaWiki-with-Capistrano/" class="article-date">
-  <time class="dt-published" datetime="2018-04-25T13:46:38.000Z" itemprop="datePublished">2018-04-25</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2018/04/25/Deploying-MediaWiki-with-Capistrano/">Deploying MediaWiki with Capistrano</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-      
-        <p>I’ve written <a href="/2017/07/07/Don%E2%80%99t-push-rocks-uphill/" title="Don&#39;t push rocks uphill">at length</a> about how we deploy WordPress with Composer and Capistrano. This week I’m going to write about how I adapted that workflow for our <a target="_blank" rel="noopener" href="https://www.mediawiki.org/wiki/MediaWiki">MediaWiki</a> environments.</p>
-<p>We have a couple MediaWiki environments which we manage on behalf of the campus community. The first thing I discovered was that our preferred approach–installing core with a git submodule and extensions with Composer–wasn’t viable. Beginning with MediaWiki 1.26.2 the core product ships with its own Composer dependencies, and extensions may choose to define dependencies of their own. The MediaWiki team supports this model with the <a target="_blank" rel="noopener" href="https://github.com/wikimedia/composer-merge-plugin">composer-merge-plugin</a>, which can combine the core and extension composer.json files on installation. When I attempted to overlay our extensions-as-composer-dependencies model on that environment it broke, and hard.</p>
-<p>Instead, I fell back on the older model of nested git submodules. The core code is managed in an integration repository, and each extension is added to that repository as a submodule. The <a target="_blank" rel="noopener" href="https://github.com/ekho/capistrano-git-with-submodules">Capistrano git submodule gem</a> handles this situation cleanly. For the extension composer dependencies, I defined a composer.local.json file for each project and added it to the shared files on the web server. In this example, I’m adding support for the <a target="_blank" rel="noopener" href="https://www.mediawiki.org/wiki/Extension:SyntaxHighlight">SyntaxHighlight</a> extension:</p>
-        
-          <p class="article-more-link">
-            <a href="/2018/04/25/Deploying-MediaWiki-with-Capistrano/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2018/04/25/Deploying-MediaWiki-with-Capistrano/" data-id="cmc5k8b22003k3bmmf766df2a" data-title="Deploying MediaWiki with Capistrano" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Capistrano/" rel="tag">Capistrano</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Composer/" rel="tag">Composer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MediaWiki/" rel="tag">MediaWiki</a></li></ul>
 
     </footer>
   </div>
@@ -630,7 +630,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Football/">Football</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/History/">History</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Humor/">Humor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movies/">Movies</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Music/">Music</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Outdoors/">Outdoors</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Trains/">Trains</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Travel/">Travel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Development/">Web Development</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Books/">Books</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Football/">Football</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/History/">History</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Humor/">Humor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movies/">Movies</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Music/">Music</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Outdoors/">Outdoors</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Trains/">Trains</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Travel/">Travel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Development/">Web Development</a></li></ul>
     </div>
   </div>
 
@@ -658,6 +658,10 @@
       <ul>
         
           <li>
+            <a href="/2025/06/23/The-Pillars-of-Hercules/">The Pillars of Hercules</a>
+          </li>
+        
+          <li>
             <a href="/2025/06/20/Empty-tags-in-a-thumbsup-album/">Empty tags in a thumbsup album</a>
           </li>
         
@@ -671,10 +675,6 @@
         
           <li>
             <a href="/2025/04/16/Mercury-in-Retrograde/">Mercury in Retrograde</a>
-          </li>
-        
-          <li>
-            <a href="/2025/03/19/Silver-Bears/">Silver Bears</a>
           </li>
         
       </ul>

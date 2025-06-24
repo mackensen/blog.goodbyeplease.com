@@ -80,6 +80,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Deploying-MediaWiki-with-Capistrano" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/04/25/Deploying-MediaWiki-with-Capistrano/" class="article-date">
+  <time class="dt-published" datetime="2018-04-25T13:46:38.000Z" itemprop="datePublished">2018-04-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/04/25/Deploying-MediaWiki-with-Capistrano/">Deploying MediaWiki with Capistrano</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>I’ve written <a href="/2017/07/07/Don%E2%80%99t-push-rocks-uphill/" title="Don&#39;t push rocks uphill">at length</a> about how we deploy WordPress with Composer and Capistrano. This week I’m going to write about how I adapted that workflow for our <a target="_blank" rel="noopener" href="https://www.mediawiki.org/wiki/MediaWiki">MediaWiki</a> environments.</p>
+<p>We have a couple MediaWiki environments which we manage on behalf of the campus community. The first thing I discovered was that our preferred approach–installing core with a git submodule and extensions with Composer–wasn’t viable. Beginning with MediaWiki 1.26.2 the core product ships with its own Composer dependencies, and extensions may choose to define dependencies of their own. The MediaWiki team supports this model with the <a target="_blank" rel="noopener" href="https://github.com/wikimedia/composer-merge-plugin">composer-merge-plugin</a>, which can combine the core and extension composer.json files on installation. When I attempted to overlay our extensions-as-composer-dependencies model on that environment it broke, and hard.</p>
+<p>Instead, I fell back on the older model of nested git submodules. The core code is managed in an integration repository, and each extension is added to that repository as a submodule. The <a target="_blank" rel="noopener" href="https://github.com/ekho/capistrano-git-with-submodules">Capistrano git submodule gem</a> handles this situation cleanly. For the extension composer dependencies, I defined a composer.local.json file for each project and added it to the shared files on the web server. In this example, I’m adding support for the <a target="_blank" rel="noopener" href="https://www.mediawiki.org/wiki/Extension:SyntaxHighlight">SyntaxHighlight</a> extension:</p>
+        
+          <p class="article-more-link">
+            <a href="/2018/04/25/Deploying-MediaWiki-with-Capistrano/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2018/04/25/Deploying-MediaWiki-with-Capistrano/" data-id="cmc9umup1003jafmm342e3s1v" data-title="Deploying MediaWiki with Capistrano" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Capistrano/" rel="tag">Capistrano</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Composer/" rel="tag">Composer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MediaWiki/" rel="tag">MediaWiki</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
     <article id="post-Simple-method-for-image-to-PDF-conversion" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2017/11/18/Simple-method-for-image-to-PDF-conversion/" class="article-date">
@@ -112,7 +165,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2017/11/18/Simple-method-for-image-to-PDF-conversion/" data-id="cmc5k8b2h00ae3bmmaron7p5m" data-title="Simple method for image-to-PDF conversion" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2017/11/18/Simple-method-for-image-to-PDF-conversion/" data-id="cmc9umupg00afafmmf3cn2fxx" data-title="Simple method for image-to-PDF conversion" class="article-share-link">Share</a>
       
       
       
@@ -165,7 +218,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2017/10/27/No-that%E2%80%99s-not-it/" data-id="cmc5k8b2e008i3bmmgy94awdr" data-title="No, that&#39;s not it" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2017/10/27/No-that%E2%80%99s-not-it/" data-id="cmc9umupc008cafmm3ajk3t0y" data-title="No, that&#39;s not it" class="article-share-link">Share</a>
       
       
       
@@ -218,7 +271,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2017/08/30/Running-Moodle-CI-tests-in-GitLab/" data-id="cmc5k8b2h00a73bmmd6tw8kj5" data-title="Running Moodle CI tests in GitLab" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2017/08/30/Running-Moodle-CI-tests-in-GitLab/" data-id="cmc9umupg00a7afmm9s2v1680" data-title="Running Moodle CI tests in GitLab" class="article-share-link">Share</a>
       
       
       
@@ -271,7 +324,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2017/08/23/Implementing-a-course-archiving-strategy-in-Moodle/" data-id="cmc5k8b27005o3bmm3t6pfaj6" data-title="Implementing a course archiving strategy in Moodle" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2017/08/23/Implementing-a-course-archiving-strategy-in-Moodle/" data-id="cmc9umup6005oafmm9jqne1xw" data-title="Implementing a course archiving strategy in Moodle" class="article-share-link">Share</a>
       
       
       
@@ -324,7 +377,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2017/08/16/Measuring-activity-in-Moodle/" data-id="cmc5k8b2b00703bmmcoakhihy" data-title="Measuring activity in Moodle" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2017/08/16/Measuring-activity-in-Moodle/" data-id="cmc9umupa006wafmmb6rn7k75" data-title="Measuring activity in Moodle" class="article-share-link">Share</a>
       
       
       
@@ -380,7 +433,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2017/07/26/Pick-a-date-any-date/" data-id="cmc5k8b2e008x3bmm5m6sa96x" data-title="Pick a date, any date" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2017/07/26/Pick-a-date-any-date/" data-id="cmc9umupd008xafmmgfjy278t" data-title="Pick a date, any date" class="article-share-link">Share</a>
       
       
       
@@ -433,7 +486,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2017/07/19/WordPress-and-partial-content/" data-id="cmc5k8b2m00ct3bmm3ajwa3mr" data-title="WordPress and partial content" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2017/07/19/WordPress-and-partial-content/" data-id="cmc9umupl00cuafmmg0fph8l6" data-title="WordPress and partial content" class="article-share-link">Share</a>
       
       
       
@@ -486,7 +539,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2017/07/10/Rolling-rocks-downhill/" data-id="cmc5k8b2i00aw3bmm2069c29q" data-title="Rolling rocks downhill" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2017/07/10/Rolling-rocks-downhill/" data-id="cmc9umupg00aaafmmdbbah3y8" data-title="Rolling rocks downhill" class="article-share-link">Share</a>
       
       
       
@@ -539,64 +592,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2017/07/07/Overlaying-dependency-management/" data-id="cmc5k8b2f008z3bmmcohih2ga" data-title="Overlaying dependency management" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2017/07/07/Overlaying-dependency-management/" data-id="cmc9umupd008vafmm8jlhesot" data-title="Overlaying dependency management" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Composer/" rel="tag">Composer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Satis/" rel="tag">Satis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Submodules/" rel="tag">Submodules</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WordPress/" rel="tag">WordPress</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Don’t-push-rocks-uphill" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2017/07/07/Don%E2%80%99t-push-rocks-uphill/" class="article-date">
-  <time class="dt-published" datetime="2017-07-07T22:49:20.000Z" itemprop="datePublished">2017-07-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2017/07/07/Don%E2%80%99t-push-rocks-uphill/">Don&#39;t push rocks uphill</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-      
-        <p>For three years Lafayette’s official WordPress deployment strategy was to push rocks uphill. This was a doubtful plan, but it represented an improvement over its predecessor, which was to stare at the rocks doubtfully, then roll them around a field at random. Here follows a warning to others.</p>
-<h3><span id="git-all-the-things">Git all the things!</span></h3>
-<p>In 2013 we had embraced git with the fervor of the converted. Applying this to WordPress was difficult. <a target="_blank" rel="noopener" href="http://WordPress.org">WordPress.org</a> gave us two options for getting themes and plugins:</p>
-        
-          <p class="article-more-link">
-            <a href="/2017/07/07/Don%E2%80%99t-push-rocks-uphill/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2017/07/07/Don%E2%80%99t-push-rocks-uphill/" data-id="cmc5k8b22003r3bmm6drl3q9j" data-title="Don&#39;t push rocks uphill" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Submodules/" rel="tag">Submodules</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WordPress/" rel="tag">WordPress</a></li></ul>
 
     </footer>
   </div>
@@ -622,7 +622,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Football/">Football</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/History/">History</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Humor/">Humor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movies/">Movies</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Music/">Music</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Outdoors/">Outdoors</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Trains/">Trains</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Travel/">Travel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Development/">Web Development</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Books/">Books</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Football/">Football</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/History/">History</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Humor/">Humor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movies/">Movies</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Music/">Music</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Outdoors/">Outdoors</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Trains/">Trains</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Travel/">Travel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Development/">Web Development</a></li></ul>
     </div>
   </div>
 
@@ -650,6 +650,10 @@
       <ul>
         
           <li>
+            <a href="/2025/06/23/The-Pillars-of-Hercules/">The Pillars of Hercules</a>
+          </li>
+        
+          <li>
             <a href="/2025/06/20/Empty-tags-in-a-thumbsup-album/">Empty tags in a thumbsup album</a>
           </li>
         
@@ -663,10 +667,6 @@
         
           <li>
             <a href="/2025/04/16/Mercury-in-Retrograde/">Mercury in Retrograde</a>
-          </li>
-        
-          <li>
-            <a href="/2025/03/19/Silver-Bears/">Silver Bears</a>
           </li>
         
       </ul>

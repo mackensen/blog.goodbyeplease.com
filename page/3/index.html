@@ -80,6 +80,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Old-PHP-versions-in-devenv" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/08/29/Old-PHP-versions-in-devenv/" class="article-date">
+  <time class="dt-published" datetime="2024-08-29T22:48:43.000Z" itemprop="datePublished">2024-08-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/08/29/Old-PHP-versions-in-devenv/">Old PHP versions in devenv</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>I maintain a project that still uses PHP 7.4 (long story) so I need to build out my local environment with that version. Sourcing a Nix package for PHP 7.4 isn’t an issue; the <a target="_blank" rel="noopener" href="https://github.com/fossar/nix-phps">nix-phps</a> repository maintains PHP 5.6-PHP 8.4. The tricky part was adding that package to my local <a target="_blank" rel="noopener" href="https://devenv.sh/">devenv.sh</a> environment. Devenv <a target="_blank" rel="noopener" href="https://devenv.sh/supported-languages/php/">supports PHP</a>, but by default the PHP versions are limited to what’s in the <a target="_blank" rel="noopener" href="https://github.com/cachix/devenv-nixpkgs/tree/rolling">devenv-nixpkgs repository</a>, which starts at PHP 8.0.</p>
+<p>I went down a few blind alleys, followed some outdated documentation, and generally overthought this. Devenv has <em>awareness</em> of older PHP versions; they’re simply not enabled by default. The first thing you need to do is enable the nix-phps repository. You can do that with this command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">devenv inputs add phps github:fossar/nix-phps --follows nixpkgs</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2024/08/29/Old-PHP-versions-in-devenv/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2024/08/29/Old-PHP-versions-in-devenv/" data-id="cmc9umupd008qafmm5t3vbieo" data-title="Old PHP versions in devenv" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nix/" rel="tag">Nix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
     <article id="post-Running-Moodle-cron-in-devenv" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/08/27/Running-Moodle-cron-in-devenv/" class="article-date">
@@ -118,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/08/27/Running-Moodle-cron-in-devenv/" data-id="cmc5k8b2h00ab3bmmdnaqdcp5" data-title="Running Moodle cron in devenv" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/08/27/Running-Moodle-cron-in-devenv/" data-id="cmc9umupg00acafmmgsn30oxu" data-title="Running Moodle cron in devenv" class="article-share-link">Share</a>
       
       
       
@@ -171,7 +224,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/08/26/Measuring-the-Raritan-Valley-Line/" data-id="cmc5k8b2b00723bmm0lma90c3" data-title="Measuring the Raritan Valley Line" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/08/26/Measuring-the-Raritan-Valley-Line/" data-id="cmc9umupa006zafmm0m6pexow" data-title="Measuring the Raritan Valley Line" class="article-share-link">Share</a>
       
       
       
@@ -224,7 +277,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/08/24/Around-Long-Island-Sound/" data-id="cmc5k8b1y00263bmmdnureucc" data-title="Around Long Island Sound" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/08/24/Around-Long-Island-Sound/" data-id="cmc9umuoy0028afmm6v4rervt" data-title="Around Long Island Sound" class="article-share-link">Share</a>
       
       
       
@@ -280,7 +333,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/08/21/Moving-from-nix-flakes-to-devenv/" data-id="cmc5k8b2c007s3bmm1us09its" data-title="Moving from nix flakes to devenv" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/08/21/Moving-from-nix-flakes-to-devenv/" data-id="cmc9umupb007mafmm4dgm5eqw" data-title="Moving from nix flakes to devenv" class="article-share-link">Share</a>
       
       
       
@@ -337,7 +390,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/07/23/Night-of-the-Demon/" data-id="cmc5k8b2d00873bmm2diq70vp" data-title="Night of the Demon" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/07/23/Night-of-the-Demon/" data-id="cmc9umupc0089afmm0p5s9usy" data-title="Night of the Demon" class="article-share-link">Share</a>
       
       
       
@@ -394,7 +447,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/07/14/Target-Harry/" data-id="cmc5k8b2i00am3bmm5ny08f5s" data-title="Target: Harry" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/07/14/Target-Harry/" data-id="cmc9umuph00aoafmm58rn16q5" data-title="Target: Harry" class="article-share-link">Share</a>
       
       
       
@@ -451,7 +504,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/07/04/Foes/" data-id="cmc5k8b24004h3bmmdrpz4zin" data-title="Foes" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/07/04/Foes/" data-id="cmc9umup3004iafmm8g6k8xh7" data-title="Foes" class="article-share-link">Share</a>
       
       
       
@@ -508,7 +561,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/06/22/Eye-of-the-Needle/" data-id="cmc5k8b2400493bmmgx6u8m8f" data-title="Eye of the Needle" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/06/22/Eye-of-the-Needle/" data-id="cmc9umup30045afmm0yph6csh" data-title="Eye of the Needle" class="article-share-link">Share</a>
       
       
       
@@ -565,64 +618,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/06/20/In-search-of-Laura-E-Armitage/" data-id="cmc5k8b28005v3bmmcr1a5r7q" data-title="In search of Laura E. Armitage" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/06/20/In-search-of-Laura-E-Armitage/" data-id="cmc9umup6005qafmmg4sl8s5a" data-title="In search of Laura E. Armitage" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Chesapeake-and-Ohio-Railway/" rel="tag">Chesapeake and Ohio Railway</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Laura-E-Armitage/" rel="tag">Laura E. Armitage</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-The-France-Story" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/06/02/The-France-Story/" class="article-date">
-  <time class="dt-published" datetime="2024-06-02T14:15:00.000Z" itemprop="datePublished">2024-06-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Travel/">Travel</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/06/02/The-France-Story/">The France Story</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-      
-        <p>My repertoire of traveling disaster stories is limited. In large part, I’ve been lucky, and I’m also a careful planner. I try to bake resiliency into my itineraries and I’ve looked at alternatives. I’m a careful planner now because of what is known in my family as “The France Story,” a multi-day story of cascading failure driven by a series of bad decisions and poor planning, all on my part.</p>
-<h3><span id="thursday-may-15-2003">Thursday, May 15, 2003</span></h3>
-<p>I spent the spring of 2003 studying abroad at Friedrich-Wilhelms-Universität in Bonn, Germany. This was a three-month program, and I was a little over six weeks in at this point. I had a Eurail Pass, good for unlimited travel over a two-month period, and I’d been making good use of it, covering about 3,500 miles. Almost all of it was second class without a seat reservation. When I overnighted away from Bonn, I stayed in youth hostels. Reservations were cheap, €5-10 euro/night, plus (often) a deposit for the bed linen.</p>
-        
-          <p class="article-more-link">
-            <a href="/2024/06/02/The-France-Story/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/06/02/The-France-Story/" data-id="cmc5k8b2j00bc3bmm77f48bav" data-title="The France Story" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/France/" rel="tag">France</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SNCF/" rel="tag">SNCF</a></li></ul>
 
     </footer>
   </div>
@@ -648,7 +648,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Football/">Football</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/History/">History</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Humor/">Humor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movies/">Movies</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Music/">Music</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Outdoors/">Outdoors</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Trains/">Trains</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Travel/">Travel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Development/">Web Development</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Books/">Books</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Football/">Football</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/History/">History</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Humor/">Humor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movies/">Movies</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Music/">Music</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Outdoors/">Outdoors</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Trains/">Trains</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Travel/">Travel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Development/">Web Development</a></li></ul>
     </div>
   </div>
 
@@ -676,6 +676,10 @@
       <ul>
         
           <li>
+            <a href="/2025/06/23/The-Pillars-of-Hercules/">The Pillars of Hercules</a>
+          </li>
+        
+          <li>
             <a href="/2025/06/20/Empty-tags-in-a-thumbsup-album/">Empty tags in a thumbsup album</a>
           </li>
         
@@ -689,10 +693,6 @@
         
           <li>
             <a href="/2025/04/16/Mercury-in-Retrograde/">Mercury in Retrograde</a>
-          </li>
-        
-          <li>
-            <a href="/2025/03/19/Silver-Bears/">Silver Bears</a>
           </li>
         
       </ul>
