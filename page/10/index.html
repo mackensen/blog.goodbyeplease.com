@@ -80,6 +80,63 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Tests-and-tags-in-CDK" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/10/27/Tests-and-tags-in-CDK/" class="article-date">
+  <time class="dt-published" datetime="2022-10-27T23:57:56.000Z" itemprop="datePublished">2022-10-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/10/27/Tests-and-tags-in-CDK/">Tests and tags in CDK</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>I manage a bunch of redirected subdomains. We use these with third-party applications, where the application lives at some non-Lafayette URL and we want a clean, simple Lafayette URL for our users. We call these vanity plates, and at the architectural level they’re pretty simple: a Cloudfront distribution with a certificate and LambdaEdge function to handle the redirection. We monitor the state of the redirection with a <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.html">Synthetic Canary</a>.</p>
+<p>A small challenge is that we like to have <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">lifecycle rules</a> on all our S3 buckets. With the above stack we actually have three buckets:</p>
+<ol>
+<li>The logging bucket for the Cloudfront distribution</li>
+<li>An empty S3 bucket that serves as the unused target for the Cloudfront distribution</li>
+<li>The artifacts bucket for the Synthetic Canary.</li>
+</ol>
+        
+          <p class="article-more-link">
+            <a href="/2022/10/27/Tests-and-tags-in-CDK/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2022/10/27/Tests-and-tags-in-CDK/" data-id="cmdv0e9bn00avwdjpdxsp65p2" data-title="Tests and tags in CDK" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDK/" rel="tag">CDK</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
     <article id="post-Solving-php-fpm-socket-helper-No-such-file-or-directory" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/06/01/Solving-php-fpm-socket-helper-No-such-file-or-directory/" class="article-date">
@@ -118,7 +175,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2021/06/01/Solving-php-fpm-socket-helper-No-such-file-or-directory/" data-id="cmc9umupg00ajafmmb20hd0ul" data-title="Solving php-fpm-socket-helper: No such file or directory" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2021/06/01/Solving-php-fpm-socket-helper-No-such-file-or-directory/" data-id="cmdv0e9bn00anwdjp2sn058dx" data-title="Solving php-fpm-socket-helper: No such file or directory" class="article-share-link">Share</a>
       
       
       
@@ -175,7 +232,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2021/05/12/Thoughts-on-the-June-2021-LANTA-changes/" data-id="cmc9umupk00cdafmm8iljb450" data-title="Thoughts on the June 2021 LANTA changes" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2021/05/12/Thoughts-on-the-June-2021-LANTA-changes/" data-id="cmdv0e9bq00cdwdjp465sfcnf" data-title="Thoughts on the June 2021 LANTA changes" class="article-share-link">Share</a>
       
       
       
@@ -228,7 +285,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2021/05/11/Engine-change-at-New-Haven/" data-id="cmc9umup20042afmm00nicgy4" data-title="Engine change at New Haven" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2021/05/11/Engine-change-at-New-Haven/" data-id="cmdv0e9b80045wdjpa9gd7kzq" data-title="Engine change at New Haven" class="article-share-link">Share</a>
       
       
       
@@ -282,7 +339,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2021/05/09/Circling-Deerfield-Park/" data-id="cmc9umup0002vafmme3ts1wwb" data-title="Circling Deerfield Park" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2021/05/09/Circling-Deerfield-Park/" data-id="cmdv0e9b60034wdjpekurgoql" data-title="Circling Deerfield Park" class="article-share-link">Share</a>
       
       
       
@@ -335,7 +392,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2020/02/12/Apache-and-HTTP-2-on-AWS/" data-id="cmc9umuox001tafmm4ehg0fik" data-title="Apache and HTTP/2 on AWS" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2020/02/12/Apache-and-HTTP-2-on-AWS/" data-id="cmdv0e9b3001vwdjphmx85mo8" data-title="Apache and HTTP/2 on AWS" class="article-share-link">Share</a>
       
       
       
@@ -388,7 +445,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2019/02/03/Using-TLS-ALPN-01-on-a-Raspberry-PI/" data-id="cmc9umupk00csafmm68kuavkr" data-title="Using TLS-ALPN-01 on a Raspberry PI" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2019/02/03/Using-TLS-ALPN-01-on-a-Raspberry-PI/" data-id="cmdv0e9br00ctwdjpeyrdhztk" data-title="Using TLS-ALPN-01 on a Raspberry PI" class="article-share-link">Share</a>
       
       
       
@@ -441,7 +498,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2018/12/12/Node-on-RHEL7/" data-id="cmc9umupd008gafmmhdhh0phk" data-title="Node on RHEL7" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2018/12/12/Node-on-RHEL7/" data-id="cmdv0e9bj0089wdjphc0xapk5" data-title="Node on RHEL7" class="article-share-link">Share</a>
       
       
       
@@ -494,7 +551,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2018/09/05/Critical-pagination/" data-id="cmc9umup10037afmm6qm1e1zn" data-title="Critical pagination" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2018/09/05/Critical-pagination/" data-id="cmdv0e9b60036wdjp91tf2w8m" data-title="Critical pagination" class="article-share-link">Share</a>
       
       
       
@@ -547,64 +604,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2018/06/23/Apache-Passenger-and-the-environment/" data-id="cmc9umuox001vafmmhlf3b0q8" data-title="Apache, Passenger, and the environment" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2018/06/23/Apache-Passenger-and-the-environment/" data-id="cmdv0e9b5002rwdjpgjdyau4n" data-title="Apache, Passenger, and the environment" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Passenger/" rel="tag">Passenger</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ruby/" rel="tag">Ruby</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-collections/" rel="tag">Software collections</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Catapulting-rocks" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2018/04/28/Catapulting-rocks/" class="article-date">
-  <time class="dt-published" datetime="2018-04-28T14:20:40.000Z" itemprop="datePublished">2018-04-28</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2018/04/28/Catapulting-rocks/">Catapulting rocks</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-      
-        <p>Last summer I did a <a href="/2017/07/07/Don%E2%80%99t-push-rocks-uphill/" title="Don&#39;t push rocks uphill">series of posts</a> in conjunction with a <a target="_blank" rel="noopener" href="https://2017.wpcampus.org/schedule/deploying-wordpress-capistrano-composer/">talk I gave at WPCampus</a> on Lafayette’s WordPress deployment methodology. At the time the missing piece was a truly automated deployment. We implemented that at the end of August, but I never got around to writing it up until now. We retained our Capistrano methodology, but had GitLab execute the deployment from a container.</p>
-<h3><span id="containing-capistrano">Containing Capistrano</span></h3>
-<p>In <a href="/2017/07/10/Rolling-rocks-downhill/" title="Rolling rocks downhill">Rolling rocks downhill</a> I described how we used Capistrano to deploy WordPress. The simplest way to automate the deployment and take the local developer out of the picture would be to have GitLab run the Capistrano deployment instead. This requires a few things:</p>
-        
-          <p class="article-more-link">
-            <a href="/2018/04/28/Catapulting-rocks/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2018/04/28/Catapulting-rocks/" data-id="cmc9umup0002safmm47bzhwi3" data-title="Catapulting rocks" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Capistrano/" rel="tag">Capistrano</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Composer/" rel="tag">Composer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitLab/" rel="tag">GitLab</a></li></ul>
 
     </footer>
   </div>
@@ -645,7 +649,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
     </div>
   </div>
 
@@ -656,6 +660,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2025/08/02/A-thousand-miles-without-leaving-the-ground/">A thousand miles without leaving the ground</a>
+          </li>
         
           <li>
             <a href="/2025/06/23/The-Pillars-of-Hercules/">The Pillars of Hercules</a>
@@ -671,10 +679,6 @@
         
           <li>
             <a href="/2025/05/01/Brunswick/">Brunswick</a>
-          </li>
-        
-          <li>
-            <a href="/2025/04/16/Mercury-in-Retrograde/">Mercury in Retrograde</a>
           </li>
         
       </ul>

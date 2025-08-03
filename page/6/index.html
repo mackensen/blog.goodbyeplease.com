@@ -80,6 +80,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Yet-another-cause-of-Cannot-use-import-statement-outside-a-module" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/01/08/Yet-another-cause-of-Cannot-use-import-statement-outside-a-module/" class="article-date">
+  <time class="dt-published" datetime="2024-01-08T15:19:54.000Z" itemprop="datePublished">2024-01-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/01/08/Yet-another-cause-of-Cannot-use-import-statement-outside-a-module/">Yet another cause of Cannot use import statement outside a module</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>I’m adding tests to one of our older internal CDK projects (see <a href="/2022/10/28/Using-Jest-with-CDK-tests/" title="Using Jest with CDK tests">this post from 2022</a> for background on CDK and tests). When I say old, I mean that it started out on CDK 1.8.0, and the first commit is dated September 16, 2019. I’m writing some basic tests prior to upgrading it to CDK 2.118.0, and encountered a vaguely familiar error the first time I ran <code>npm test</code>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SyntaxError: Cannot use import statement outside a module</span><br></pre></td></tr></table></figure>
+<p>This is a problem with the <a target="_blank" rel="noopener" href="https://babeljs.io/">Babel</a> Javascript compiler, and unfortunately there’s no one mistake that causes it, which makes searching for an answer difficult. Adam Nathaniel Davis <a target="_blank" rel="noopener" href="https://dev.to/bytebodger/how-i-fixed-the-unexpected-token-error-in-jest-4o1j">wrote a great blog post</a> on <a target="_blank" rel="noopener" href="http://dev.to">dev.to</a> a few years ago, summing up numerous different causes and then proceeding to detail the one that he’d encountered.</p>
+        
+          <p class="article-more-link">
+            <a href="/2024/01/08/Yet-another-cause-of-Cannot-use-import-statement-outside-a-module/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2024/01/08/Yet-another-cause-of-Cannot-use-import-statement-outside-a-module/" data-id="cmdv0e9bs00ddwdjp1j138x6u" data-title="Yet another cause of Cannot use import statement outside a module" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDK/" rel="tag">CDK</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
     <article id="post-Using-Composer-with-patches" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/01/05/Using-Composer-with-patches/" class="article-date">
@@ -122,7 +175,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/01/05/Using-Composer-with-patches/" data-id="cmc9umupk00cgafmmd5fo8qgs" data-title="Using Composer with patches" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/01/05/Using-Composer-with-patches/" data-id="cmdv0e9bq00ciwdjp68eh13t6" data-title="Using Composer with patches" class="article-share-link">Share</a>
       
       
       
@@ -175,7 +228,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/01/02/Always-hook-load-plugin-textdomain-in-WordPress/" data-id="cmc9umuov0011afmm11ebd1j5" data-title="Always hook load_plugin_textdomain in WordPress" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/01/02/Always-hook-load-plugin-textdomain-in-WordPress/" data-id="cmdv0e9b10019wdjp4wzhhafj" data-title="Always hook load_plugin_textdomain in WordPress" class="article-share-link">Share</a>
       
       
       
@@ -232,7 +285,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/12/28/Black-Widow/" data-id="cmc9umuoz002eafmm5xpcg81g" data-title="Black Widow" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/12/28/Black-Widow/" data-id="cmdv0e9b4002fwdjp2ovpczaz" data-title="Black Widow" class="article-share-link">Share</a>
       
       
       
@@ -285,7 +338,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/12/23/I-m-coming-to-your-city/" data-id="cmc9umup5005gafmm4ex6c66u" data-title="I&#39;m coming to your city" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/12/23/I-m-coming-to-your-city/" data-id="cmdv0e9bd005zwdjpelx82e56" data-title="I&#39;m coming to your city" class="article-share-link">Share</a>
       
       
       
@@ -338,7 +391,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/12/04/One-of-our-language-packs-is-missing/" data-id="cmc9umupd008tafmm4y3gcjvw" data-title="One of our language packs is missing" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/12/04/One-of-our-language-packs-is-missing/" data-id="cmdv0e9bk008qwdjpc9noaotr" data-title="One of our language packs is missing" class="article-share-link">Share</a>
       
       
       
@@ -395,7 +448,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/11/23/Greyhound/" data-id="cmc9umup4004tafmmfo7qded4" data-title="Greyhound" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/11/23/Greyhound/" data-id="cmdv0e9ba004wwdjpdtye1fia" data-title="Greyhound" class="article-share-link">Share</a>
       
       
       
@@ -452,7 +505,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/11/22/Blood-Hook/" data-id="cmc9umuoz002hafmmdpmma2dt" data-title="Blood Hook" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/11/22/Blood-Hook/" data-id="cmdv0e9b4002iwdjp5h115j88" data-title="Blood Hook" class="article-share-link">Share</a>
       
       
       
@@ -505,7 +558,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/11/22/My-worst-best-trip-on-the-Empire-Builder/" data-id="cmc9umupc007xafmm6jiv9nxd" data-title="My worst best trip on the Empire Builder" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/11/22/My-worst-best-trip-on-the-Empire-Builder/" data-id="cmdv0e9bh007twdjp1edb2ipt" data-title="My worst best trip on the Empire Builder" class="article-share-link">Share</a>
       
       
       
@@ -558,64 +611,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/11/20/Using-Nix-to-consolidate-an-environment/" data-id="cmc9umupk00clafmm8n9h7vn5" data-title="Using Nix to consolidate an environment" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/11/20/Using-Nix-to-consolidate-an-environment/" data-id="cmdv0e9br00cpwdjp6u2i0g1z" data-title="Using Nix to consolidate an environment" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nix/" rel="tag">Nix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Thumbsup/" rel="tag">Thumbsup</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-The-Ann-Arbor-Railroad-in-Mt-Pleasant" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/11/19/The-Ann-Arbor-Railroad-in-Mt-Pleasant/" class="article-date">
-  <time class="dt-published" datetime="2023-11-19T22:06:14.000Z" itemprop="datePublished">2023-11-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/History/">History</a>►<a class="article-category-link" href="/categories/Trains/">Trains</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/11/19/The-Ann-Arbor-Railroad-in-Mt-Pleasant/">The Ann Arbor Railroad in Mt. Pleasant</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-      
-        <p>I’m back in Mt. Pleasant for Thanksgiving and after watching the Lions dispatch the Bears (not handily, but never mind that) I went out for a short bike ride through <a target="_blank" rel="noopener" href="https://meetmtp.com/places/mill-pond-park/">Mill Pond Park</a>. The main bike trail comes out at Broadway opposite the old Ann Arbor Railroad station, now the <a target="_blank" rel="noopener" href="https://www.mountaintown.com/">Mountain Town Station</a> brewery and restaurant. I’ve photographed it many times over the years, but tonight the fading light felt really special.</p>
-<p><img src="Mountain-town-station.jpg" alt="Once a station; now a restaurant" title="Railway track and platform next to station building"></p>
-<p>I grew up in <a href>Mt. Pleasant, Michigan</a>, a county seat and college town of about 20,000 people that hasn’t seen a passenger train in over 70 years (and counting). We had two railroads: the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Ann_Arbor_Railroad_(1895%E2%80%931976)">Ann Arbor Railroad</a> main line, running northwest from Toledo, Ohio, up to Frankfort, Michigan, and a branch line of the Chesapeake and Ohio Railway (originally Pere Marquette), running northeast from Mt. Pleasant up to Coleman.</p>
-        
-          <p class="article-more-link">
-            <a href="/2023/11/19/The-Ann-Arbor-Railroad-in-Mt-Pleasant/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/11/19/The-Ann-Arbor-Railroad-in-Mt-Pleasant/" data-id="cmc9umuph00b1afmmgs0jev6p" data-title="The Ann Arbor Railroad in Mt. Pleasant" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ann-Arbor-Railroad/" rel="tag">Ann Arbor Railroad</a></li></ul>
 
     </footer>
   </div>
@@ -656,7 +656,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
     </div>
   </div>
 
@@ -667,6 +667,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2025/08/02/A-thousand-miles-without-leaving-the-ground/">A thousand miles without leaving the ground</a>
+          </li>
         
           <li>
             <a href="/2025/06/23/The-Pillars-of-Hercules/">The Pillars of Hercules</a>
@@ -682,10 +686,6 @@
         
           <li>
             <a href="/2025/05/01/Brunswick/">Brunswick</a>
-          </li>
-        
-          <li>
-            <a href="/2025/04/16/Mercury-in-Retrograde/">Mercury in Retrograde</a>
           </li>
         
       </ul>
