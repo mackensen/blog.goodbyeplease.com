@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Transforming GPS log data in a Jupyter notebook | Goodbye Please</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="canonical" href="https://blog.goodbyeplease.com/2025/11/07/Transforming-GPS-log-data-in-a-Jupyter-notebook/"/>
+  <meta name="description" content="Mapping WiFi and cell signal strength on an Amtrak train.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Transforming GPS log data in a Jupyter notebook">
+<meta property="og:url" content="https://blog.goodbyeplease.com/2025/11/07/Transforming-GPS-log-data-in-a-Jupyter-notebook/">
+<meta property="og:site_name" content="Goodbye Please">
+<meta property="og:description" content="Mapping WiFi and cell signal strength on an Amtrak train.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog.goodbyeplease.com/2025/11/07/Transforming-GPS-log-data-in-a-Jupyter-notebook/kepler.gl.png">
+<meta property="article:published_time" content="2025-11-08T02:01:01.000Z">
+<meta property="article:modified_time" content="2025-11-08T02:56:49.489Z">
+<meta property="article:author" content="Charles Fulton">
+<meta property="article:tag" content="Amtrak">
+<meta property="article:tag" content="kepler.gl">
+<meta property="article:tag" content="Jupyter">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.goodbyeplease.com/2025/11/07/Transforming-GPS-log-data-in-a-Jupyter-notebook/kepler.gl.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Goodbye Please" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Goodbye Please</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Amtrak, B-Movies, Web Development, and other nonsense</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives/">Archives</a>
+        
+          <a class="main-nav-link" href="/how-to-identify-a-train/">How to identify a train</a>
+        
+          <a class="main-nav-link" href="/b-movie-metric/">B-movie metric</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blog.goodbyeplease.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Transforming-GPS-log-data-in-a-Jupyter-notebook" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/11/07/Transforming-GPS-log-data-in-a-Jupyter-notebook/" class="article-date">
+  <time class="dt-published" datetime="2025-11-08T02:01:01.000Z" itemprop="datePublished">2025-11-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Transforming GPS log data in a Jupyter notebook
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>I spend a lot of time on long-distance trains. In the United States, those trains pass through areas with little or no cell signal, leading to long stretches of limited internet access. I’ve written about that challenge over years; the <em><a href="/2024/11/10/Fifteen-years-on-the-Capitol-Limited/" title="Fifteen years on the Capitol Limited">Capitol Limited&#x2F;Floridian</a></em> and <em><a href="/2023/11/22/My-worst-best-trip-on-the-Empire-Builder/" title="My worst best trip on the Empire Builder">Empire Builder</a></em> stand out for their long stretches of signal loss.</p>
+<p>This week I took the <em>Floridian</em> from Pittsburgh to Washington, D.C., by way of Harpers Ferry. It’s a beautiful route, following the Youghiogheny and Potomac rivers, and I decided to try measuring signal strength using the onboard WiFi.</p>
+<h2><span id="uptime">Uptime</span></h2>
+<p>First, I set up <a target="_blank" rel="noopener" href="https://github.com/louislam/uptime-kuma">uptime-kuma</a> on my laptop. I’d used it before to monitor my ISP’s nameservers. I configured two monitors, each running once a minute. One tried to resolve <a target="_blank" rel="noopener" href="http://amtrak.com">amtrak.com</a> using Cloudflare’s DNS, while the other tried to load this blog within a normal timeout (a harder task). The app is built on Javascript and writes to SQLite, which is ideal for my low-connectivity testing.</p>
+<p>This part worked well. I generated 654 rows over approximately six hours. The relevant table in the database is <code>heartbeat</code>, and <a target="_blank" rel="noopener" href="https://sqlitebrowser.org">DB Browser for SQLite</a> has an option for dumping a table to a CSV. I then used a Jupyter notebook to pare the data down to the ping times from the DNS resolver and the timestamp:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">df_ping = pd.read_csv(<span class="string">&#x27;../inputs/ping.csv&#x27;</span>)</span><br><span class="line">df_ping = df_ping[df_ping[<span class="string">&#x27;monitor_id&#x27;</span>] == <span class="number">1</span>]</span><br><span class="line">df_ping = df_ping.drop(columns=[<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;status&#x27;</span>, <span class="string">&#x27;important&#x27;</span>, <span class="string">&#x27;msg&#x27;</span>, <span class="string">&#x27;monitor_id&#x27;</span>, <span class="string">&#x27;utc&#x27;</span>, <span class="string">&#x27;duration&#x27;</span>, <span class="string">&#x27;down_count&#x27;</span>, <span class="string">&#x27;end_time&#x27;</span>, <span class="string">&#x27;retries&#x27;</span>])</span><br><span class="line">df_ping[<span class="string">&#x27;Time&#x27;</span>] = pd.to_datetime(df_ping[<span class="string">&#x27;time&#x27;</span>])</span><br><span class="line">df_ping = df_ping.drop(columns=<span class="string">&#x27;time&#x27;</span>)</span><br><span class="line">df_ping</span><br></pre></td></tr></table></figure>
+<p>This gives me a <a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html">DataFrame</a> like this:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">	ping	Time</span><br><span class="line"><span class="number">0</span>	<span class="number">83.0</span>	<span class="number">2025</span>-<span class="number">11</span>-03 06:<span class="number">22</span>:08</span><br><span class="line"><span class="number">1</span>	<span class="number">198.0</span>	<span class="number">2025</span>-<span class="number">11</span>-03 06:<span class="number">23</span>:08</span><br><span class="line"><span class="number">2</span>	<span class="number">61.0</span>	<span class="number">2025</span>-<span class="number">11</span>-03 06:<span class="number">24</span>:08</span><br><span class="line"><span class="number">3</span>	<span class="number">68.0</span>	<span class="number">2025</span>-<span class="number">11</span>-03 06:<span class="number">25</span>:08</span><br><span class="line"><span class="number">4</span>	<span class="number">276.0</span>	<span class="number">2025</span>-<span class="number">11</span>-03 06:<span class="number">26</span>:08</span><br></pre></td></tr></table></figure>
+<h2><span id="geolocation">Geolocation</span></h2>
+<p>I hadn’t thought ahead about how I would geolocate the data, so I fell back on exporting my timeline information from my Android. I don’t think you can use Google Takeout for this now because it’s stored directly on the phone. See <a target="_blank" rel="noopener" href="https://www.androidauthority.com/android-google-maps-location-history-3491255/">this article from Android Authority</a> about how to create an export.</p>
+<p>The export contains your full history in a large JSON file, while for this project I want six hours. I used the <a target="_blank" rel="noopener" href="https://github.com/Scarygami/location-history-json-converter">Location History JSON Converter</a> python script to transform the JSON file into a CSV containing only the day of the trip.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> I used the same Jupyter notebook to create a DataFrame with time, latitude, and longitude.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">df = pd.read_csv(<span class="string">&quot;../inputs/timeline.csv&quot;</span>)</span><br><span class="line">df[<span class="string">&#x27;Time&#x27;</span>] = pd.to_datetime(df[<span class="string">&#x27;Time&#x27;</span>])</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<h2><span id="combining-the-data">Combining the data</span></h2>
+<p>At this point I have two data sets: the ping data, indexed by time, and the location data, also indexed by time. However, the timestamps are dissimilar. I tried a few techniques before landing on pandas’ <a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.merge_asof.html">merge_asof</a> function:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">combined_df = pd.merge_asof(df_ping, df, on=<span class="string">&quot;Time&quot;</span>, direction=<span class="string">&quot;nearest&quot;</span>, tolerance=pd.Timedelta(<span class="string">&quot;15m&quot;</span>))</span><br><span class="line">combined_df[<span class="string">&#x27;ping&#x27;</span>] = combined_df[<span class="string">&#x27;ping&#x27;</span>].fillna(<span class="number">0</span>)</span><br><span class="line">combined_df.to_csv(<span class="string">&#x27;../outputs/output.csv&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>The important part is <code>direction=&quot;nearest&quot;</code>; this compensates for non-matching timestamps. To avoid matching two wildly dissimilar points, I set the outer boundary to fifteen minutes. The result is a DataFrame that combines the ping and geolocation data:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">	ping	Time	Latitude	Longitude</span><br><span class="line"><span class="number">0</span>	<span class="number">0.996860</span>	<span class="number">2025</span>-<span class="number">11</span>-03 06:<span class="number">22</span>:08	<span class="number">40.213511</span>	-<span class="number">79.768900</span></span><br><span class="line"><span class="number">1</span>	<span class="number">0.992509</span>	<span class="number">2025</span>-<span class="number">11</span>-03 06:<span class="number">23</span>:08	<span class="number">40.213511</span>	-<span class="number">79.768900</span></span><br><span class="line"><span class="number">2</span>	<span class="number">0.997692</span>	<span class="number">2025</span>-<span class="number">11</span>-03 06:<span class="number">24</span>:08	<span class="number">40.213511</span>	-<span class="number">79.768900</span></span><br><span class="line"><span class="number">3</span>	<span class="number">0.997427</span>	<span class="number">2025</span>-<span class="number">11</span>-03 06:<span class="number">25</span>:08	<span class="number">40.160347</span>	-<span class="number">79.746285</span></span><br><span class="line"><span class="number">4</span>	<span class="number">0.989558</span>	<span class="number">2025</span>-<span class="number">11</span>-03 06:<span class="number">26</span>:08	<span class="number">40.160347</span>	-<span class="number">79.746285</span></span><br></pre></td></tr></table></figure>
+<h2><span id="next-steps">Next steps</span></h2>
+<p>I’m playing with <a target="_blank" rel="noopener" href="https://kepler.gl">kepler.gl</a> to visualize the data. This has exposted a few issues:</p>
+<ol>
+<li>I need minute-by-minute geolocation data for more accurate mapping of the pings. I’m testing <a target="_blank" rel="noopener" href="https://gpslogger.app">GPSLogger for Android</a> for this purpose. It writes GPX files, which are easier to work with. I’ve had good results with the <a target="_blank" rel="noopener" href="https://pypi.org/project/gpxpy/">gpxpy</a> library.</li>
+<li>With ping, lower numbers are better, but I probably want the opposite for visualization, with total absence of data meaning there was no cell signal whatsoever.</li>
+</ol>
+<p><img src="kepler.gl.png" alt=" Visualization of ping data" title="Map showing relative signal strength between Pittsburgh and Washington"></p>
+<p>I have a few trips coming up where I can play around with this.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>As of November 7, 2025, you need to use the patch on <a target="_blank" rel="noopener" href="https://github.com/Scarygami/location-history-json-converter/pull/65">Add support for encrypted location history from devices</a>. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2025/11/07/Transforming-GPS-log-data-in-a-Jupyter-notebook/" data-id="cmhpp2cbv00cnvejpbaenbuon" data-title="Transforming GPS log data in a Jupyter notebook" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Amtrak/" rel="tag">Amtrak</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kepler-gl/" rel="tag">kepler.gl</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2025/08/02/A-thousand-miles-without-leaving-the-ground/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">A thousand miles without leaving the ground</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="graphcomment"></div>
+  <script type="text/javascript">
+
+    /* - - - CONFIGURATION VARIABLES - - - */
+
+    var __semio__params = {
+      graphcommentId: "Goodbye-Please", // make sure the id is yours
+
+      behaviour: {
+        // HIGHLY RECOMMENDED
+        //  uid: "...", // uniq identifer for the comments thread on your page (ex: your page id)
+      },
+
+      // configure your variables here
+
+    }
+
+    /* - - - DON'T EDIT BELOW THIS LINE - - - */
+
+    function __semio__onload() {
+      __semio__gc_graphlogin(__semio__params)
+    }
+
+
+    (function() {
+      var gc = document.createElement('script'); gc.type = 'text/javascript'; gc.async = true;
+      gc.onload = __semio__onload; gc.defer = true; gc.src = 'https://integration.graphcomment.com/gc_graphlogin.js?' + Date.now();
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(gc);
+    })();
+    
+
+  </script>
+</section>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Books/">Books</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Football/">Football</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/History/">History</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Humor/">Humor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movies/">Movies</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Music/">Music</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Outdoors/">Outdoors</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Trains/">Trains</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Travel/">Travel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-Development/">Web Development</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/11/07/Transforming-GPS-log-data-in-a-Jupyter-notebook/">Transforming GPS log data in a Jupyter notebook</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/02/A-thousand-miles-without-leaving-the-ground/">A thousand miles without leaving the ground</a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/23/The-Pillars-of-Hercules/">The Pillars of Hercules</a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/20/Empty-tags-in-a-thumbsup-album/">Empty tags in a thumbsup album</a>
+          </li>
+        
+          <li>
+            <a href="/2025/05/28/LANTA-June-2025-changes/">LANTA June 2025 changes</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 Charles Fulton <a rel="me noopener" target="_blank" href="https://higheredweb.social/@mackensen">Find me on Mastodon</a><br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+    <a href="/how-to-identify-a-train/" class="mobile-nav-link">How to identify a train</a>
+  
+    <a href="/b-movie-metric/" class="mobile-nav-link">B-movie metric</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

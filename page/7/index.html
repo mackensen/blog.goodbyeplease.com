@@ -80,6 +80,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Using-Nix-to-consolidate-an-environment" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/20/Using-Nix-to-consolidate-an-environment/" class="article-date">
+  <time class="dt-published" datetime="2023-11-20T19:21:59.000Z" itemprop="datePublished">2023-11-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/11/20/Using-Nix-to-consolidate-an-environment/">Using Nix to consolidate an environment</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>I use <a target="_blank" rel="noopener" href="https://thumbsup.github.io/">thumbsup</a> to manage my <a target="_blank" rel="noopener" href="https://galleries.goodbyeplease.com/">gallery site</a>. Since the site is entirely static, I use <a target="_blank" rel="noopener" href="https://exiftool.org/">exiftool</a> to store the description and tags as metadata in the images themselves. To simplify managing the metadata I wrote a small Symfony application that writes and updates the metadata from CSV files.</p>
+<p>The workflow is straightforward enough, but the code deployment on my laptop looked like a messy bedroom. The Symfony application lived in one directory. My fork of thumbsup, supporting custom album covers, was hanging out within <code>.nvm</code>, tied to given versions of NodeJS. My customization of the cards theme lived in a separate directory, passed by argument to the Symfony application. This was messy and unsustainable.</p>
+<p>I’ve used Nix for <a href="/2023/11/14/Enabling-a-PHP-extension-in-Nix/" title="Enabling a PHP extension in Nix">several other projects</a>, and this felt like a good use case for getting everything in once place. In this case, I would centralize in the Symfony directory. First step: adding all the relevant packages:</p>
+        
+          <p class="article-more-link">
+            <a href="/2023/11/20/Using-Nix-to-consolidate-an-environment/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2023/11/20/Using-Nix-to-consolidate-an-environment/" data-id="cmhpp2cbw00ctvejpcekycvvr" data-title="Using Nix to consolidate an environment" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nix/" rel="tag">Nix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Thumbsup/" rel="tag">Thumbsup</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
     <article id="post-The-Ann-Arbor-Railroad-in-Mt-Pleasant" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/11/19/The-Ann-Arbor-Railroad-in-Mt-Pleasant/" class="article-date">
@@ -118,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/11/19/The-Ann-Arbor-Railroad-in-Mt-Pleasant/" data-id="cmdv0e9bo00b9wdjp9dm0528q" data-title="The Ann Arbor Railroad in Mt. Pleasant" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/11/19/The-Ann-Arbor-Railroad-in-Mt-Pleasant/" data-id="cmhpp2cbt00b5vejpg58gbdjb" data-title="The Ann Arbor Railroad in Mt. Pleasant" class="article-share-link">Share</a>
       
       
       
@@ -171,7 +224,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/11/17/A-warehouse-in-Albany/" data-id="cmdv0e9b0000pwdjpbresbiqh" data-title="A warehouse in Albany" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/11/17/A-warehouse-in-Albany/" data-id="cmhpp2cb5000xvejp21ds45b0" data-title="A warehouse in Albany" class="article-share-link">Share</a>
       
       
       
@@ -220,7 +273,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/11/15/Remembering-Mark-Hoolihan/" data-id="cmdv0e9bm009xwdjp871x0o1f" data-title="Remembering Mark Hoolihan" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/11/15/Remembering-Mark-Hoolihan/" data-id="cmhpp2cbr009zvejp4fo4bcsx" data-title="Remembering Mark Hoolihan" class="article-share-link">Share</a>
       
       
       
@@ -286,7 +339,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/11/14/Enabling-a-PHP-extension-in-Nix/" data-id="cmdv0e9b80043wdjp6ug594jg" data-title="Enabling a PHP extension in Nix" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/11/14/Enabling-a-PHP-extension-in-Nix/" data-id="cmhpp2cbd0040vejpbc2q0o93" data-title="Enabling a PHP extension in Nix" class="article-share-link">Share</a>
       
       
       
@@ -339,7 +392,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/11/14/Piecing-together-Indian-Trails-ticket-pricing/" data-id="cmdv0e9bl009awdjp7iuvcvhh" data-title="Piecing together Indian Trails ticket pricing" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/11/14/Piecing-together-Indian-Trails-ticket-pricing/" data-id="cmhpp2cbp0098vejp49sz0a0m" data-title="Piecing together Indian Trails ticket pricing" class="article-share-link">Share</a>
       
       
       
@@ -392,7 +445,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/11/13/Managing-your-WordPress-revisions/" data-id="cmdv0e9bf006uwdjp0v5ddp3e" data-title="Managing your WordPress revisions" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/11/13/Managing-your-WordPress-revisions/" data-id="cmhpp2cbj0073vejpb2h5hfzg" data-title="Managing your WordPress revisions" class="article-share-link">Share</a>
       
       
       
@@ -445,7 +498,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/11/12/A-day-at-the-train-show/" data-id="cmdv0e9az000lwdjpfap312ns" data-title="A day at the train show" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/11/12/A-day-at-the-train-show/" data-id="cmhpp2cb6001cvejp9vveh3b6" data-title="A day at the train show" class="article-share-link">Share</a>
       
       
       
@@ -498,7 +551,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/10/24/Nix-flake-with-Node-and-PHP/" data-id="cmdv0e9bi0084wdjpaliecrce" data-title="Nix flake with Node and PHP" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/10/24/Nix-flake-with-Node-and-PHP/" data-id="cmhpp2cbn0087vejpg9nx3rp1" data-title="Nix flake with Node and PHP" class="article-share-link">Share</a>
       
       
       
@@ -551,68 +604,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/10/22/This-blog-post-was-written-with-Hexo-and-Nix/" data-id="cmdv0e9bq00cbwdjpg4d5d71d" data-title="This blog post was written with Hexo and Nix" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/10/22/This-blog-post-was-written-with-Hexo-and-Nix/" data-id="cmhpp2cbv00c9vejpf18k7ttu" data-title="This blog post was written with Hexo and Nix" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NVM/" rel="tag">NVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nix/" rel="tag">Nix</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Space-Probe-Taurus" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/10/16/Space-Probe-Taurus/" class="article-date">
-  <time class="dt-published" datetime="2023-10-17T02:20:35.000Z" itemprop="datePublished">2023-10-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Movies/">Movies</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/10/16/Space-Probe-Taurus/">Space Probe Taurus</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-      <div class="poster">
-        <img src="/2023/10/16/Space-Probe-Taurus/space-probe-taurus-poster.jpg">
-      </div>
-      
-      
-        <p>The vibe on <em>Space Probe Taurus</em> is weird, for lack of a more specific term. It has the bones of a typical 1950s-1960s hard science fiction near-future let’s-go-conquer-space flick. The four main characters, the only ones we spend any real time with, are stock types: the hard-driving commander, the older scientist/engineer, the tough-on-the-surface female scientist, and the wiseguy she eventually falls for. They crew a rocketship dispatched from Earth in the year 2000 to explore outer space and find a planet suitable for colonization.</p>
-<p>Things start weird and get weirder. We open not with this crew, but with the last surviving member of a different rocketship. The ship is located on an undefined planet, the rest of the crew killed by an unspecified disease and/or radiation. Somehow in real-time communication with Earth (this movie’s hand-waving of time and space problems anticipates J. J. Abrams by over 40 years), he implores for Earth to destroy the ship and kill him. After some back-and-forth, Mission Control pushes a button on a panel (!) and destroys the ship.</p>
-<p>On the one hand, this trope of self-sacrifice for the conquest of space was pretty common. The <em>Quatermass</em> movies were all over this territory; <a target="_blank" rel="noopener" href="https://letterboxd.com/film/first-man-into-space/"><em>First Man into Space</em></a> is another example. On the other, and this is going to be a pattern with this movie, we never really mention this crew and its sacrifice again. Our crew doesn’t travel to this planet; it’s not mentioned in dialogue. I’m not sure it’s a <em>wrong</em> choice–the planet was clearly unsuitable, no use throwing good money after bad etc–it’s just unexpected.</p>
-        
-          <p class="article-more-link">
-            <a href="/2023/10/16/Space-Probe-Taurus/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/10/16/Space-Probe-Taurus/" data-id="cmdv0e9bn00apwdjpcu3ifm0c" data-title="Space Probe Taurus" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leonard-Katzman/" rel="tag">Leonard Katzman</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Space-Probe-Taurus/" rel="tag">Space Probe Taurus</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/The-Wizard-of-Mars/" rel="tag">The Wizard of Mars</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/War-Gods-of-the-Deep/" rel="tag">War-Gods of the Deep</a></li></ul>
 
     </footer>
   </div>
@@ -653,7 +649,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
     </div>
   </div>
 
@@ -664,6 +660,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2025/11/07/Transforming-GPS-log-data-in-a-Jupyter-notebook/">Transforming GPS log data in a Jupyter notebook</a>
+          </li>
         
           <li>
             <a href="/2025/08/02/A-thousand-miles-without-leaving-the-ground/">A thousand miles without leaving the ground</a>
@@ -679,10 +679,6 @@
         
           <li>
             <a href="/2025/05/28/LANTA-June-2025-changes/">LANTA June 2025 changes</a>
-          </li>
-        
-          <li>
-            <a href="/2025/05/01/Brunswick/">Brunswick</a>
           </li>
         
       </ul>
