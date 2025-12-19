@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.goodbyeplease.com/2025/12/19/LANTA-January-2026-service-cuts/</loc>
+    
+    <lastmod>2025-12-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.goodbyeplease.com/2025/12/19/Fourteen-hours-in-Detroit/</loc>
     
     <lastmod>2025-12-19</lastmod>
@@ -92,7 +101,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/how-to-identify-a-train/</loc>
+    <loc>https://blog.goodbyeplease.com/b-movie-metric/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -101,7 +110,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/b-movie-metric/</loc>
+    <loc>https://blog.goodbyeplease.com/how-to-identify-a-train/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -227,7 +236,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2023/10/22/This-blog-post-was-written-with-Hexo-and-Nix/</loc>
+    <loc>https://blog.goodbyeplease.com/2021/05/12/Thoughts-on-the-June-2021-LANTA-changes/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -236,7 +245,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2021/05/12/Thoughts-on-the-June-2021-LANTA-changes/</loc>
+    <loc>https://blog.goodbyeplease.com/2023/10/22/This-blog-post-was-written-with-Hexo-and-Nix/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -407,7 +416,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2023/10/16/Space-Probe-Taurus/</loc>
+    <loc>https://blog.goodbyeplease.com/2024/07/14/Target-Harry/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -416,7 +425,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2024/07/14/Target-Harry/</loc>
+    <loc>https://blog.goodbyeplease.com/2023/10/16/Space-Probe-Taurus/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -434,7 +443,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2017/07/10/Rolling-rocks-downhill/</loc>
+    <loc>https://blog.goodbyeplease.com/2017/08/30/Running-Moodle-CI-tests-in-GitLab/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -443,7 +452,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2017/08/30/Running-Moodle-CI-tests-in-GitLab/</loc>
+    <loc>https://blog.goodbyeplease.com/2017/07/10/Rolling-rocks-downhill/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -461,7 +470,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2017/11/18/Simple-method-for-image-to-PDF-conversion/</loc>
+    <loc>https://blog.goodbyeplease.com/2023/10/16/So-your-Google-WiFi-pucks-have-the-slows/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -470,7 +479,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2023/10/16/So-your-Google-WiFi-pucks-have-the-slows/</loc>
+    <loc>https://blog.goodbyeplease.com/2017/11/18/Simple-method-for-image-to-PDF-conversion/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -497,7 +506,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2017/02/06/Raspberry-Plex/</loc>
+    <loc>https://blog.goodbyeplease.com/2014/03/15/Recap-and-reflections/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -506,7 +515,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2014/03/15/Recap-and-reflections/</loc>
+    <loc>https://blog.goodbyeplease.com/2017/02/06/Raspberry-Plex/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -677,15 +686,6 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2024/02/08/Neave-Trio/</loc>
-    
-    <lastmod>2025-02-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.goodbyeplease.com/2017/02/11/Nextcloud-on-Pi/</loc>
     
     <lastmod>2025-02-20</lastmod>
@@ -696,6 +696,15 @@
   
   <url>
     <loc>https://blog.goodbyeplease.com/2024/07/23/Night-of-the-Demon/</loc>
+    
+    <lastmod>2025-02-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/2024/02/08/Neave-Trio/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -884,7 +893,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2024/04/01/Lehigh-Valley-to-Philadelphia-via-Norristown/</loc>
+    <loc>https://blog.goodbyeplease.com/2024/03/30/Lehigh-Valley-to-Philadelphia-via-Lansdale/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -893,7 +902,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2024/03/30/Lehigh-Valley-to-Philadelphia-via-Lansdale/</loc>
+    <loc>https://blog.goodbyeplease.com/2024/04/01/Lehigh-Valley-to-Philadelphia-via-Norristown/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -956,7 +965,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2017/03/22/How-I-file-things/</loc>
+    <loc>https://blog.goodbyeplease.com/2014/04/18/Hard-Ticket-to-Hawaii/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -965,7 +974,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2014/04/18/Hard-Ticket-to-Hawaii/</loc>
+    <loc>https://blog.goodbyeplease.com/2017/03/22/How-I-file-things/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -1010,6 +1019,15 @@
   </url>
   
   <url>
+    <loc>https://blog.goodbyeplease.com/2014/10/13/Gulp-it%E2%80%99s-Code-Checker/</loc>
+    
+    <lastmod>2025-02-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.goodbyeplease.com/2022/11/02/Gymkata/</loc>
     
     <lastmod>2025-02-20</lastmod>
@@ -1019,7 +1037,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2014/10/13/Gulp-it%E2%80%99s-Code-Checker/</loc>
+    <loc>https://blog.goodbyeplease.com/2022/11/03/Garbage-In-Garbage-Out/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -1046,7 +1064,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2022/11/03/Garbage-In-Garbage-Out/</loc>
+    <loc>https://blog.goodbyeplease.com/2024/03/16/Fifteen-years-on-the-Lake-Shore-Limited/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -1056,15 +1074,6 @@
   
   <url>
     <loc>https://blog.goodbyeplease.com/2024/07/04/Foes/</loc>
-    
-    <lastmod>2025-02-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/2024/03/16/Fifteen-years-on-the-Lake-Shore-Limited/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -1109,7 +1118,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2023/11/14/Enabling-a-PHP-extension-in-Nix/</loc>
+    <loc>https://blog.goodbyeplease.com/2021/05/11/Engine-change-at-New-Haven/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -1118,7 +1127,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2021/05/11/Engine-change-at-New-Haven/</loc>
+    <loc>https://blog.goodbyeplease.com/2023/11/14/Enabling-a-PHP-extension-in-Nix/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -1163,7 +1172,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2024/11/13/Devenv-python-and-packaging-Lambdas/</loc>
+    <loc>https://blog.goodbyeplease.com/2018/04/25/Deploying-MediaWiki-with-Capistrano/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -1181,7 +1190,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2018/04/25/Deploying-MediaWiki-with-Capistrano/</loc>
+    <loc>https://blog.goodbyeplease.com/2024/11/13/Devenv-python-and-packaging-Lambdas/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -1244,15 +1253,6 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2023/11/22/Blood-Hook/</loc>
-    
-    <lastmod>2025-02-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.goodbyeplease.com/2023/03/14/Browser-Headers-and-WordPress/</loc>
     
     <lastmod>2025-02-20</lastmod>
@@ -1262,7 +1262,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2014/03/08/Below/</loc>
+    <loc>https://blog.goodbyeplease.com/2023/11/22/Blood-Hook/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -1298,7 +1298,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2020/02/12/Apache-and-HTTP-2-on-AWS/</loc>
+    <loc>https://blog.goodbyeplease.com/2014/03/08/Below/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -1317,6 +1317,15 @@
   
   <url>
     <loc>https://blog.goodbyeplease.com/2017/04/19/Apparating-a-source/</loc>
+    
+    <lastmod>2025-02-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/2020/02/12/Apache-and-HTTP-2-on-AWS/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -1370,7 +1379,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2013/05/23/AmPets/</loc>
+    <loc>https://blog.goodbyeplease.com/2022/11/15/Amtrak-Olympics/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -1379,7 +1388,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/2022/11/15/Amtrak-Olympics/</loc>
+    <loc>https://blog.goodbyeplease.com/2013/05/23/AmPets/</loc>
     
     <lastmod>2025-02-20</lastmod>
     
@@ -1469,14 +1478,14 @@
 
   
   <url>
-    <loc>https://blog.goodbyeplease.com/tags/Amtrak/</loc>
+    <loc>https://blog.goodbyeplease.com/tags/Millennium/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/tags/Millennium/</loc>
+    <loc>https://blog.goodbyeplease.com/tags/Amtrak/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1505,6 +1514,27 @@
   
   <url>
     <loc>https://blog.goodbyeplease.com/tags/Renee-O-Connor/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Model-railroading/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Lehigh-and-New-England-Railroad/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Lehigh-Valley-Transit-Company/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1560,34 +1590,6 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/tags/Model-railroading/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Lehigh-and-New-England-Railroad/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Lehigh-Valley-Transit-Company/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Hexo/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.goodbyeplease.com/tags/BWI-Airport/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -1624,6 +1626,13 @@
   
   <url>
     <loc>https://blog.goodbyeplease.com/tags/Southwest-Airlines/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Hexo/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1672,6 +1681,13 @@
   </url>
   
   <url>
+    <loc>https://blog.goodbyeplease.com/tags/Winter-Games-From-the-Dark-Side/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.goodbyeplease.com/tags/Lake-Shore-Limited/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -1701,13 +1717,6 @@
   
   <url>
     <loc>https://blog.goodbyeplease.com/tags/Twitter/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Winter-Games-From-the-Dark-Side/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1757,27 +1766,6 @@
   
   <url>
     <loc>https://blog.goodbyeplease.com/tags/Apache/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/AWS/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/HTTP-2/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/TLS/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1840,49 +1828,21 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/tags/Below/</loc>
+    <loc>https://blog.goodbyeplease.com/tags/AWS/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/tags/Bruce-Greenwood/</loc>
+    <loc>https://blog.goodbyeplease.com/tags/HTTP-2/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/tags/David-Twohy/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Dexter-Fletcher/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Jason-Flemyng/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Olivia-Williams/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Zach-Galifianakis/</loc>
+    <loc>https://blog.goodbyeplease.com/tags/TLS/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1987,6 +1947,76 @@
   </url>
   
   <url>
+    <loc>https://blog.goodbyeplease.com/tags/Cloudfront/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Below/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Bruce-Greenwood/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/David-Twohy/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Dexter-Fletcher/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Jason-Flemyng/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Olivia-Williams/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Zach-Galifianakis/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Downeaster/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Bowdoin-College/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.goodbyeplease.com/tags/Blood-Hook/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -2002,27 +2032,6 @@
   
   <url>
     <loc>https://blog.goodbyeplease.com/tags/Troma/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Cloudfront/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Downeaster/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Bowdoin-College/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2120,27 +2129,6 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/tags/Active-Directory/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/OpenLDAP/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/PHPUnit/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.goodbyeplease.com/tags/Creature/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -2177,6 +2165,27 @@
   
   <url>
     <loc>https://blog.goodbyeplease.com/tags/Cloudformation/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Active-Directory/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/OpenLDAP/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/PHPUnit/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2239,14 +2248,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/tags/Nix/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Python/</loc>
+    <loc>https://blog.goodbyeplease.com/tags/MediaWiki/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2267,7 +2269,14 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/tags/MediaWiki/</loc>
+    <loc>https://blog.goodbyeplease.com/tags/Nix/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Python/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2289,6 +2298,20 @@
   
   <url>
     <loc>https://blog.goodbyeplease.com/tags/exif/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/New-Haven/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Vermonter/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2323,14 +2346,21 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/tags/New-Haven/</loc>
+    <loc>https://blog.goodbyeplease.com/tags/Advanced-Custom-Fields/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/tags/Vermonter/</loc>
+    <loc>https://blog.goodbyeplease.com/tags/Floridian/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Silver-Star/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2344,7 +2374,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/tags/Advanced-Custom-Fields/</loc>
+    <loc>https://blog.goodbyeplease.com/tags/Testing/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2393,14 +2423,21 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/tags/Floridian/</loc>
+    <loc>https://blog.goodbyeplease.com/tags/Greyhound/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/tags/Silver-Star/</loc>
+    <loc>https://blog.goodbyeplease.com/tags/Das-Boot/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/The-Cruel-Sea/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2442,28 +2479,7 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/tags/Testing/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Greyhound/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Das-Boot/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/The-Cruel-Sea/</loc>
+    <loc>https://blog.goodbyeplease.com/tags/Gulp/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2520,13 +2536,6 @@
   
   <url>
     <loc>https://blog.goodbyeplease.com/tags/New-England-Central-Railroad/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Gulp/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2603,20 +2612,6 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/tags/Nextcloud/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Zotero/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.goodbyeplease.com/tags/Andy-Sidaris/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -2625,6 +2620,20 @@
   
   <url>
     <loc>https://blog.goodbyeplease.com/tags/Hard-Ticket-to-Hawaii/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Nextcloud/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Zotero/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2743,14 +2752,14 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/tags/Lehigh-Valley/</loc>
+    <loc>https://blog.goodbyeplease.com/tags/LANTA/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/tags/LANTA/</loc>
+    <loc>https://blog.goodbyeplease.com/tags/Lehigh-Valley/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3002,41 +3011,6 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/tags/Neave-Trio/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Samuel-Coleridge-Taylor/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Kirk-O-Riordan/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Maurice-Ravel/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Astor-Piazzolla/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.goodbyeplease.com/tags/Raspberry-Pi/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -3073,6 +3047,41 @@
   
   <url>
     <loc>https://blog.goodbyeplease.com/tags/Dana-Andrews/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Neave-Trio/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Samuel-Coleridge-Taylor/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Kirk-O-Riordan/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Maurice-Ravel/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Astor-Piazzolla/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3240,6 +3249,27 @@
   </url>
   
   <url>
+    <loc>https://blog.goodbyeplease.com/tags/I-78/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Pennsylvanian/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Pittsburgh/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.goodbyeplease.com/tags/Chromecast/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -3262,27 +3292,6 @@
   
   <url>
     <loc>https://blog.goodbyeplease.com/tags/Synology/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/I-78/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Pennsylvanian/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Pittsburgh/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3401,13 +3410,6 @@
   </url>
   
   <url>
-    <loc>https://blog.goodbyeplease.com/tags/ImageMagick/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.goodbyeplease.com/tags/Google-WiFi/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -3415,35 +3417,14 @@
   </url>
   
   <url>
+    <loc>https://blog.goodbyeplease.com/tags/ImageMagick/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.goodbyeplease.com/tags/Debian/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Space-Probe-Taurus/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/The-Wizard-of-Mars/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/War-Gods-of-the-Deep/</loc>
-    <lastmod>2025-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.goodbyeplease.com/tags/Leonard-Katzman/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3479,6 +3460,34 @@
   
   <url>
     <loc>https://blog.goodbyeplease.com/tags/Suzanne-Pleshette/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Space-Probe-Taurus/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/The-Wizard-of-Mars/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/War-Gods-of-the-Deep/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.goodbyeplease.com/tags/Leonard-Katzman/</loc>
     <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
