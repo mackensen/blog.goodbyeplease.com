@@ -42,26 +42,6 @@
   </entry>
   
   <entry>
-    <title>What&#39;s the matter with Trains magazine?</title>
-    <link href="https://blog.goodbyeplease.com/2025/12/13/What-s-the-matter-with-Trains-magazine/"/>
-    <id>https://blog.goodbyeplease.com/2025/12/13/What-s-the-matter-with-Trains-magazine/</id>
-    <published>2025-12-14T01:49:41.000Z</published>
-    <updated>2025-12-14T01:56:33.493Z</updated>
-    
-    <content type="html"><![CDATA[<p>In the United States railroad enthusiast (railfan) community, <em>Trains</em> magazine is something of a gold standard. A. C. Kalmbach founded it in 1941 David P. Morgan edited it for over 30 years</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;In the United States railroad enthusiast (railfan) community, &lt;em&gt;Trains&lt;/em&gt; magazine is something of a gold standard. A. C. Kalmbach fo</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>Transforming GPS log data in a Jupyter notebook</title>
     <link href="https://blog.goodbyeplease.com/2025/11/07/Transforming-GPS-log-data-in-a-Jupyter-notebook/"/>
     <id>https://blog.goodbyeplease.com/2025/11/07/Transforming-GPS-log-data-in-a-Jupyter-notebook/</id>
@@ -132,9 +112,9 @@
     <category term="Books" scheme="https://blog.goodbyeplease.com/categories/Books/"/>
     
     
-    <category term="What I&#39;m Reading" scheme="https://blog.goodbyeplease.com/tags/What-I-m-Reading/"/>
-    
     <category term="Paul Theroux" scheme="https://blog.goodbyeplease.com/tags/Paul-Theroux/"/>
+    
+    <category term="What I&#39;m Reading" scheme="https://blog.goodbyeplease.com/tags/What-I-m-Reading/"/>
     
   </entry>
   
@@ -510,6 +490,29 @@
     <category term="WordPress" scheme="https://blog.goodbyeplease.com/tags/WordPress/"/>
     
     <category term="Composer" scheme="https://blog.goodbyeplease.com/tags/Composer/"/>
+    
+    <category term="Advanced Custom Fields" scheme="https://blog.goodbyeplease.com/tags/Advanced-Custom-Fields/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Fear, uncertainty, and doubt</title>
+    <link href="https://blog.goodbyeplease.com/2024/10/13/Fear-uncertainty-and-doubt/"/>
+    <id>https://blog.goodbyeplease.com/2024/10/13/Fear-uncertainty-and-doubt/</id>
+    <published>2024-10-14T01:19:20.000Z</published>
+    <updated>2025-02-20T03:07:34.774Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://en.wikipedia.org/wiki/Fear,_uncertainty,_and_doubt">Fear, uncertainty, and doubt</a> (FUD) is as old as time. In a nutshell, it’s a disinformation tactic. You put out false information, engendering fear, in the hope that you can manipulate people toward a particular outcome favorable to you. No, I’m not talking about Donald Trump and the 2024 US election. I’m talking about Matt Mullenweg, WordPress.org, and Automattic over the last month.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p><p>My introduction to FUD was in the late 1990s. I was in high school, I was playing around with Linux, and I was a regular poster on <a href="https://slashdot.org/">Slashdot</a>. This was the high-water point of Microsoft trying to undermine public confidence in open source in general and Linux in particular. This was the period of the “<a href="https://en.wikipedia.org/wiki/Halloween_documents">Halloween documents</a>” and <a href="https://en.wikipedia.org/wiki/SCO_Group,_Inc._v._International_Business_Machines_Corp."><em>SCO v. IBM</em></a>. Rather than compete on the technical merits, Microsoft sought to create an environment where companies were afraid to adopt open source technologies because of nebulous licensing or patent concerns. The fact that these efforts ultimately failed doesn’t change how much time and money was spent combatting them. The opportunity cost was high.</p><p>Which brings me back to WordPress. I wrote yesterday (“<a href="/2024/10/12/The-call-is-coming-from-inside-the-house/" title="The call is coming from inside the house">The call is coming from inside the house</a>”) about Matt Mullenweg’s seizure of Advanced Custom Fields on the WordPress.org plugins repository. I mentioned in passing that he also <a href="https://wordpress.org/news/2024/09/wp-engine-banned/">banned</a> WP Engine from the repository. Something I didn’t mention is that logging into WordPress.org now requires you to attest that “I am not affiliated with WP Engine in any way, financially or otherwise.”</p><p><img src="wordpress-org-attestation.png" alt="Are you, or have you ever been, affiliated with WP Engine?" title="Login form requiring you to attest that you are not affiliated with WP Engine"></p><p>This is a classic example of FUD. What does it mean to be affiliated with WP Engine, financially or otherwise? Is this limited to employees of WP Engine and investors in the company? What about people who host their sites on WP Engine or Flywheel? What if you, or your company, owns an Advanced Custom Fields Pro license? Never mind that many people who own ACF licenses bought them two acquisitions ago.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> Does that qualify as affiliation? If my company has an Akismet license, does that mean I’m “affiliated” with Automattic? Nothing in the <a href="https://akismet.com/tos/">terms of service for Akismet</a> says so.</p><p>I am not a lawyer. The above isn’t a question that would normally concern me. However, Mullenweg’s approach toward WP Engine has been aggressive, both in conduct and tone. The <a href="https://techcrunch.com/2024/10/04/159-employees-are-leaving-automattic-as-ceos-fight-with-wp-engine-escalates/?guccounter=1">departure of 8.4% of Automattic’s employees</a>, and the reports of people being blocked on Twitter and removed from the official WordPress Slack, suggest that the important thing right now is picking a side. I suspect I speak for most downstream users of WordPress when I say that I’m not interested in picking a side between Mullenweg and WP Engine. That’s not my fight and I derive no benefit from it.</p><p>Mullenweg has created a situation where I’m not sure if by logging into WordPress.org I’m placing myself in the wrong. In my opinion, this is deliberate. ACF is an important plugin; creating uncertainty around its use is a way to hurt WP Engine. Witness all the ballyho around “Secure Custom Fields”; the name alone implies that that ACF is in some way insecure. This isn’t true, <a href="https://timnash.co.uk/advisory-advanced-custom-fields-changes/">as this excellent post</a> from Tim Nash makes clear. Still, some damage is no doubt done. Going forward, there are at least <em>three</em> plugins providing similar functionality:</p><ul><li>Advanced Custom Fields 6.3.6.1: the last version of the free ACF plugin developed by WP Engine and released through WordPress.org. Contains an upsell to Advanced Custom Fields Pro. Auto-upgrade path is to Secure Custom Fields.</li><li>Secure Custom Fields 6.3.6.2: the latest version on WordPress.org. Usurped by Mullenweg, with the upsell to Advanced Custom Fields Pro removed.</li><li>Advanced Custom Fields 6.3.8: the current free version of the ACF plugin, still developed by WP Engine and available through its official website. Removed the dependency on WordPress.org. <a href="https://www.advancedcustomfields.com/blog/installing-and-upgrading-to-the-latest-version-of-acf/">Requires a one-time manual step by site owners to install</a>.</li></ul><p>Sorry if you’re a WordPress administrator and you had other plans for mid-October. If you’re part of the ACF ecosystem, you’re having to consider questions that would have seemed foreign a month ago, such as whether I’m placing myself in legal jeopardy by logging in to WordPress.org. Are further steps coming? Will “affiliated” people be banned from downloading plugins from WordPress.org? It sounds ridiculous, but as I said yesterday I see no evidence of limiting principles. It’s important to recognize that all the FUD surrounding WP Engine and Advanced Custom Fields has a single source, and that Mullenweg’s <a href="https://techcrunch.com/2024/09/22/matt-mullenweg-calls-wp-engine-a-cancer-to-wordpress-and-urges-community-to-switch-providers/">explicit goal</a>  in this campaign is to weaken a competitor.</p><p>I don’t <em>want</em> to pick a side. I want to work on my actual job, which does not involve getting dragged into a fight between two hosting companies. Mullenweg has created legal uncertainty where none existed previously, and I’m concerned about future developments. No one asked for this and it’s hard to see how anyone benefits.</p><hr class="footnotes-sep"><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p>Mullenweg says WordPress.org “<a href="https://www.theverge.com/2024/10/4/24262232/matt-mullenweg-wordpress-org-wp-engine">belongs to me personally</a>”, so I’m not going to distinguish him from th e platform. <a href="#fnref1" class="footnote-backref">↩︎</a></p></li><li id="fn2" class="footnote-item"><p>Elliott Condon <a href="https://deliciousbrains.com/epic-wordpress-announcement/">sold ACF to Delicious Brains</a> in June 2021. WP Engine bought Delicious Brains <a href="https://deliciousbrains.com/wp-engine-acquisition/">a year later</a>. <a href="#fnref2" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content>
+    
+    
+    <summary type="html">Mullenweg&#39;s FUD campaign against WP Engine and why it matters.</summary>
+    
+    
+    
+    <category term="Web Development" scheme="https://blog.goodbyeplease.com/categories/Web-Development/"/>
+    
+    
+    <category term="WordPress" scheme="https://blog.goodbyeplease.com/tags/WordPress/"/>
     
     <category term="Advanced Custom Fields" scheme="https://blog.goodbyeplease.com/tags/Advanced-Custom-Fields/"/>
     

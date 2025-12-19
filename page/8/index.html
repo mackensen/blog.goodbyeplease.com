@@ -80,59 +80,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Nix-flake-with-Node-and-PHP" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/10/24/Nix-flake-with-Node-and-PHP/" class="article-date">
-  <time class="dt-published" datetime="2023-10-25T01:43:50.000Z" itemprop="datePublished">2023-10-24</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/10/24/Nix-flake-with-Node-and-PHP/">Nix flake with Node and PHP</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-      
-        <p>Brief note on a nix flake that supports Node 20 and PHP 7.4. My use case is deploying an AWS CDK project that supports a Moodle 3.11 environment. I’m not version-limited on the Node version for CDK, but I need to start with PHP 7.4 to support the Moodle package code, though I’ll be moving to PHP 8.1 soon.</p>
-<p>Here’s the flake.nix in its entirety:</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  description = <span class="string">&quot;Example JavaScript development environment for Zero to Nix&quot;</span>;</span><br><span class="line"></span><br><span class="line">  # Flake inputs</span><br><span class="line">  inputs = <span class="punctuation">&#123;</span></span><br><span class="line">    nixpkgs.url = <span class="string">&quot;github:NixOS/nixpkgs?ref=nixos-unstable&quot;</span>;</span><br><span class="line">    phps.url = <span class="string">&quot;github:fossar/nix-phps&quot;</span>;</span><br><span class="line">  <span class="punctuation">&#125;</span>;</span><br><span class="line"></span><br><span class="line">  # Flake outputs</span><br><span class="line">  outputs = <span class="punctuation">&#123;</span> self<span class="punctuation">,</span> nixpkgs<span class="punctuation">,</span> phps <span class="punctuation">&#125;</span><span class="punctuation">:</span></span><br><span class="line">    let</span><br><span class="line">      # Systems supported</span><br><span class="line">      allSystems = <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;x86_64-linux&quot;</span> # <span class="number">64</span>-bit Intel/AMD Linux</span><br><span class="line">        <span class="string">&quot;aarch64-linux&quot;</span> # <span class="number">64</span>-bit ARM Linux</span><br><span class="line">        <span class="string">&quot;x86_64-darwin&quot;</span> # <span class="number">64</span>-bit Intel macOS</span><br><span class="line">        <span class="string">&quot;aarch64-darwin&quot;</span> # <span class="number">64</span>-bit ARM macOS</span><br><span class="line">      <span class="punctuation">]</span>;</span><br><span class="line"></span><br><span class="line">      # Helper to provide system-specific attributes</span><br><span class="line">      forAllSystems = f<span class="punctuation">:</span> nixpkgs.lib.genAttrs allSystems (system<span class="punctuation">:</span> f <span class="punctuation">&#123;</span></span><br><span class="line">        pkgs = import nixpkgs <span class="punctuation">&#123;</span> inherit system; <span class="punctuation">&#125;</span>;</span><br><span class="line">      <span class="punctuation">&#125;</span>);</span><br><span class="line">    in</span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      # Development environment output</span><br><span class="line">      devShells = forAllSystems (<span class="punctuation">&#123;</span> pkgs <span class="punctuation">&#125;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        default = pkgs.mkShell <span class="punctuation">&#123;</span></span><br><span class="line">          # The Nix packages provided in the environment</span><br><span class="line">          packages = with pkgs; <span class="punctuation">[</span></span><br><span class="line">            nodejs_20 # Node.js <span class="number">18</span><span class="punctuation">,</span> plus npm<span class="punctuation">,</span> npx<span class="punctuation">,</span> and corepack</span><br><span class="line">            yarn</span><br><span class="line">            phps.packages.$<span class="punctuation">&#123;</span>system<span class="punctuation">&#125;</span>.php74</span><br><span class="line">            phps.packages.$<span class="punctuation">&#123;</span>system<span class="punctuation">&#125;</span>.php74.packages.composer</span><br><span class="line">          <span class="punctuation">]</span>;</span><br><span class="line">    </span><br><span class="line">          shellHook = &#x27;&#x27;</span><br><span class="line">            yarn</span><br><span class="line">            npx aws-cdk --version</span><br><span class="line">            php -v</span><br><span class="line">          &#x27;&#x27;;</span><br><span class="line">        <span class="punctuation">&#125;</span>;</span><br><span class="line">      <span class="punctuation">&#125;</span>);</span><br><span class="line">    <span class="punctuation">&#125;</span>;</span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2023/10/24/Nix-flake-with-Node-and-PHP/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/10/24/Nix-flake-with-Node-and-PHP/" data-id="cmjd0s94r008cz2sg44zebc4x" data-title="Nix flake with Node and PHP" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nix/" rel="tag">Nix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
     <article id="post-This-blog-post-was-written-with-Hexo-and-Nix" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/10/22/This-blog-post-was-written-with-Hexo-and-Nix/" class="article-date">
@@ -171,7 +118,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/10/22/This-blog-post-was-written-with-Hexo-and-Nix/" data-id="cmjd0s94y00c4z2sg3h2hbv28" data-title="This blog post was written with Hexo and Nix" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/10/22/This-blog-post-was-written-with-Hexo-and-Nix/" data-id="cmjd0ukib00ch3hsg4sit0myw" data-title="This blog post was written with Hexo and Nix" class="article-share-link">Share</a>
       
       
       
@@ -228,7 +175,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/10/16/Space-Probe-Taurus/" data-id="cmjd0s94v00aqz2sg8pkw8rx0" data-title="Space Probe Taurus" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/10/16/Space-Probe-Taurus/" data-id="cmjd0uki800aw3hsgg4enbe6d" data-title="Space Probe Taurus" class="article-share-link">Share</a>
       
       
       
@@ -281,7 +228,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/10/16/So-your-Google-WiFi-pucks-have-the-slows/" data-id="cmjd0s94v00ajz2sgh8uw73tu" data-title="So your Google WiFi pucks have the slows" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/10/16/So-your-Google-WiFi-pucks-have-the-slows/" data-id="cmjd0uki800aq3hsg7suod9fm" data-title="So your Google WiFi pucks have the slows" class="article-share-link">Share</a>
       
       
       
@@ -334,7 +281,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/03/28/Multiple-PHP-versions-under-the-same-domain/" data-id="cmjd0s94p007nz2sg2p2f3sxx" data-title="Multiple PHP versions under the same domain" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/03/28/Multiple-PHP-versions-under-the-same-domain/" data-id="cmjd0uki2007v3hsgas5tfkkg" data-title="Multiple PHP versions under the same domain" class="article-share-link">Share</a>
       
       
       
@@ -387,7 +334,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/03/14/Browser-Headers-and-WordPress/" data-id="cmjd0s94d002fz2sg2m24dbkg" data-title="Browser Headers and WordPress" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/03/14/Browser-Headers-and-WordPress/" data-id="cmjd0ukhp002l3hsgho1phbqa" data-title="Browser Headers and WordPress" class="article-share-link">Share</a>
       
       
       
@@ -440,7 +387,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/29/Proxying-Cloudfront-with-Nginx/" data-id="cmjd0s94s0097z2sg155n9we7" data-title="Proxying Cloudfront with Nginx" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/29/Proxying-Cloudfront-with-Nginx/" data-id="cmjd0uki5009e3hsghz0n63yq" data-title="Proxying Cloudfront with Nginx" class="article-share-link">Share</a>
       
       
       
@@ -493,7 +440,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/23/EFS-mount-watchdog-and-CPU-usage/" data-id="cmjd0s94g003uz2sg448928n6" data-title="EFS mount watchdog and CPU usage" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/23/EFS-mount-watchdog-and-CPU-usage/" data-id="cmjd0ukhs003y3hsgglgndet6" data-title="EFS mount watchdog and CPU usage" class="article-share-link">Share</a>
       
       
       
@@ -546,7 +493,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/22/Customizing-the-CDK-bootstrap-stack/" data-id="cmjd0s94e0037z2sgddfgcabk" data-title="Customizing the CDK bootstrap stack" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/22/Customizing-the-CDK-bootstrap-stack/" data-id="cmjd0ukhr003d3hsg5lyla9oj" data-title="Customizing the CDK bootstrap stack" class="article-share-link">Share</a>
       
       
       
@@ -599,7 +546,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/21/Moodle-TypeScript-and-CDK/" data-id="cmjd0s94o007fz2sg31d2d8w9" data-title="Moodle, TypeScript, and CDK" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2022/11/21/Moodle-TypeScript-and-CDK/" data-id="cmjd0uki2007o3hsgbit43k8e" data-title="Moodle, TypeScript, and CDK" class="article-share-link">Share</a>
       
       
       
@@ -614,11 +561,68 @@
 
 
   
+    <article id="post-Octopussy" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/20/Octopussy/" class="article-date">
+  <time class="dt-published" datetime="2022-11-20T20:53:53.000Z" itemprop="datePublished">2022-11-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Movies/">Movies</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/11/20/Octopussy/">Octopussy</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      <div class="poster">
+        <img src="/2022/11/20/Octopussy/poster.jpg">
+      </div>
+      
+      
+        <p><em>Octopussy</em> may have the most ludicrous plot for a James Bond movie, and that’s saying something. We’ve had two where the villain launched a laser satellite (<em>Diamonds are Forever</em> and <em>Die Another Day</em>). In <em>A View to a Kill</em>, Christopher Walken planned to cause an earthquake to destroy Silicon Valley. <em>You Only Live Twice</em> (scripted by Roald Dahl!) has a spaceship that eats other spaceships. This was retooled in <em>The Spy Who Loved Me</em> with a supertanker that eats submarines. We haven’t even mentioned <em>Moonraker</em>, in which James Bond actually goes to outer space!</p>
+<p>Tongue firmly planted in cheek, this describes the plot of <em>Octopussy</em>: “a circus clown foils an attempt by a deposed Afghan prince and rogue Russian general to destroy a circus with a nuclear bomb.” This doesn’t even touch on the titular jewel smuggler who established an all-female smuggling ring organized around the “Octopus cult.”</p>
+<p><em>Octopussy</em> usually rates in the bottom third of Bond movies, though without the rancor surrounding <em>The Man with the Golden Gun</em>, <em>A View to a Kill</em>, or <em>Die Another Day</em>. The elegaic tone, which starts with Rita Coolidge’s theme “All Time High”, accounts for some of this. Moore was clearly too old, and casting a returning Maud Adams against him eliminated some of the icky sexual politics from the previous film <em>For Your Eyes Only</em>. The action sequence surrounding the train crossing the German border is well-done, despite its inherent implausibility. Douglas Wilmer is fun in a small role as an art expert. Kabir Bedi has memorable turn as monster heel Gobinda.</p>
+        
+          <p class="article-more-link">
+            <a href="/2022/11/20/Octopussy/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2022/11/20/Octopussy/" data-id="cmjd0uki4008q3hsg402o1o39" data-title="Octopussy" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Douglas-Wilmer/" rel="tag">Douglas Wilmer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kabir-Bedi/" rel="tag">Kabir Bedi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Louis-Jourdan/" rel="tag">Louis Jourdan</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Maud-Adams/" rel="tag">Maud Adams</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Octopussy/" rel="tag">Octopussy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Roger-Moore/" rel="tag">Roger Moore</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Steven-Berkoff/" rel="tag">Steven Berkoff</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -661,10 +665,6 @@
           </li>
         
           <li>
-            <a href="/2025/12/13/What-s-the-matter-with-Trains-magazine/">What&#39;s the matter with Trains magazine?</a>
-          </li>
-        
-          <li>
             <a href="/2025/11/07/Transforming-GPS-log-data-in-a-Jupyter-notebook/">Transforming GPS log data in a Jupyter notebook</a>
           </li>
         
@@ -674,6 +674,10 @@
         
           <li>
             <a href="/2025/06/23/The-Pillars-of-Hercules/">The Pillars of Hercules</a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/20/Empty-tags-in-a-thumbsup-album/">Empty tags in a thumbsup album</a>
           </li>
         
       </ul>
