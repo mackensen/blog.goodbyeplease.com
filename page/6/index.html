@@ -80,6 +80,116 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Grand-Slam" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/02/04/Grand-Slam/" class="article-date">
+  <time class="dt-published" datetime="2024-02-05T02:11:38.000Z" itemprop="datePublished">2024-02-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Movies/">Movies</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/02/04/Grand-Slam/">Grand Slam</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      <div class="poster">
+        <img src="/2024/02/04/Grand-Slam/grand-slam.jpeg">
+      </div>
+      
+      
+        <p>1967’s <a target="_blank" rel="noopener" href="https://letterboxd.com/film/grand-slam/"><em>Grand Slam</em></a> belongs to two overlapping traditions. First, it’s an international heist movie, in good company with <a target="_blank" rel="noopener" href="https://letterboxd.com/film/the-italian-job/"><em>The Italian Job</em></a>, <a target="_blank" rel="noopener" href="https://letterboxd.com/film/topkapi/"><em>Topkapi</em></a>, and <a target="_blank" rel="noopener" href="https://letterboxd.com/film/the-first-great-train-robbery/"><em>The Great Train Robbery</em></a>. Second, it’s one of those European productions where the top-billed stars turned up for a day’s work and a paycheck, and are promptly never seen again. It’s easy to envision Ray Milland in the Edward G. Robinson role, if this was made in the 1970s.</p>
+<p>We open with Edward G. Robinson, recently retired from 30 years of teaching at a Catholic school in Rio de Janeiro, dropping in on his old friend Adolfo Celi (dubbed, but not by Robert Rietty), now in the rackets. Robinson, as one does, has spent the last 30 years developing the perfect plan to steal $10 million in diamonds from the building across the street from the school, and he needs Celi to provide the team.</p>
+<p>Compared to other heist movies the team is small. We have Robert Hoffmann as a French playboy, Klaus Kinski as a German ex-soldier, Riccardo Cucciolla as an Italian mechanical engineer, and George Rigaud as an English safecracking expert. Cucciolla makes toys for a living; Rigaud is a manservant; he cracks safes on his holiday.</p>
+        
+          <p class="article-more-link">
+            <a href="/2024/02/04/Grand-Slam/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2024/02/04/Grand-Slam/" data-id="cmjd0s94i004mz2sgg3pc05xo" data-title="Grand Slam" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Adolfo-Celi/" rel="tag">Adolfo Celi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Edward-G-Robinson/" rel="tag">Edward G. Robinson</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Grand-Slam/" rel="tag">Grand Slam</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Janet-Leigh/" rel="tag">Janet Leigh</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Klaus-Kinski/" rel="tag">Klaus Kinski</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Composer-aliases-for-fun-and-profit" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/01/23/Composer-aliases-for-fun-and-profit/" class="article-date">
+  <time class="dt-published" datetime="2024-01-24T03:26:35.000Z" itemprop="datePublished">2024-01-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/01/23/Composer-aliases-for-fun-and-profit/">Composer aliases for fun and profit</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>I’ve used PHP Composer for package management for years now and I’m still <a href="/2024/01/05/Using-Composer-with-patches/" title="Using Composer with patches">learning new things</a>. Today’s cool new capability is <a target="_blank" rel="noopener" href="https://getcomposer.org/doc/articles/aliases.md">aliases</a>. Let me start with a tip of the hat to <a target="_blank" rel="noopener" href="https://www.laurencegellert.com/2017/12/how-to-override-a-composer-dependency-so-it-pulls-from-your-branch/">Laurence Gellert</a>; I stumbled across his blog while trying to extricate myself from a dependency problem. Somewhat akin to <a href="/2022/11/29/Proxying-Cloudfront-with-Nginx/" title="Proxying Cloudfront with Nginx">proxying Cloudfront with Nginx</a>, I want to emphasize that I chose this solution after considering and rejecting other options and I do not intend to make a habit of it.</p>
+<p>We use Composer to build our Moodle deployment packages. Moodle has about <a target="_blank" rel="noopener" href="https://moodledev.io/docs/apis/plugintypes">fifty different plugin types</a>. Each plugin has a component name: <code>mod</code> for activity modules, <code>qtype</code> for question type, and so on. Each has a different installation path, which means that our build process depends on the <a target="_blank" rel="noopener" href="https://github.com/composer/installers">Composer installers</a> plugin supporting each type.</p>
+<p>Moodle shipped a revamped TinyMCE integration beginning with Moodle 4.1. CLAMP did a thorough evaluation at the <a target="_blank" rel="noopener" href="https://www.clamp-it.org/blog/2023/01/18/winter-2023-hack-doc-at-swarthmore/">2023 Winter Hack/Doc Fest at Swarthmore</a>. While the new TinyMCE integration itself is of the <code>editors</code> type, any plugin that extends it would be a Tiny editor plugin (<code>tiny</code>). That means that we’ll need support for that plugin type added to the Composer installers project. Unfortunately, that project isn’t very active right now–no new releases since 2022, and no response to <a target="_blank" rel="noopener" href="https://github.com/composer/installers/pull/521">two</a> <a target="_blank" rel="noopener" href="https://github.com/composer/installers/pull/527">separate</a> pull requests to add that change.</p>
+        
+          <p class="article-more-link">
+            <a href="/2024/01/23/Composer-aliases-for-fun-and-profit/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2024/01/23/Composer-aliases-for-fun-and-profit/" data-id="cmjd0s94e0031z2sgb6g4av8x" data-title="Composer aliases for fun and profit" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Composer/" rel="tag">Composer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Moodle/" rel="tag">Moodle</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
     <article id="post-Burying-the-past" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/01/15/Burying-the-past/" class="article-date">
@@ -118,7 +228,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/01/15/Burying-the-past/" data-id="cmhsezbyp002snejpbw4wbbhl" data-title="Burying the past" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/01/15/Burying-the-past/" data-id="cmjd0s94e002uz2sg6jupepry" data-title="Burying the past" class="article-share-link">Share</a>
       
       
       
@@ -171,7 +281,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/01/08/Yet-another-cause-of-Cannot-use-import-statement-outside-a-module/" data-id="cmhsezc0600zgnejpbi7bha2b" data-title="Yet another cause of Cannot use import statement outside a module" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/01/08/Yet-another-cause-of-Cannot-use-import-statement-outside-a-module/" data-id="cmjd0s95000d9z2sg0fwn959e" data-title="Yet another cause of Cannot use import statement outside a module" class="article-share-link">Share</a>
       
       
       
@@ -228,7 +338,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/01/05/Using-Composer-with-patches/" data-id="cmhsezbzb00conejp3le93rz4" data-title="Using Composer with patches" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/01/05/Using-Composer-with-patches/" data-id="cmjd0s94y00cjz2sg55g86wji" data-title="Using Composer with patches" class="article-share-link">Share</a>
       
       
       
@@ -281,7 +391,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/01/02/Always-hook-load-plugin-textdomain-in-WordPress/" data-id="cmhsezbyl0012nejpdtnedaz4" data-title="Always hook load_plugin_textdomain in WordPress" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/01/02/Always-hook-load-plugin-textdomain-in-WordPress/" data-id="cmjd0s9490011z2sg2t2da4sp" data-title="Always hook load_plugin_textdomain in WordPress" class="article-share-link">Share</a>
       
       
       
@@ -338,7 +448,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/12/28/Black-Widow/" data-id="cmhsezbyn0024nejp2bbn7ctp" data-title="Black Widow" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/12/28/Black-Widow/" data-id="cmjd0s94d002kz2sg5quv72fq" data-title="Black Widow" class="article-share-link">Share</a>
       
       
       
@@ -391,7 +501,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/12/23/I-m-coming-to-your-city/" data-id="cmhsezbyx005wnejpdgjlbyo0" data-title="I&#39;m coming to your city" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/12/23/I-m-coming-to-your-city/" data-id="cmjd0s94k005pz2sghpqj7gcz" data-title="I&#39;m coming to your city" class="article-share-link">Share</a>
       
       
       
@@ -444,7 +554,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/12/04/One-of-our-language-packs-is-missing/" data-id="cmhsezbz4008pnejp2ux46t0j" data-title="One of our language packs is missing" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/12/04/One-of-our-language-packs-is-missing/" data-id="cmjd0s94r008pz2sgal5y0ine" data-title="One of our language packs is missing" class="article-share-link">Share</a>
       
       
       
@@ -501,7 +611,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/11/23/Greyhound/" data-id="cmhsezbyv0053nejpdyxk5qc7" data-title="Greyhound" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2023/11/23/Greyhound/" data-id="cmjd0s94i004wz2sge4re182p" data-title="Greyhound" class="article-share-link">Share</a>
       
       
       
@@ -516,121 +626,11 @@
 
 
   
-    <article id="post-Blood-Hook" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/11/22/Blood-Hook/" class="article-date">
-  <time class="dt-published" datetime="2023-11-23T01:08:50.000Z" itemprop="datePublished">2023-11-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Movies/">Movies</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/11/22/Blood-Hook/">Blood Hook</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-      <div class="poster">
-        <img src="/2023/11/22/Blood-Hook/poster.jpg">
-      </div>
-      
-      
-        <p>The “Troma Team Release” title card gives me a shudder. I had a college roommate who was really into Troma and Troma-adjacent horror. I’m not sure what all we watched, but it was enough to know even then the crucial difference between things that Troma made themselves and things that Troma distributed. I respect Lloyd Kaufman’s accomplishments as an independent producer but broad grossout splatter isn’t my bag.</p>
-<p>Tonight, Amazon Prime suggested <a target="_blank" rel="noopener" href="https://letterboxd.com/film/blood-hook/"><em>Blood Hook</em></a>, which we hadn’t heard of before. It’s a slasher set around a lakeside community in Wisconsin’s north woods. It was directed by <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Jim_Mallon">Jim Mallon</a>, now best known for helping start Mystery Science Theater 3000. The production companies, Spider Lake Films and Golden Chargers, are both one-shots; the former is named for a community in Wisconsin near Hayward, Wisconsin, where the film was shot. Troma distributed the film. Vinegar Syndrome did a <a target="_blank" rel="noopener" href="https://www.blu-ray.com/movies/Blood-Hook-Blu-ray/201046/">Blu-ray of the 111-minute cut in 2018</a>, and I’m pretty sure that’s what we watched on Amazon.</p>
-<p>This type of production hits a sweet spot for me. It’s low budget, but not bottom of the barrel. They shot on location, and by the look of it relied mostly on local talent. Most of the actors have no other film credits. I’m from Michigan, not northern Wisconsin, but the accents sound authentic to me. Arthur Marks did this with some of his films, like <a target="_blank" rel="noopener" href="https://letterboxd.com/film/detroit-9000/"><em>Detroit 9000</em></a> and <em><a href="/2014/04/25/The-Monkey-Hustle/" title="The Monkey Hustle">Tbe Monkey Hustle</a></em>. I enjoy watching a movie where I feel like a group of people got together for a month and created something. <em><a target="_blank" rel="noopener" href="https://letterboxd.com/film/theres-nothing-out-there/details/">There’s Nothing Out There</a></em>, another Troma distribution, is in the same space.</p>
-        
-          <p class="article-more-link">
-            <a href="/2023/11/22/Blood-Hook/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/11/22/Blood-Hook/" data-id="cmhsezbyo002lnejp8kt28nav" data-title="Blood Hook" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blood-Hook/" rel="tag">Blood Hook</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jim-Mallon/" rel="tag">Jim Mallon</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Troma/" rel="tag">Troma</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-My-worst-best-trip-on-the-Empire-Builder" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/11/22/My-worst-best-trip-on-the-Empire-Builder/" class="article-date">
-  <time class="dt-published" datetime="2023-11-22T14:28:38.000Z" itemprop="datePublished">2023-11-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Trains/">Trains</a>►<a class="article-category-link" href="/categories/Travel/">Travel</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/11/22/My-worst-best-trip-on-the-Empire-Builder/">My worst best trip on the Empire Builder</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-      
-        <p>I’ve ridden 117,534 miles on Amtrak, or almost five times around the globe. 111,519 of those miles are since January 4, 2009, when I took the <a target="_blank" rel="noopener" href="https://www.amtrak.com/empire-builder-train"><em>Empire Builder</em></a> from Chicago to Portland for a <a target="_blank" rel="noopener" href="https://www.clamp-it.org/wp-content/uploads/2009/03/hack_doc_fest_at_reed_college_final_report.pdf">Moodle Hack/Doc Fest</a> at Reed College. We encountered snow and ice and bad-ordered equipment. I took one of my favorite photographs of all time. We hit Spokane at least twelve hours late and had to be bussed to our final destinations. I had a blast and the rest is history.</p>
-<p>This account is based on my contemporaneous notes in 2009; all the pictures were also taken in 2009 with my Canon PowerShot. See the <a target="_blank" rel="noopener" href="https://galleries.goodbyeplease.com/album/Albums-2009-Reed.html">2009 Reed gallery</a> for all of them.</p>
-<h2><span id="beginnings">Beginnings</span></h2>
-        
-          <p class="article-more-link">
-            <a href="/2023/11/22/My-worst-best-trip-on-the-Empire-Builder/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2023/11/22/My-worst-best-trip-on-the-Empire-Builder/" data-id="cmhsezbz20081nejpfrtxaa2g" data-title="My worst best trip on the Empire Builder" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Amtrak/" rel="tag">Amtrak</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Delerium/" rel="tag">Delerium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Empire-Builder/" rel="tag">Empire Builder</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -656,7 +656,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">December 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
     </div>
   </div>
 
@@ -669,6 +669,14 @@
       <ul>
         
           <li>
+            <a href="/2025/12/19/Fourteen-hours-in-Detroit/">Fourteen hours in Detroit</a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/13/What-s-the-matter-with-Trains-magazine/">What&#39;s the matter with Trains magazine?</a>
+          </li>
+        
+          <li>
             <a href="/2025/11/07/Transforming-GPS-log-data-in-a-Jupyter-notebook/">Transforming GPS log data in a Jupyter notebook</a>
           </li>
         
@@ -678,14 +686,6 @@
         
           <li>
             <a href="/2025/06/23/The-Pillars-of-Hercules/">The Pillars of Hercules</a>
-          </li>
-        
-          <li>
-            <a href="/2025/06/20/Empty-tags-in-a-thumbsup-album/">Empty tags in a thumbsup album</a>
-          </li>
-        
-          <li>
-            <a href="/2025/05/28/LANTA-June-2025-changes/">LANTA June 2025 changes</a>
           </li>
         
       </ul>

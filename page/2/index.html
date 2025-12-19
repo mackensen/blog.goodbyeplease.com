@@ -80,6 +80,112 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Mileage-problems-on-the-Long-Island-Rail-Road" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/12/06/Mileage-problems-on-the-Long-Island-Rail-Road/" class="article-date">
+  <time class="dt-published" datetime="2024-12-06T19:42:44.000Z" itemprop="datePublished">2024-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Travel/">Travel</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/12/06/Mileage-problems-on-the-Long-Island-Rail-Road/">Mileage problems on the Long Island Rail Road</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>Back in July/August 2022 I made a circuit of New York and New England (<a target="_blank" rel="noopener" href="https://galleries.goodbyeplease.com/album/Albums-2022-Northeast.html">photo gallery</a>). I had a memorable encounter with a <a href="/2023/11/17/A-warehouse-in-Albany/" title="A warehouse in Albany">a warehouse in Albany</a> on the <em>Ethan Allen Express</em>, drove a boat on Lake Champlain, took my first trip on the Long Island Rail Road, and finally rode the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Mattapan_Line">Mattapan Line</a>. About a thousand miles by rail: 913 on Amtrak, 66 on the Long Island Rail Road, and uncounted on the New York and Boston subways. Calculating that number led me on a wild side quest similar to the problem I had <a href="/2024/08/26/Measuring-the-Raritan-Valley-Line/" title="Measuring the Raritan Valley Line">with the Raritan Valley Line</a>.</p>
+<p>Calculating mileage for commuter railroads can be tricky because they often don’t publish that information in public schedules. Amtrak did until they stopped putting out printed timetables, and those numbers don’t change often. The 2022 version of the MTA website <em>did</em> publish that information for each station. Here’s <a target="_blank" rel="noopener" href="https://web.archive.org/web/20221001204837/http://lirr42.mta.info/stationInfo.php?id=60">Huntington</a>, for example. 34.7 miles from Penn Station. If I travel between two intermediate points I can just diff the numbers and I’m good to go, right?</p>
+<p>I don’t remember exactly when I realized there was a problem. It might have been when I was looking at <a target="_blank" rel="noopener" href="https://web.archive.org/web/20220521045251/http://lirr42.mta.info/stationInfo.php?id=9">Woodside</a>, which the MTA website placed at “3.1 miles” from Penn Station. That felt wrong given that Manhattan itself is about two miles wide, and sure enough, some quick playing with the measurement tool on Google Maps showed that 3.1 miles from Woodside didn’t even get you to the East River.</p>
+        
+          <p class="article-more-link">
+            <a href="/2024/12/06/Mileage-problems-on-the-Long-Island-Rail-Road/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2024/12/06/Mileage-problems-on-the-Long-Island-Rail-Road/" data-id="cmjd0s94o007az2sg7t8ohapp" data-title="Mileage problems on the Long Island Rail Road" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Long-Island-Rail-Road/" rel="tag">Long Island Rail Road</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Pushing-to-GitHub-over-443" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/12/06/Pushing-to-GitHub-over-443/" class="article-date">
+  <time class="dt-published" datetime="2024-12-06T18:33:39.000Z" itemprop="datePublished">2024-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/12/06/Pushing-to-GitHub-over-443/">Pushing to GitHub over 443</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>I’m working from New York Penn Station today before heading out on the <em>Lake Shore Limited</em> to Michigan. In general this is a positive and productive work environment. My only challenge is that Amtrak WiFi blocks port 22 outbound, so I can’t push my work back to my CI environment on GitHub?</p>
+<p>(What am I working on? A <a target="_blank" rel="noopener" href="https://github.com/LafColITS/moodle-local_ws_enrol_manual">Moodle local plugin</a> that exposes the add_instance method of the manual enrollment plugin.)</p>
+<p>Happily, GitHub <a target="_blank" rel="noopener" href="https://docs.github.com/en/authentication/troubleshooting-ssh/using-ssh-over-the-https-port">has anticipated</a> this scenario and I don’t have to do anything tricky. I added the following to my local <code>~/.ssh/config</code>:</p>
+        
+          <p class="article-more-link">
+            <a href="/2024/12/06/Pushing-to-GitHub-over-443/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2024/12/06/Pushing-to-GitHub-over-443/" data-id="cmjd0s94s009bz2sg579bg121" data-title="Pushing to GitHub over 443" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
     <article id="post-Packaging-a-Lambda-with-Nodejs-20-and-AWS-SDK-for-JavaScript-v2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/11/19/Packaging-a-Lambda-with-Nodejs-20-and-AWS-SDK-for-JavaScript-v2/" class="article-date">
@@ -118,7 +224,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/11/19/Packaging-a-Lambda-with-Nodejs-20-and-AWS-SDK-for-JavaScript-v2/" data-id="cmhsezbz3008inejp0qvdehyk" data-title="Packaging a Lambda with Nodejs 20 and AWS SDK for JavaScript v2" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/11/19/Packaging-a-Lambda-with-Nodejs-20-and-AWS-SDK-for-JavaScript-v2/" data-id="cmjd0s94s008xz2sg3j2646r5" data-title="Packaging a Lambda with Nodejs 20 and AWS SDK for JavaScript v2" class="article-share-link">Share</a>
       
       
       
@@ -171,7 +277,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/11/13/Devenv-python-and-packaging-Lambdas/" data-id="cmhsezbyr003hnejp6scsbgi8" data-title="Devenv, python, and packaging Lambdas" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/11/13/Devenv-python-and-packaging-Lambdas/" data-id="cmjd0s94g003pz2sghr9jaf6t" data-title="Devenv, python, and packaging Lambdas" class="article-share-link">Share</a>
       
       
       
@@ -224,7 +330,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/11/10/A-visit-to-the-Bridgeview/" data-id="cmhsezbyk000znejph3wlc02k" data-title="A visit to the Bridgeview" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/11/10/A-visit-to-the-Bridgeview/" data-id="cmjd0s948000mz2sg9lz1hyxp" data-title="A visit to the Bridgeview" class="article-share-link">Share</a>
       
       
       
@@ -277,7 +383,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/11/10/Fifteen-years-on-the-Capitol-Limited/" data-id="cmhsezbyt004gnejpf2azbdh0" data-title="Fifteen years on the Capitol Limited" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/11/10/Fifteen-years-on-the-Capitol-Limited/" data-id="cmjd0s94h0044z2sg9jmw2mf5" data-title="Fifteen years on the Capitol Limited" class="article-share-link">Share</a>
       
       
       
@@ -330,7 +436,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/10/29/Migrating-my-galleries-to-GitHub-and-DigitalOcean/" data-id="cmhsezbz3008bnejpdceq0osr" data-title="Migrating my galleries to GitHub and DigitalOcean" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/10/29/Migrating-my-galleries-to-GitHub-and-DigitalOcean/" data-id="cmjd0s94n0077z2sg6kzj1er0" data-title="Migrating my galleries to GitHub and DigitalOcean" class="article-share-link">Share</a>
       
       
       
@@ -383,7 +489,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/10/26/Moving-from-S3-Cloudfront-to-GitHub-pages/" data-id="cmhsezbz0007jnejpgycv16tv" data-title="Moving from S3+Cloudfront to GitHub pages" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/10/26/Moving-from-S3-Cloudfront-to-GitHub-pages/" data-id="cmjd0s94r0089z2sgac7v93ea" data-title="Moving from S3+Cloudfront to GitHub pages" class="article-share-link">Share</a>
       
       
       
@@ -436,7 +542,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/10/14/Looking-up-the-Cloudformation-stack-for-a-resource/" data-id="cmhsezbyz006rnejp4igset9p" data-title="Looking up the Cloudformation stack for a resource" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/10/14/Looking-up-the-Cloudformation-stack-for-a-resource/" data-id="cmjd0s94m006sz2sghkv8d8q5" data-title="Looking up the Cloudformation stack for a resource" class="article-share-link">Share</a>
       
       
       
@@ -489,7 +595,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/10/14/How-to-install-the-free-version-of-Advanced-Custom-Fields-with-Composer/" data-id="cmhsezbyw005lnejpc24v2ngn" data-title="How to install the free version of Advanced Custom Fields with Composer" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2024/10/14/How-to-install-the-free-version-of-Advanced-Custom-Fields-with-Composer/" data-id="cmjd0s94k005mz2sgcpc57tr2" data-title="How to install the free version of Advanced Custom Fields with Composer" class="article-share-link">Share</a>
       
       
       
@@ -504,117 +610,11 @@
 
 
   
-    <article id="post-Fear-uncertainty-and-doubt" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/10/13/Fear-uncertainty-and-doubt/" class="article-date">
-  <time class="dt-published" datetime="2024-10-14T01:19:20.000Z" itemprop="datePublished">2024-10-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/10/13/Fear-uncertainty-and-doubt/">Fear, uncertainty, and doubt</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-      
-        <p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Fear,_uncertainty,_and_doubt">Fear, uncertainty, and doubt</a> (FUD) is as old as time. In a nutshell, it’s a disinformation tactic. You put out false information, engendering fear, in the hope that you can manipulate people toward a particular outcome favorable to you. No, I’m not talking about Donald Trump and the 2024 US election. I’m talking about Matt Mullenweg, WordPress.org, and Automattic over the last month.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
-<p>My introduction to FUD was in the late 1990s. I was in high school, I was playing around with Linux, and I was a regular poster on <a target="_blank" rel="noopener" href="https://slashdot.org/">Slashdot</a>. This was the high-water point of Microsoft trying to undermine public confidence in open source in general and Linux in particular. This was the period of the “<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Halloween_documents">Halloween documents</a>” and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/SCO_Group,_Inc._v._International_Business_Machines_Corp."><em>SCO v. IBM</em></a>. Rather than compete on the technical merits, Microsoft sought to create an environment where companies were afraid to adopt open source technologies because of nebulous licensing or patent concerns. The fact that these efforts ultimately failed doesn’t change how much time and money was spent combatting them. The opportunity cost was high.</p>
-<p>Which brings me back to WordPress. I wrote yesterday (“<a href="/2024/10/12/The-call-is-coming-from-inside-the-house/" title="The call is coming from inside the house">The call is coming from inside the house</a>”) about Matt Mullenweg’s seizure of Advanced Custom Fields on the WordPress.org plugins repository. I mentioned in passing that he also <a target="_blank" rel="noopener" href="https://wordpress.org/news/2024/09/wp-engine-banned/">banned</a> WP Engine from the repository. Something I didn’t mention is that logging into WordPress.org now requires you to attest that “I am not affiliated with WP Engine in any way, financially or otherwise.”</p>
-        
-          <p class="article-more-link">
-            <a href="/2024/10/13/Fear-uncertainty-and-doubt/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/10/13/Fear-uncertainty-and-doubt/" data-id="cmhsezbyt004enejp45so5oan" data-title="Fear, uncertainty, and doubt" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Advanced-Custom-Fields/" rel="tag">Advanced Custom Fields</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WordPress/" rel="tag">WordPress</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-The-call-is-coming-from-inside-the-house" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/10/12/The-call-is-coming-from-inside-the-house/" class="article-date">
-  <time class="dt-published" datetime="2024-10-12T22:05:41.000Z" itemprop="datePublished">2024-10-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/10/12/The-call-is-coming-from-inside-the-house/">The call is coming from inside the house</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-      
-        <p>I’ve written a few times about challenges with plugins on <a target="_blank" rel="noopener" href="http://WordPress.org">WordPress.org</a>. Eleven years ago, as a comparative newcomer to WordPress, I wrote “<a href="/2013/02/28/Draining-the-swamp/" title="Draining the swamp">Draining the swamp</a>,” about a difficulty with an abandoned plugin. Later, I wrote “<a href="/2015/02/28/The-Changelog-Is-A-Lie/" title="The Changelog Is A Lie">The Changelog Is A Lie</a>” after a user usurped a plugin, hollowed it out, and replaced it with something else. I never thought we’d be in the situation that we are today, where <a target="_blank" rel="noopener" href="http://WordPress.org">WordPress.org</a> has undermined the trust in the WordPress.org plugin repository. As they first said in <a target="_blank" rel="noopener" href="https://letterboxd.com/film/black-christmas/"><em>Black Christmas</em></a>, the call is coming from inside the house.</p>
-<p>It’s beyond the scope of this post to fully review the dispute between Matt Mullenweg and WP Engine (see <a target="_blank" rel="noopener" href="https://www.theverge.com/2024/10/4/24262232/matt-mullenweg-wordpress-org-wp-engine">this article in <em>The Verge</em></a> for a good summary as of October 4). The latest development is that Mullenweg has <a target="_blank" rel="noopener" href="https://wordpress.org/news/2024/10/secure-custom-fields/">usurped</a> the free version of Advanced Custom Fields on the WordPress.org repository. The official announcement implies that the ACF team abandoned the plugin. This is inaccurate at best: Mullenweg <a target="_blank" rel="noopener" href="https://wordpress.org/news/2024/09/wp-engine-banned/">banned</a> the WP Engine developers from the WordPress.org repository, and blocked WP Engine-hosted sites from accessing it. Under the circumstances, switching the updating mechanism away from <a target="_blank" rel="noopener" href="http://WordPress.org">WordPress.org</a> was the only responsible course of action available.</p>
-<p>It’s a neat trick. You ban a developer from the repository, <em>then</em> announce that you’ve found a security issue, don’t let them release a patch for that issue, and then usurp the plugin because they haven’t fixed the issue. A <a target="_blank" rel="noopener" href="https://x.com/WordPress/status/1845179613783142426">tweet from WordPress</a> claims justification under <a target="_blank" rel="noopener" href="https://github.com/wordpress/wporg-plugin-guidelines/blob/trunk/guideline-18.md">Guideline 18</a> of the plugin guidelines. It’s difficult to see how that guideline justifies this action. The developer hasn’t abandoned the plugin. The security issue wasn’t serious, and it’s been fixed. Put another way, if this is justifiable under Guideline 18, then there is no limiting principle.</p>
-        
-          <p class="article-more-link">
-            <a href="/2024/10/12/The-call-is-coming-from-inside-the-house/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/10/12/The-call-is-coming-from-inside-the-house/" data-id="cmhsezbza00c1nejphlc17p8m" data-title="The call is coming from inside the house" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Advanced-Custom-Fields/" rel="tag">Advanced Custom Fields</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WordPress/" rel="tag">WordPress</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -640,7 +640,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">December 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a></li></ul>
     </div>
   </div>
 
@@ -653,6 +653,14 @@
       <ul>
         
           <li>
+            <a href="/2025/12/19/Fourteen-hours-in-Detroit/">Fourteen hours in Detroit</a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/13/What-s-the-matter-with-Trains-magazine/">What&#39;s the matter with Trains magazine?</a>
+          </li>
+        
+          <li>
             <a href="/2025/11/07/Transforming-GPS-log-data-in-a-Jupyter-notebook/">Transforming GPS log data in a Jupyter notebook</a>
           </li>
         
@@ -662,14 +670,6 @@
         
           <li>
             <a href="/2025/06/23/The-Pillars-of-Hercules/">The Pillars of Hercules</a>
-          </li>
-        
-          <li>
-            <a href="/2025/06/20/Empty-tags-in-a-thumbsup-album/">Empty tags in a thumbsup album</a>
-          </li>
-        
-          <li>
-            <a href="/2025/05/28/LANTA-June-2025-changes/">LANTA June 2025 changes</a>
           </li>
         
       </ul>
