@@ -80,6 +80,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Using-TLS-ALPN-01-on-a-Raspberry-PI" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/02/03/Using-TLS-ALPN-01-on-a-Raspberry-PI/" class="article-date">
+  <time class="dt-published" datetime="2019-02-03T14:25:22.000Z" itemprop="datePublished">2019-02-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/02/03/Using-TLS-ALPN-01-on-a-Raspberry-PI/">Using TLS-ALPN-01 on a Raspberry PI</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p><img src="ALPN-not-Apline.jpg" alt="I'll always read ALPN as Alpine"></p>
+<p>I run Nextcloud on my Raspberry PI and I have a certificate from Let’s Encrypt on it. I set this up a couple years ago with certbot and it’s been fine. I don’t expose port 80 in my environment so I’ve relied on the TLS-SNI-01 challenge using the certbot client which ships on Raspbian Jessie.</p>
+<p>TLS-SNI-01 is now end-of-life because of <a target="_blank" rel="noopener" href="https://www.zdnet.com/article/lets-encrypt-disables-tls-sni-01-validation/">security vulnerabilities</a> so I needed to find an alternative. There are a couple different challenge methods available. Let’s Encrypt’s cerbot supports <a target="_blank" rel="noopener" href="https://letsencrypt.readthedocs.io/en/latest/challenges.html">two</a>:</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/02/03/Using-TLS-ALPN-01-on-a-Raspberry-PI/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.goodbyeplease.com/2019/02/03/Using-TLS-ALPN-01-on-a-Raspberry-PI/" data-id="cmjt4zi7000d444sgcm4a8rh1" data-title="Using TLS-ALPN-01 on a Raspberry PI" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Let-s-Encrypt/" rel="tag">Let&#39;s Encrypt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raspberry-Pi/" rel="tag">Raspberry Pi</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
     <article id="post-Node-on-RHEL7" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2018/12/12/Node-on-RHEL7/" class="article-date">
@@ -118,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2018/12/12/Node-on-RHEL7/" data-id="cmjdf4avt008lwdsgcyy9a2vd" data-title="Node on RHEL7" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2018/12/12/Node-on-RHEL7/" data-id="cmjt4zi6s008o44sg9z7ndyyq" data-title="Node on RHEL7" class="article-share-link">Share</a>
       
       
       
@@ -171,7 +224,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2018/09/05/Critical-pagination/" data-id="cmjdf4avg003bwdsg22t29kem" data-title="Critical pagination" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2018/09/05/Critical-pagination/" data-id="cmjt4zi6g003444sg592xew9u" data-title="Critical pagination" class="article-share-link">Share</a>
       
       
       
@@ -224,7 +277,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2018/06/23/Apache-Passenger-and-the-environment/" data-id="cmjdf4avd001vwdsgek1p5z85" data-title="Apache, Passenger, and the environment" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2018/06/23/Apache-Passenger-and-the-environment/" data-id="cmjt4zi6d002244sgb9pi5aqe" data-title="Apache, Passenger, and the environment" class="article-share-link">Share</a>
       
       
       
@@ -277,7 +330,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2018/04/28/Catapulting-rocks/" data-id="cmjdf4avf002rwdsghdip1mk7" data-title="Catapulting rocks" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2018/04/28/Catapulting-rocks/" data-id="cmjt4zi6f002o44sg1o5ygczs" data-title="Catapulting rocks" class="article-share-link">Share</a>
       
       
       
@@ -330,7 +383,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2018/04/25/Deploying-MediaWiki-with-Capistrano/" data-id="cmjdf4avh003lwdsgbfv3fnc8" data-title="Deploying MediaWiki with Capistrano" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2018/04/25/Deploying-MediaWiki-with-Capistrano/" data-id="cmjt4zi6h003g44sgfavz3evk" data-title="Deploying MediaWiki with Capistrano" class="article-share-link">Share</a>
       
       
       
@@ -377,7 +430,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2017/11/18/Simple-method-for-image-to-PDF-conversion/" data-id="cmjdf4avx00aswdsg2gk1e6pp" data-title="Simple method for image-to-PDF conversion" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2017/11/18/Simple-method-for-image-to-PDF-conversion/" data-id="cmjt4zi6w00aq44sg2fzm144n" data-title="Simple method for image-to-PDF conversion" class="article-share-link">Share</a>
       
       
       
@@ -430,7 +483,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2017/10/27/No-that%E2%80%99s-not-it/" data-id="cmjdf4avt008iwdsggj4kh1bp" data-title="No, that&#39;s not it" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2017/10/27/No-that%E2%80%99s-not-it/" data-id="cmjt4zi6s008l44sg7x5e356n" data-title="No, that&#39;s not it" class="article-share-link">Share</a>
       
       
       
@@ -483,7 +536,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2017/08/30/Running-Moodle-CI-tests-in-GitLab/" data-id="cmjdf4avw00abwdsgd9hug8dd" data-title="Running Moodle CI tests in GitLab" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2017/08/30/Running-Moodle-CI-tests-in-GitLab/" data-id="cmjt4zi6w00ag44sg0pal1o61" data-title="Running Moodle CI tests in GitLab" class="article-share-link">Share</a>
       
       
       
@@ -536,60 +589,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2017/08/23/Implementing-a-course-archiving-strategy-in-Moodle/" data-id="cmjdf4avm005rwdsgcfyxgj6w" data-title="Implementing a course archiving strategy in Moodle" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Moodle/" rel="tag">Moodle</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Measuring-activity-in-Moodle" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2017/08/16/Measuring-activity-in-Moodle/" class="article-date">
-  <time class="dt-published" datetime="2017-08-16T13:00:39.000Z" itemprop="datePublished">2017-08-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2017/08/16/Measuring-activity-in-Moodle/">Measuring activity in Moodle</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-      
-        <p>It’s a simple question with a complex answer: in a given academic term, what percentage of our Moodle courses are “active” (used by a faculty member in the teaching of their course). We have to start by figuring out what counts as a “course” in a term, and then come up with an inclusive measurement of activity.</p>
-<h3><span id="courses">Courses</span></h3>
-<p>The basic unit in Moodle is the course. We use the <a target="_blank" rel="noopener" href="https://moodle.org/plugins/enrol_lmb">Banner/Luminis Message Broker plugin</a> to create a course for each section of each course which is taught for a given term at Lafayette. Each of these courses has an idnumber which corresponds to the section’s CRN. An exception is crosslisted courses; the LMB plugin creates a merged course with a special idnumber.</p>
-        
-          <p class="article-more-link">
-            <a href="/2017/08/16/Measuring-activity-in-Moodle/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2017/08/16/Measuring-activity-in-Moodle/" data-id="cmjdf4avp0077wdsg0c27fj0j" data-title="Measuring activity in Moodle" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2017/08/23/Implementing-a-course-archiving-strategy-in-Moodle/" data-id="cmjt4zi6m005t44sg6v2t9mw0" data-title="Implementing a course archiving strategy in Moodle" class="article-share-link">Share</a>
       
       
       
@@ -647,6 +647,10 @@
       <ul>
         
           <li>
+            <a href="/2025/12/30/The-Hi-Line-wins-again/">The Hi-Line wins again</a>
+          </li>
+        
+          <li>
             <a href="/2025/12/19/LANTA-January-2026-service-cuts/">LANTA January 2026 service cuts</a>
           </li>
         
@@ -660,10 +664,6 @@
         
           <li>
             <a href="/2025/08/02/A-thousand-miles-without-leaving-the-ground/">A thousand miles without leaving the ground</a>
-          </li>
-        
-          <li>
-            <a href="/2025/06/23/The-Pillars-of-Hercules/">The Pillars of Hercules</a>
           </li>
         
       </ul>

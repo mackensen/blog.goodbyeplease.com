@@ -4,23 +4,27 @@
   <meta charset="utf-8">
   
   
-  <title>Customizing the CDK bootstrap stack | Goodbye Please</title>
+  <title>The Hi-Line wins again | Goodbye Please</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="canonical" href="https://blog.goodbyeplease.com/2022/11/22/Customizing-the-CDK-bootstrap-stack/"/>
-  <meta name="description" content="Modify the CDK toolkit Cloudformation template to meet Amazon&#39;s security controls.">
+  <link rel="canonical" href="https://blog.goodbyeplease.com/2025/12/30/The-Hi-Line-wins-again/"/>
+  <meta name="description" content="A trip report from the Empire Builder in December.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Customizing the CDK bootstrap stack">
-<meta property="og:url" content="https://blog.goodbyeplease.com/2022/11/22/Customizing-the-CDK-bootstrap-stack/">
+<meta property="og:title" content="The Hi-Line wins again">
+<meta property="og:url" content="https://blog.goodbyeplease.com/2025/12/30/The-Hi-Line-wins-again/">
 <meta property="og:site_name" content="Goodbye Please">
-<meta property="og:description" content="Modify the CDK toolkit Cloudformation template to meet Amazon&#39;s security controls.">
+<meta property="og:description" content="A trip report from the Empire Builder in December.">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-11-22T05:00:00.000Z">
-<meta property="article:modified_time" content="2025-02-20T03:27:15.658Z">
+<meta property="og:image" content="https://blog.goodbyeplease.com/2025/12/30/The-Hi-Line-wins-again/berthold.jpg">
+<meta property="og:image" content="https://blog.goodbyeplease.com/2025/12/30/The-Hi-Line-wins-again/fog-on-the-columbia.jpg">
+<meta property="og:image" content="https://blog.goodbyeplease.com/2025/12/30/The-Hi-Line-wins-again/hoth.jpg">
+<meta property="og:image" content="https://blog.goodbyeplease.com/2025/12/30/The-Hi-Line-wins-again/frozen-switch.jpg">
+<meta property="article:published_time" content="2025-12-30T19:50:25.000Z">
+<meta property="article:modified_time" content="2025-12-30T22:05:54.125Z">
 <meta property="article:author" content="Charles Fulton">
-<meta property="article:tag" content="AWS">
-<meta property="article:tag" content="CDK">
-<meta property="article:tag" content="Cloudformation">
+<meta property="article:tag" content="Amtrak">
+<meta property="article:tag" content="Empire Builder">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.goodbyeplease.com/2025/12/30/The-Hi-Line-wins-again/berthold.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Goodbye Please" type="application/atom+xml">
   
@@ -85,14 +89,14 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-Customizing-the-CDK-bootstrap-stack" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-The-Hi-Line-wins-again" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/11/22/Customizing-the-CDK-bootstrap-stack/" class="article-date">
-  <time class="dt-published" datetime="2022-11-22T05:00:00.000Z" itemprop="datePublished">2022-11-22</time>
+    <a href="/2025/12/30/The-Hi-Line-wins-again/" class="article-date">
+  <time class="dt-published" datetime="2025-12-30T19:50:25.000Z" itemprop="datePublished">2025-12-30</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Web-Development/">Web Development</a>
+    <a class="article-category-link" href="/categories/Travel/">Travel</a>
   </div>
 
   </div>
@@ -103,7 +107,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      Customizing the CDK bootstrap stack
+      The Hi-Line wins again
     </h1>
   
 
@@ -112,28 +116,43 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <p>Amazon’s CDK creates a helper Cloudformation stack (by default named <code>CDKToolkit</code>) with a few resources to assist with deployment. The most familiar to regular users are the S3 asset bucket and the ECR repository.</p>
-<p>A source of mild frustration for my colleagues and me is that this default stack doesn’t set lifecycle policies on either, which then trips up Amazon’s security controls (<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-fsbp-controls.html#s3-10-remediation">S3 10</a> and <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-fsbp-controls.html#ecr%E2%80%943-remediation">ECR 3</a>, respectively).</p>
-<p>Fortunately, there is a relatively straightforward solution, and that’s customizing the Cloudformation template that manages the CDKToolkit stack. I hadn’t realized before now that you can do this but it’s <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/cdk/v2/guide/bootstrapping.html">well-documented</a>. First, use <code>cdk bootstrap</code> to output the contents of the template. You’ll want to ensure that you’re using the same version of CDK that you’ll use to deploy the stack:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cdk --version</span><br><span class="line">cdk bootstrap --show-template &gt; bootstrap-template.yaml</span><br></pre></td></tr></table></figure>
-<p>This writes out the bootstrap template to a YAML file. I made two changes, adding lifecycle policies to the resources:</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  <span class="attr">StagingBucket:</span></span><br><span class="line">    <span class="attr">Type:</span> <span class="string">AWS::S3::Bucket</span></span><br><span class="line">    <span class="attr">Properties:</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line">      <span class="attr">LifecycleConfiguration:</span></span><br><span class="line">        <span class="attr">Rules:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="attr">ExpirationInDays:</span> <span class="number">365</span></span><br><span class="line">            <span class="attr">Status:</span> <span class="string">Enabled</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ContainerAssetsRepository:</span></span><br><span class="line">  <span class="attr">Type:</span> <span class="string">AWS::ECR::Repository</span></span><br><span class="line">  <span class="attr">Properties:</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line">    <span class="attr">LifecyclePolicy:</span></span><br><span class="line">      <span class="attr">LifecyclePolicyText:</span> <span class="string">&#x27;&#123;&quot;rules&quot;:[&#123;&quot;rulePriority&quot;:1,&quot;selection&quot;:&#123;&quot;tagStatus&quot;:&quot;any&quot;,&quot;countType&quot;:&quot;imageCountMoreThan&quot;,&quot;countNumber&quot;:10&#125;,&quot;action&quot;:&#123;&quot;type&quot;:&quot;expire&quot;&#125;&#125;]&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>As policies go these are anodyne: keep the last ten ECR images (which I don’t even use), and keep the last year’s worth of artifacts.</p>
-<p>The final step is telling cdk bootstrap to use this template instead of generating one:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cdk bootstrap --template bootstrap-template.yaml</span><br></pre></td></tr></table></figure>
-<p>That’s it. The next time you bootstrap, it will modify the resources. Going forward, I think the major gotcha is ensuring that you keep your template up-to-date with any upstream changes.</p>
-<p><strong>Update</strong>: here’s one technique to catch upstream changes. In addition to <code>bootstrap-template.yaml</code>, save and version an unmodified copy at <code>bootstrap-template.yaml.dist</code>, then use <a target="_blank" rel="noopener" href="https://mikefarah.gitbook.io/yq/">yq</a> to diff it:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cdk bootstrap --show-template &gt; bootstrap-template.yaml.test</span><br><span class="line">diff &lt;(yq -P <span class="string">&#x27;sort_keys(..)&#x27;</span> bootstrap-template.yaml.dist) &lt;(yq -P <span class="string">&#x27;sort_keys(..)&#x27;</span> bootstrap-template.yaml.test)</span><br></pre></td></tr></table></figure>
+        <p>The rail route between the Twin Cities and Seattle/Portland goes by many names. It was the main line of the Great Northern Railway. BNSF calls it the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Northern_Transcon">Northern Transcon</a> (“Transcontinental”). Most locals call it the “Hi-Line.” Amtrak’s <em>Empire Builder</em> crosses it daily in each direction.</p>
+<p>It’s the northernmost main railway line in the United States. Cut Bank, in Montana, is only 20 miles from the Canadian border. In the winter, there is significant snowfall all along the route. Sub-zero temperatures freeze switches and pipes. It’s legendary in railfan circles that the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Superliner_(railcar)">Superliners</a>, first ordered in the mid-1970s, were designed with the harsh conditions of the Hi-Line in mind. It’s certainly true that the <em>Empire Builder</em> received the new cars first, in 1979.</p>
+<p>In my first trip on the <em>Empire Builder</em>, in January 2009 (see “<a href="/2023/11/22/My-worst-best-trip-on-the-Empire-Builder/" title="My worst best trip on the Empire Builder">My worst best trip on the Empire Builder</a>”), I experienced everything the Hi-Line could throw at me: equipment failures, a frozen switch, crew-service-time issues, and freight trains. We were 12 hours late into Spokane and bussed the rest of the way. My return trip was canceled by mudslides. My wise and tolerant wife forbade me from taking the <em>Empire Builder</em> in the dead of winter again, until she relented for this holiday season. How’d that work out for me? Well, let’s say there were some challenges amidst a good trip…</p>
+<h2><span id="outbound">Outbound</span></h2>
+<p>I took the <em>Lake Shore Limited</em> out of New York. I was in coach as a cost-saving measure, and I’d bought pop-tarts and oranges (a great choice) at the <a target="_blank" rel="noopener" href="https://www.google.com/maps/place/Ideal+Marketplace/@40.7501801,-73.9989878,17.78z/data=!4m6!3m5!1s0x89c259b0e1b07b0b:0x53300326d471f645!8m2!3d40.7500302!4d-73.998974!16s%2Fg%2F12hqhfkdg?entry=ttu&amp;g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D">Ideal Marketplace</a> on Ninth Avenue in Manhattan. I skipped the cafe car for takeaway dinner inside the station at Albany-Rensselaer. Even with earplugs and a sleep mask I slept fitfully. In Chicago, I fortified myself at <a target="_blank" rel="noopener" href="http://www.loumitchells.com/">Lou Mitchell’s</a> for the long day ahead.</p>
+<p>The Portland sleeper was full of people heading out to the Pacific Northwest to visit family. There was Gene, across the hallway from, whose son was a fisherman. He’d actually been on the <em>Lake Shore Limited</em> with me, out of Syracuse. This was his first time on a train and I took him under my wing for the next few days. At dinner I met Paula and Michael, first-timers visiting an adult child. Amtrak does a good steak in a traditional dining car, and this one didn’t disappoint.</p>
+<p><img src="berthold.jpg" alt="The horizon recedes" title="Flat horizon with tracks leading away through snow"></p>
+<p>At breakfast I met Joe and his son PJ. They were connecting with the <em>Coast Starlight</em> in Portland to head down to Sacramento to visit another son and help him move into his new house. Joe’s a fellow railbuff and we had a lively conversation then and at lunch.</p>
+<p>The trip went as well as you could hope for. We were never later than 30 minutes, and arrived early into Portland after a lovely run along the north side of the Columbia River. I spent a restful week with my wife (who had flown ahead) and my in-laws, about which perhaps more later. Then it came time for the return trip.</p>
+<p><img src="fog-on-the-columbia.jpg" alt="Fog over the Columbia River" title="Pine trees loom over a river shrouded in fog"></p>
+<h2><span id="inbound">Inbound</span></h2>
+<p>I had the same sleeping car (Superliner I #32032) as the outbound trip, though not the same attendant. We did have the same lead attendant in the dining car (Josh), who would be hard-pressed by the last day of the trip. Across from me in the car were Eric and Mary, from Minneapolis. They’d been on my trip out but we hadn’t interacted. I also met Diane, retiree from Olympia visiting her friend in Milwaukee for New Year’s. This was her first train trip.</p>
+<p><img src="hoth.jpg" alt="Morning in Hoth" title="Snow-swept landscape"></p>
+<p>We had plenty of snow as we crawled through Glacier National Park, but we passed out of it as we headed east. Central Montana had almost no snow at all. It was a languid day. By the time I went to bed near Minot I’d read three books since we left Portland: Arthur C. Clark’s <em>Prelude to Space</em>, Rex Stout’s <em>The Second Confession</em>, and John le Carre’s <em>The Pigeon Tunnel</em>. We were on time and I was starting to look forward to an on-time arrival and quick transfer in Chicago the next day. In my other two eastbound trips on the <em>Empire Builder</em> (in 2011 and 2022), I’d been 3 hours 48 minutes and 1 hour 41 minutes late, respectively. As I mentioned, a third trip, in 2009, was wiped out by mudslides.</p>
+<p>Veteran rail travelers recognize the sensation of waking up on a train that hasn’t moved in a while. The 1974 <em>Murder on the Orient Express</em> captured that quiet exactly. The <a target="_blank" rel="noopener" href="https://www.mprnews.org/story/2025/12/29/snowfall-totals-in-minnesota-and-wisconsin-for-holiday-blizzard">storm</a> that hit Minnesota as we entered it messed up roads, closed airports, …and froze some switches on our route through the state. We’d left Devils Lake (scene of my frozen switch adventure in 2009) down 55 minutes from freight interference. We lost four hours sitting just outside Grand Forks, before BNSF was able to thaw the switch. We lost another hour between Grand Forks and Fargo because of a second frozen switch. Having arrived 6 hours and 15 minutes late, we then lost close to two hours because our operating crew reached their limit and we had to wait for the new crew to drive up from St. Cloud.</p>
+<p><img src="frozen-switch.jpg" alt="Two trains waiting on a frozen switch" title="Snow-swept landscape with two trains in sight"></p>
+<p>We never really made the time up after that, owing to weather and freight. A seven-hour delay means an extra meal service, including free dinner for coach passengers via the (in)famous beef stew kept around for just such an occasion. I met some new people, including two (one from Minot, one from Minneapolis), who’d booked late because of canceled flights. It was an odd thought that even with our lateness, we were still getting through while other folks weren’t. It didn’t sound like the Minneapolis airport was a fun place to be the evening of December 28! A note of humor was injected when the dining car had to delay the coach meal because both the primary and replacement can openers were unequal to the task. I never did ask Josh how they sorted it.</p>
+<h2><span id="where-to-stay-in-chicago-when-youre-late">Where to stay in Chicago when you’re late</span></h2>
+<p>As a final insult, CPKC held us in Milwaukee for an hour because of heavy freight traffic. Morale had managed to stay fairly high around the train up until that point, but incurring another hour when we were so close hurt. Climate of rising expectations (“I expect to get off the train”) and all that. We finally straggled into Chicago at about 1:08 AM, or 8 hours and 23 minutes late.</p>
+<p>The last outbound train was the <em>Lake Shore Limited</em>, which departed at 9:30 PM. There probably 40-50 of us who misconnected. I knew vaguely what Amtrak’s procedures were for these situations but I’d never experienced it before. This is what happens:</p>
+<ol>
+<li>When you detrain, all affected passengers are gathered in the south concourse at Union Station. Amtrak has your names and has already rebooked you. In my case, my connection to Philadelphia and Pittsburgh was moved back a day.</li>
+<li>Amtrak has a block of rooms at the Sleep Inn near Midway Airport. You’re given a food voucher and placed on a coach out to the hotel. At the hotel, you give the night manager your name and she gives you a room key. We don’t bother with any of the other formalities because Amtrak’s already vouched for us.</li>
+<li>At 11:00 AM, the coach comes back to haul everyone to Union Station. If you’re on an earlier train, you’re responsible for your own transport. Not wanting to experience a very full coach again, I took a bus to Midway and caught the Orange line to the Loop.</li>
+</ol>
+<p>We arrived at Union Station around 1:10 AM. By 3:00 AM, I was asleep at the Sleep Inn. The process felt chaotic at the time, but on reflection it went smoothly enough. I’m grateful for what Amtrak did, which is more than what an airline would do. The next morning I dropped my stuff at Union Station and headed down to the Museum of Science and Industry, but that’s also another story.</p>
+<h2><span id="lessons">Lessons</span></h2>
+<p>The lesson here is simple and doesn’t require belaboring. You might be on-time on occasion, but nature cannot be fooled and the Hi-Line wins in the end. Plan accordingly.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2022/11/22/Customizing-the-CDK-bootstrap-stack/" data-id="cmjdf4avg0039wdsg1938cdvv" data-title="Customizing the CDK bootstrap stack" class="article-share-link">Share</a>
+      <a data-url="https://blog.goodbyeplease.com/2025/12/30/The-Hi-Line-wins-again/" data-id="cmjt4zi6y00bs44sgfti43mc7" data-title="The Hi-Line wins again" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDK/" rel="tag">CDK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cloudformation/" rel="tag">Cloudformation</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Amtrak/" rel="tag">Amtrak</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Empire-Builder/" rel="tag">Empire Builder</a></li></ul>
 
     </footer>
   </div>
@@ -141,19 +160,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2022/11/23/EFS-mount-watchdog-and-CPU-usage/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          EFS mount watchdog and CPU usage
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/11/21/Moodle-TypeScript-and-CDK/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2025/12/19/LANTA-January-2026-service-cuts/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Moodle, TypeScript, and CDK</div>
+      <div class="article-nav-title">LANTA January 2026 service cuts</div>
     </a>
   
 </nav>
@@ -234,6 +244,10 @@
       <ul>
         
           <li>
+            <a href="/2025/12/30/The-Hi-Line-wins-again/">The Hi-Line wins again</a>
+          </li>
+        
+          <li>
             <a href="/2025/12/19/LANTA-January-2026-service-cuts/">LANTA January 2026 service cuts</a>
           </li>
         
@@ -247,10 +261,6 @@
         
           <li>
             <a href="/2025/08/02/A-thousand-miles-without-leaving-the-ground/">A thousand miles without leaving the ground</a>
-          </li>
-        
-          <li>
-            <a href="/2025/06/23/The-Pillars-of-Hercules/">The Pillars of Hercules</a>
           </li>
         
       </ul>
