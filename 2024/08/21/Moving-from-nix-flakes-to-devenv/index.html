@@ -129,13 +129,13 @@
 <p>Devenv has a concept of a <a target="_blank" rel="noopener" href="https://devenv.sh/processes/">process</a>, which lets you declare, run, and monitor a background task. For Hexo I declare two:</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">processes.hexo-server.exec = <span class="string">&quot;npx hexo server&quot;</span>;</span><br><span class="line">processes.hexo-generate.exec = <span class="string">&quot;npx hexo generate --watch&quot;</span>;</span><br></pre></td></tr></table></figure>
 <p>The <code>devenv up</code> command executes <a target="_blank" rel="noopener" href="https://github.com/F1bonacc1/process-compose">process-compose</a> by default, and I get a nice text-based window which shows me both processes and their output:</p>
-<p><img src="process-compose.png" alt="Process-compose showing both processes; hexo has just regenerated this post" title="Text-based listed of processes"></p>
+<p><img src="/2024/08/21/Moving-from-nix-flakes-to-devenv/process-compose.png" alt="Process-compose showing both processes; hexo has just regenerated this post" title="Text-based listed of processes"></p>
 <p>My workflow, then, involves two terminal windows. In the first I run <code>devenv up</code> to start and control the processes, and in the second I run <code>devenv shell</code>, which approximates what <code>nix develop</code> did before. This was easier to setup than the flake, and process-compose is a nice win.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2024/08/21/Moving-from-nix-flakes-to-devenv/" data-id="cuidP5lUBuTLHrT9ht8wsb3GQ" data-title="Moving from nix flakes to devenv" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://blog.goodbyeplease.com/2024/08/21/Moving-from-nix-flakes-to-devenv/" data-id="cuidndwHx2EXZk4nXuxrekRpU" data-title="Moving from nix flakes to devenv" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

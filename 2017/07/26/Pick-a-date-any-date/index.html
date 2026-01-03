@@ -129,9 +129,9 @@
 <p>Here’s a Behat snippet for manipulating a date picker in Moodle. It leads to a failure in Selenium but passes with Goutte.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">And I set the following fields to these values:</span><br><span class="line">  | id_enddate_day       | 1       |</span><br><span class="line">  | id_enddate_month     | January |</span><br><span class="line">  | id_enddate_year      | 2020    |</span><br><span class="line">  | id_enddate_enabled   | 1       |</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>Here’s the date picker with Javascript enabled:</p>
-<p><img src="datepicker-with-javascript.jpg" alt="Date picker with Javascript enabled" title="Date picker with date fields greyed out"></p>
+<p><img src="/2017/07/26/Pick-a-date-any-date/datepicker-with-javascript.jpg" alt="Date picker with Javascript enabled" title="Date picker with date fields greyed out"></p>
 <p>Here’s the date picker with Javascript disabled:</p>
-<p><img src="datepicker-without-javascript.jpg" alt="Date picker with Javascript disabled" title="Date picker with date fields not greyed out"></p>
+<p><img src="/2017/07/26/Pick-a-date-any-date/datepicker-without-javascript.jpg" alt="Date picker with Javascript disabled" title="Date picker with date fields not greyed out"></p>
 <p>When there’s Javascript on hand, you can actually disable the form element so that a user can’t manipulate it until the box is checked. When there’s no Javascript, Moodle falls back gracefully. You can manipulate the elements, but unless the box is checked no information will be submitted.</p>
 <p>These fields are processed in order. The first three all fail, because the elements aren’t enabled yet. The last, setting <code>id_enddate_enabled</code> to <code>1</code>, makes the form live. I’m surprised that those steps don’t fail; it seems like they should inasmuch as the field isn’t set.</p>
 <p>Anyway, moving <code>id_enddate_enabled</code> to the start resolves the issue, and mimicks what a real user would actually do when using the form. As I wrote three years ago about a different test: “Write the test like Behat is an actual user.”</p>
@@ -140,7 +140,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2017/07/26/Pick-a-date-any-date/" data-id="cuidwbComtTqV0zswXbe8keRq" data-title="Pick a date, any date" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://blog.goodbyeplease.com/2017/07/26/Pick-a-date-any-date/" data-id="cuidbUH3pDjyTqgxVEvc_s_5b" data-title="Pick a date, any date" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

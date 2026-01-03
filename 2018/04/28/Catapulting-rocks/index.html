@@ -139,7 +139,7 @@
 <p>These are the same tasks that I run as a developer, but encapsulated in a gitlab-ci configuration file and runnable from a container. Every time I push to master, GitLab will spin up a container and redeploy the staging environment.</p>
 <h3><span id="pipelines">Pipelines</span></h3>
 <p>In GitLab <a target="_blank" rel="noopener" href="https://about.gitlab.com/features/gitlab-ci-cd/">a pipeline</a> is a collection of jobs. Each commit to master will kick off a pipeline:</p>
-<p><img src="sites-pipelines-1024x212.png" alt="Three successful pipeline deployments" title="GitLab pipelines"></p>
+<p><img src="/2018/04/28/Catapulting-rocks/sites-pipelines-1024x212.png" alt="Three successful pipeline deployments" title="GitLab pipelines"></p>
 <p>Each WordPress project pipeline will have four jobs:</p>
 <ul>
 <li>Sanity-check the Composer stack</li>
@@ -148,7 +148,7 @@
 <li>Deploy to the production environment</li>
 </ul>
 <p>GitLab can display these schematically, so you see how the dependencies work together. The staging deployment won’t execute unless the sanity checks pass, and production won’t deploy unless staging was successful:</p>
-<p><img src="pipeline-schematic-1024x553.png" alt="Pipeline deploying new themes to production" title="Schematic showing successful dependent jobs"></p>
+<p><img src="/2018/04/28/Catapulting-rocks/pipeline-schematic-1024x553.png" alt="Pipeline deploying new themes to production" title="Schematic showing successful dependent jobs"></p>
 <h3><span id="production-production">Production? Production</span></h3>
 <p>Production is defined as its own stage, and it comes after staging and build:</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">stages:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">build</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">staging</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">production</span></span><br><span class="line"></span><br><span class="line"><span class="string">...</span></span><br><span class="line"></span><br><span class="line"><span class="attr">deploy_production:</span></span><br><span class="line">  <span class="attr">stage:</span> <span class="string">production</span></span><br><span class="line">  <span class="attr">image:</span> <span class="string">lafayette/capistrano:latest</span></span><br><span class="line">  <span class="attr">environment:</span> <span class="string">production</span></span><br><span class="line">  <span class="attr">script:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">bundle</span> <span class="string">install</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">bundle</span> <span class="string">exec</span> <span class="string">cap</span> <span class="string">production</span> <span class="string">deploy</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">bundle</span> <span class="string">exec</span> <span class="string">cap</span> <span class="string">production</span> <span class="string">deploy:upgrade</span></span><br><span class="line">  <span class="attr">when:</span> <span class="string">manual</span></span><br><span class="line">  <span class="attr">only:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
@@ -159,7 +159,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2018/04/28/Catapulting-rocks/" data-id="cuids0ca6Z3x7iEe4ACN-7sXt" data-title="Catapulting rocks" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://blog.goodbyeplease.com/2018/04/28/Catapulting-rocks/" data-id="cuidTfHEwHi8EBgkHOs1TT9jS" data-title="Catapulting rocks" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

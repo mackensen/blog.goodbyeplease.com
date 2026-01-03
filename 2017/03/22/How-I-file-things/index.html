@@ -120,7 +120,7 @@
       
         <p>At the end of my blog post about <a href="/2017/02/15/Hammering-Cases/" title="Hammering Cases">Hammerspoon and case conversion</a> I had this aside: ” …it works well for storing electronic articles and books.” I’m going to expand a little on that and how it fits into my scheme for organizing information. Hat-tip to <a target="_blank" rel="noopener" href="https://nateofnine.com/">nateofnine</a> for prodding me into sharing this.</p>
 <h3><span id="the-library-of-zotero">The Library of Zotero</span></h3>
-<p><img src="Zotero-E60-collection.png" alt="A typical Zotero collection. This one contains everything tagged for the GE E60 electric locomotive. Exciting, right?" title="Rows of bibliographic entries about the GE E60 electric locomotive"></p>
+<p><img src="/2017/03/22/How-I-file-things/Zotero-E60-collection.png" alt="A typical Zotero collection. This one contains everything tagged for the GE E60 electric locomotive. Exciting, right?" title="Rows of bibliographic entries about the GE E60 electric locomotive"></p>
 <p>I use <a target="_blank" rel="noopener" href="https://www.zotero.org/">Zotero</a> to keep track of information, mostly related to railroading history. I wrote a post last year about <a href="/2016/05/14/Writing-a-Zotero-translator/" title="Writing a Zotero translator">developing a custom translator</a> for importing articles. As of writing I have 1200 items indexed in Zotero: books, chapters, journal and newspaper articles, blog posts, doctoral theses, maps, etc.</p>
 <p>Zotero lets you attach things to an entry such as notes or tags. You can also link an external resource. This might be a website, or a link to the a local copy of the document if one exists. Zotero lets you <a target="_blank" rel="noopener" href="https://www.zotero.org/support/sync">sync content to its cloud</a>, but the free tier is limited to 300 MB. If you’re storing article PDFs you’ll exceed that pretty quickly. Leaving aside HTML snapshots, I have 249 articles consuming ~2.5 GB of space.</p>
 <h3><span id="let-the-data-flow">Let the data flow</span></h3>
@@ -128,13 +128,13 @@
 <p>I start by having a folder structure with a top-level folder named <code>Articles</code>. Beneath that I organize by publication, with definite articles removed to permit natural sorting (thus <em>The New York Times</em> becomes <em>New York Times</em>). Within each publication I adopt a naming convention of <code>DATE-NAME</code>. Date is of the format <code>YYYY</code>, <code>YYYYMM</code>, or <code>YYYYMMDD</code>, depending on the granularity of the publication. A monthly journal, for example, will go no further than <code>YYYYMM</code>. The purpose of this is to ensure chronological sorting when looking at the articles outside of Zotero.</p>
 <p>For the <code>NAME</code>, I fall back on my Hammerspoon case conversion module. I’ve already created an entry for the item in Zotero, with its full title. I throw that title into the case conversion, get the slug, and append it to the date. This gives me a filename that sorts by date, is human-readable if need be, and is easy to manipulate from the command line. For example, J. David Ingles’ article in <em>Trains</em> magazine from the May 1979 issue entitled “How super are the Superliners?” becomes <code>197905-how-super-are-the-superliners</code>.</p>
 <h3><span id="putting-it-all-together">Putting it all together</span></h3>
-<p><img src="Nextcould-article-tree.png" alt title="Directory structure showing files and folders"></p>
+<p><img src="/2017/03/22/How-I-file-things/Nextcould-article-tree.png" alt title="Directory structure showing files and folders"></p>
 <p>The file created, I drop it into the appropriate publication folder, then use the “Add Attachment &gt; Attach Link to File” option in Zotero to associate it with the index. Now, when I double-click on the item in Zotero, it’ll open the file for me to read. The Articles directory tree lives on my <a href="/2017/02/11/Nextcloud-on-Pi/" title="Nextcloud on Pi">Nextcloud</a> which means that (a) there’s redundancy in case something happens to my laptop and (b) I can read the articles on my phone, without needing to have Zotero installed.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.goodbyeplease.com/2017/03/22/How-I-file-things/" data-id="cuidP6F8cFpY3tn-u2PGP0ith" data-title="How I file things" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://blog.goodbyeplease.com/2017/03/22/How-I-file-things/" data-id="cuidMIWvfp9ZeixXsrvRvw3A8" data-title="How I file things" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
