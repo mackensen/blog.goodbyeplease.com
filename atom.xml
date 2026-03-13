@@ -6,7 +6,7 @@
   <link href="https://blog.goodbyeplease.com/atom.xml" rel="self"/>
   
   <link href="https://blog.goodbyeplease.com/"/>
-  <updated>2025-12-30T22:05:54.125Z</updated>
+  <updated>2026-03-13T02:35:43.936Z</updated>
   <id>https://blog.goodbyeplease.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Downgrading devenv.sh</title>
+    <link href="https://blog.goodbyeplease.com/2026/03/12/Downgrading-devenv-sh/"/>
+    <id>https://blog.goodbyeplease.com/2026/03/12/Downgrading-devenv-sh/</id>
+    <published>2026-03-13T02:03:18.000Z</published>
+    <updated>2026-03-13T02:35:43.936Z</updated>
+    
+    <content type="html"><![CDATA[<p>I upgraded <a href="https://devenv.sh">devenv.sh</a> on my work laptop to 2.0.3 today and immediately ran into a fatal error with all commands:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Threads explicit registering is not previously enabled</span><br></pre></td></tr></table></figure><p>This is a <a href="https://github.com/cachix/devenv/issues/2576">known issue</a> and it’s fixed in 2.0.4, but that version wasn’t available via the standard upgrade path yet. On reflection, I decided that I wasn’t quite ready to jump to <a href="https://devenv.sh/blog/2026/03/05/devenv-20-a-fresh-interface-to-nix/#and-more">devenv 2.0</a> and decided to downgrade to 1.11.2.</p><p>After some fiddling, I followed this process:</p><ol><li>Download the 1.11.2 release from Github: <a href="https://github.com/cachix/devenv/releases/tag/v1.11.2">https://github.com/cachix/devenv/releases/tag/v1.11.2</a>.</li><li>Extract the download, then rename the extracted directory to <code>devenv</code>.</li><li>Point <code>nix-env</code> at the download:</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nix-env --install --attr devenv -f ~/Downloads</span><br></pre></td></tr></table></figure><p>This kicked off a fairly long process that recompiled various packages but left me with a working installation.</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;I upgraded &lt;a href=&quot;https://devenv.sh&quot;&gt;devenv.sh&lt;/a&gt; on my work laptop to 2.0.3 today and immediately ran into a fatal error with all commands:&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Threads explicit registering is not previously enabled&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;This is a &lt;a href=&quot;https://github.com/cachix/devenv/issues/2576&quot;&gt;known issue&lt;/a&gt; and it’s fixed in 2.0.4, but that version wasn’t available via the standard upgrade path yet. On reflection, I decided that I wasn’t quite ready to jump to &lt;a href=&quot;https://devenv.sh/blog/2026/03/05/devenv-20-a-fresh-interface-to-nix/#and-more&quot;&gt;devenv 2.0&lt;/a&gt; and decided to downgrade to 1.11.2.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Web Development" scheme="https://blog.goodbyeplease.com/categories/Web-Development/"/>
+    
+    
+    <category term="Nix" scheme="https://blog.goodbyeplease.com/tags/Nix/"/>
+    
+  </entry>
   
   <entry>
     <title>The Hi-Line wins again</title>
@@ -486,31 +509,6 @@
     <category term="AWS" scheme="https://blog.goodbyeplease.com/tags/AWS/"/>
     
     <category term="GitHub" scheme="https://blog.goodbyeplease.com/tags/GitHub/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Looking up the Cloudformation stack for a resource</title>
-    <link href="https://blog.goodbyeplease.com/2024/10/14/Looking-up-the-Cloudformation-stack-for-a-resource/"/>
-    <id>https://blog.goodbyeplease.com/2024/10/14/Looking-up-the-Cloudformation-stack-for-a-resource/</id>
-    <published>2024-10-15T00:15:10.000Z</published>
-    <updated>2025-02-20T03:07:34.792Z</updated>
-    
-    <content type="html"><![CDATA[<p>I have an AWS account with a few dozen Cloudformation stacks deployed. Among other resources are some Route 53 hosted zones, and I was pretty sure that I’d created these manually. I wanted to get them imported into a stack, and then make some changes, but first I needed to be sure that they weren’t part of a stack already. There are enough stacks in this account that manual inspection isn’t a good option.</p><p>Turns out that a good way to do this is with the AWS CLI, and I’d like to thank <a href="https://stackoverflow.com/a/64536833">Nik Rahmel</a> on Stack Overflow for the pointer. You can use the <a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/describe-stack-resources.html">describe-stack-resources</a> command and pass the <code>PhysicalResourceId</code> of the resource instead of the <code>StackName</code>. Here’s an example of querying a Route 53 hosted zone:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aws cloudformation describe-stack-resources --physical-resource-id Z99999999AAAAAAAAAAAA</span><br></pre></td></tr></table></figure><p>If the resource <em>isn’t</em> part of a stack, you’ll get a response like this:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">An error occurred (ValidationError) when calling the DescribeStackResources operation: Stack <span class="keyword">for</span> Z99999999AAAAAAAAAAAAdoes not exist</span><br></pre></td></tr></table></figure><p>If the resource <em>is</em> part of a stack, you’ll get an array of JSON objects describing al the resources in the stack; the <code>StackName</code> will be one of the returned elements:</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;StackResources&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;StackName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;YourStackName&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;StackId&quot;</span><span class="punctuation">:</span> <span class="string">&quot;arn:aws:cloudformation:us-east-1:111122223333:stack/YourStackName/XXXX&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;LogicalResourceId&quot;</span><span class="punctuation">:</span> <span class="string">&quot;CDKMetadata&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;PhysicalResourceId&quot;</span><span class="punctuation">:</span> <span class="string">&quot;XXXX&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;ResourceType&quot;</span><span class="punctuation">:</span> <span class="string">&quot;AWS::CDK::Metadata&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;Timestamp&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2024-07-03T15:09:13.054000+00:00&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;ResourceStatus&quot;</span><span class="punctuation">:</span> <span class="string">&quot;UPDATE_COMPLETE&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;DriftInformation&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;StackResourceDriftStatus&quot;</span><span class="punctuation">:</span> <span class="string">&quot;NOT_CHECKED&quot;</span></span><br><span class="line">            <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">        ...</span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure><p>There’s at least one gotcha I’ve noticed. The result is the same whether a) the resource exists but is not in a stack, and b) the resource doesn’t exist at all.</p>]]></content>
-    
-    
-    <summary type="html">How to find if an AWS resource is associated with a Cloudformation stack.</summary>
-    
-    
-    
-    <category term="Web Development" scheme="https://blog.goodbyeplease.com/categories/Web-Development/"/>
-    
-    
-    <category term="AWS" scheme="https://blog.goodbyeplease.com/tags/AWS/"/>
-    
-    <category term="Cloudformation" scheme="https://blog.goodbyeplease.com/tags/Cloudformation/"/>
-    
-    <category term="AWS CLI" scheme="https://blog.goodbyeplease.com/tags/AWS-CLI/"/>
     
   </entry>
   
